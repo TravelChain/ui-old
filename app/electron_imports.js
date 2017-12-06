@@ -22,6 +22,7 @@ import ExchangeContainer from "./components/Exchange/ExchangeContainer";
 import MarketsContainer from "./components/Exchange/MarketsContainer";
 import Transfer from "./components/Transfer/Transfer";
 import Kyc from "./components/Kyc/Kyc";
+import TokenSale from "./components/TokenSale/TokenSale";
 import SettingsContainer from "./components/Settings/SettingsContainer";
 import BlockContainer from "./components/Blockchain/BlockContainer";
 import Asset from "./components/Blockchain/Asset";

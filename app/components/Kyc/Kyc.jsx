@@ -64,7 +64,7 @@ class Kyc extends React.Component {
           headers: {
             'Authorization': `JWT ${ss.get('backend_token')}`
           }
-        }).then(() => this.props.router.push('/deposit-withdraw'))
+        }).then(() => this.props.router.push('/token-sale'))
           .catch((e) => console.log(e));
     }
 
@@ -76,10 +76,10 @@ class Kyc extends React.Component {
 
     render() {
 
-
         let {first_name, surname, country, birthday, email, phone, address, activity, isAgreedTerms} = this.state;
 
-        const isSendNotValid = !first_name || !surname || !country || !birthday || !email || !phone || !address || !activity || !isAgreedTerms;
+        const isSendNotValid = !first_name || !surname || !country || !birthday || !address || !activity || !isAgreedTerms ||
+          !(/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email)) || !phone
 
         return (
             <div className="grid-block vertical">
@@ -93,54 +93,96 @@ class Kyc extends React.Component {
                         <Translate className="left-label tooltip" component="label" content="kyc.first_name" data-place="top"/>
                         <input type="text" style={{marginBottom: 0}} id="first_name" onChange={this.onKYCformInputChanged.bind(this)} />
                       {/* warning */}
-                      {/*{ this.state.propose ?*/}
-                        {/*<div className="error-area" style={{position: "absolute"}}>*/}
-                            {/*<Translate content="transfer.warn_name_unable_read_memo" name={this.state.from_name} />*/}
-                        {/*</div>*/}
-                        {/*:null}*/}
+                      { !first_name ?
+                        <div className="error-area" style={{position: "absolute"}}>
+                            Field is required
+                        </div>
+                        :null}
 
                     </div>
 
-                  {/*  First name  */}
+                  {/*  Surname  */}
                     <div className="content-block transfer-input">
                         <Translate className="left-label tooltip" component="label" content="kyc.surname" data-place="top"/>
                         <input type="text" style={{marginBottom: 0}} id="surname" onChange={this.onKYCformInputChanged.bind(this)} />
+                        {/* warning */}
+                        { !surname ?
+                          <div className="error-area" style={{position: "absolute"}}>
+                            Field is required
+                          </div>
+                          :null}
                     </div>
 
                   {/* Country */}
                     <div className="content-block transfer-input">
                         <Translate className="left-label tooltip" component="label" content="kyc.country" data-place="top"/>
                         <input type="text" style={{marginBottom: 0}}  id="country" onChange={this.onKYCformInputChanged.bind(this)} />
+                        {/* warning */}
+                        { !country ?
+                          <div className="error-area" style={{position: "absolute"}}>
+                            Field is required
+                          </div>
+                          :null}
                     </div>
 
                   {/* Birthday */}
                     <div className="content-block transfer-input">
                         <Translate className="left-label tooltip" component="label" content="kyc.birthday" data-place="top"/>
                         <input type="date" style={{marginBottom: 0}}  id="birthday" onChange={this.onKYCformInputChanged.bind(this)} />
+                      {/* warning */}
+                      { !birthday ?
+                        <div className="error-area" style={{position: "absolute"}}>
+                          Field is required
+                        </div>
+                        :null}
                     </div>
 
                   {/* Contact email */}
                     <div className="content-block transfer-input">
                         <Translate className="left-label tooltip" component="label" content="kyc.email" data-place="top"/>
                         <input type="email" style={{marginBottom: 0}}  id="email" onChange={this.onKYCformInputChanged.bind(this)} />
+                      {/* warning */}
+                      { !(/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email))  ?
+                        <div className="error-area" style={{position: "absolute"}}>
+                          Email is wrong
+                        </div>
+                        :null}
                     </div>
 
                   {/* Contact phone */}
                     <div className="content-block transfer-input">
                         <Translate className="left-label tooltip" component="label" content="kyc.phone" data-place="top"/>
                         <input type="text" style={{marginBottom: 0}}  id="phone" onChange={this.onKYCformInputChanged.bind(this)} />
+                        {/* warning */}
+                        { !phone ?
+                          <div className="error-area" style={{position: "absolute"}}>
+                            Field is required
+                          </div>
+                          :null}
                     </div>
 
                   {/* Address */}
                     <div className="content-block transfer-input">
                         <Translate className="left-label tooltip" component="label" content="kyc.address" data-place="top"/>
                         <input type="text" style={{marginBottom: 0}}  id="address" onChange={this.onKYCformInputChanged.bind(this)} />
+                      {/* warning */}
+                      { !address ?
+                        <div className="error-area" style={{position: "absolute"}}>
+                          Field is required
+                        </div>
+                        :null}
                     </div>
 
                   {/* Kind of activity */}
                     <div className="content-block transfer-input">
                         <Translate className="left-label tooltip" component="label" content="kyc.activity" data-place="top"/>
                         <input type="text" style={{marginBottom: 0}}  id="activity" onChange={this.onKYCformInputChanged.bind(this)} />
+                      {/* warning */}
+                      { !activity ?
+                        <div className="error-area" style={{position: "absolute"}}>
+                          Field is required
+                        </div>
+                        :null}
                     </div>
 
 
