@@ -42,7 +42,7 @@ class SettingsStore {
             locale: "en",
             apiServer: settingsAPIs.DEFAULT_WS_NODE,
             faucet_address: settingsAPIs.DEFAULT_FAUCET,
-            unit: "DACOM.USD",
+            unit: CORE_ASSET,
             showSettles: false,
             showAssetPercent: false,
             walletLockTimeout: 60 * 10,
