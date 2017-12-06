@@ -4,6 +4,10 @@ import classnames from "classnames";
 import axios from "axios";
 import ls from "common/localStorage";
 
+require("./intlTelInput.css");
+require("./jquery.js");
+require("./intlTelInput.min.js");
+
 const STORAGE_KEY = "__graphene__";
 let ss = new ls(STORAGE_KEY);
 
@@ -46,6 +50,7 @@ class Kyc extends React.Component {
 
 
     componentWillMount () {
+      $("#phone").intlTelInput();
       // axios.get("https://testnet.travelchain.io/api/accounts/me/", {
       //   headers: {
       //     Authorization: `JWT ${ss.get("backend_token")}`
@@ -152,7 +157,7 @@ class Kyc extends React.Component {
                   {/* Contact phone */}
                     <div className="content-block transfer-input">
                         <Translate className="left-label tooltip" component="label" content="kyc.phone" data-place="top"/>
-                        <input type="text" style={{marginBottom: 0}}  id="phone" onChange={this.onKYCformInputChanged.bind(this)} />
+                        <input type="tel" style={{marginBottom: 0}}  id="phone" onChange={this.onKYCformInputChanged.bind(this)} />
                         {/* warning */}
                         { !phone ?
                           <div className="error-area" style={{position: "absolute"}}>
