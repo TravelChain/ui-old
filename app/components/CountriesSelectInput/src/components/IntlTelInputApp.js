@@ -1155,6 +1155,7 @@ class IntlTelInputApp extends Component {
           autoFocus={ this.props.autoFocus }
           autoComplete={ this.props.autoComplete }
           inputProps={ this.props.telInputProps }
+          currentCountryISO2={this.props.currentCountryISO2}
         />
       </div>
     );

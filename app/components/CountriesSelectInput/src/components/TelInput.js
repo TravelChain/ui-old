@@ -4,6 +4,7 @@ import InputMask from 'react-input-mask';
 
 class TelInput extends Component {
   render() {
+
     const countries = {
       "af":{"code":"af","name":"Afghanistan (‫افغانستان‬‎)","dialCode":93,"phoneFormat":"111 111 1111"},
       "al":{"code":"al","name":"Albania (Shqipëri)","dialCode":355,"phoneFormat":"111 111 1111"},
@@ -251,49 +252,32 @@ class TelInput extends Component {
 
     let currentCountryISO2 = this.props.currentCountryISO2;
 
-
-
     return (
       <div>
-      {/*<InputMask id={'phone'}*/}
-                 {/*alwaysShowMask={true}*/}
-                 {/*mask={`+\\${countries[currentCountryISO2].dialCode} ${countries[currentCountryISO2].phoneFormat}`}*/}
-                 {/*maskChar=" "*/}
-                 {/*formatChars={{*/}
-                   {/*'1': '[0-9]',*/}
-                   {/*'a': '[A-Za-z]',*/}
-                   {/*'*': '[A-Za-z0-9]'*/}
-                 {/*}}*/}
-                 {/*ref={(input) => { this.props.refCallback(input) }}*/}
-                 {/*type="tel"*/}
-                 {/*autoComplete={ this.props.autoComplete }*/}
-                 {/*className={ this.props.className }*/}
-                 {/*disabled={ this.props.disabled ? 'disabled' : false }*/}
-                 {/*readOnly={ this.props.readonly ? 'readonly' : false }*/}
-                 {/*name={ this.props.fieldName }*/}
-                 {/*value={ this.props.value }*/}
-                 {/*placeholder={ this.props.placeholder }*/}
-                 {/*onChange={ this.props.handleInputChange }*/}
-                 {/*onBlur={ this.props.handleOnBlur }*/}
-                 {/*autoFocus={ this.props.autoFocus }*/}
-      {/*/>*/}
-      <input
+      <InputMask id={'phone'}
         { ...this.props.inputProps }
-        ref={ this.props.refCallback }
+        alwaysShowMask={true}
+        mask={`+\\${countries[currentCountryISO2].dialCode} ${countries[currentCountryISO2].phoneFormat}`}
+        maskChar="_"
+        formatChars={{
+          '1': '[0-9]',
+          'a': '[A-Za-z]',
+          '*': '[A-Za-z0-9]'
+        }}
+        ref={ this.props.refCallback(document.getElementById('phone')) }
         type="tel"
         autoComplete={ this.props.autoComplete }
         className={ this.props.className }
         disabled={ this.props.disabled ? 'disabled' : false }
         readOnly={ this.props.readonly ? 'readonly' : false }
         name={ this.props.fieldName }
-        id={ this.props.fieldId }
         value={ this.props.value }
         placeholder={ this.props.placeholder }
         onChange={ this.props.handleInputChange }
         onBlur={ this.props.handleOnBlur }
         autoFocus={ this.props.autoFocus }
       />
-      </div>
+    </div>
     );
   }
 }

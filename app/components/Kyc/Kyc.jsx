@@ -3,9 +3,10 @@ import Translate from "react-translate-component";
 import classnames from "classnames";
 import axios from "axios";
 import ls from "common/localStorage";
-import IntlTelInput from '../react-intl-tel-input/main.js';
-import '../react-intl-tel-input/libphonenumber.js';
-import '../react-intl-tel-input/main.css';
+import IntlTelInput from '../CountriesSelectInput/src/components/IntlTelInputApp';
+import 'react-intl-tel-input/dist/libphonenumber.js';
+import '../CountriesSelectInput/dist/main.css';
+var validator = require("email-validator");
 
 const STORAGE_KEY = "__graphene__";
 let ss = new ls(STORAGE_KEY);
@@ -29,6 +30,7 @@ class Kyc extends React.Component {
             address: "",
             activity: "",
             isAgreedTerms: false,
+            isAgreedTermsTokens: false,
             currentCountryISO2: "ru",
             currentCountryDialCode: "ru"
         };
@@ -46,6 +48,7 @@ class Kyc extends React.Component {
             address: "",
             activity: "",
             isAgreedTerms: false,
+            isAgreedTermsTokens: false,
             currentCountryISO2: "",
             currentCountryDialCode: ""
         });
@@ -83,13 +86,16 @@ class Kyc extends React.Component {
         this.setState({[e.target.id]: e.target.value});
     }
 
+    updatePhoneNumber (value) {
+        this.setState({phone: value});
+    }
     render() {
+        let {first_name, surname, country, birthday, email, phone, address, activity, isAgreedTerms, isAgreedTermsTokens, currentCountryISO2} = this.state;
 
 
-        let {first_name, surname, country, birthday, email, phone, address, activity, isAgreedTerms, currentCountryISO2} = this.state;
 
-        const isSendNotValid = !first_name || !surname || !country || !birthday || !address || !activity || !isAgreedTerms ||
-          !(/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email)) || !phone
+        const isSendNotValid = !first_name || !surname || !country || !birthday || !address || !activity || !isAgreedTerms || !isAgreedTermsTokens ||
+          !validator.validate(email) || !(phone.indexOf("_") === -1);
 
         return (
             <div className="grid-block vertical">
@@ -152,7 +158,7 @@ class Kyc extends React.Component {
                         <Translate className="left-label tooltip" component="label" content="kyc.email" data-place="top"/>
                         <input type="email" style={{marginBottom: 0}}  id="email" onChange={this.onKYCformInputChanged.bind(this)} />
                       {/* warning */}
-                      { !(/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email))  ?
+                      { !validator.validate(email) ?
                         <div className="error-area" style={{position: "absolute"}}>
                           Email is wrong
                         </div>
@@ -165,6 +171,7 @@ class Kyc extends React.Component {
                         {/*<input type="tel" style={{marginBottom: 0}}  id="phone" onChange={this.onKYCformInputChanged.bind(this)} />*/}
                         <IntlTelInput id="phone" css={['intl-tel-input', 'form-control']}
                                       currentCountryISO2={currentCountryISO2}
+                                      onPhoneNumberChange={(...args) => this.updatePhoneNumber(args[1])}
                                       utilsScript={'libphonenumber.js'}
                                       defaultCountry={'ru'}
                                       onSelectFlag={(currentNumber, countryDetails) => {
@@ -172,11 +179,10 @@ class Kyc extends React.Component {
                                               currentCountryISO2: countryDetails.iso2,
                                               currentCountryDialCode: countryDetails.dialCode
                                           });
-                                          document.getElementById("phone").value = "";
                                       }} />
 
                         {/* warning */}
-                        { !phone ?
+                        { !(phone.indexOf("_") === -1) ?
                           <div className="error-area" style={{position: "absolute"}}>
                             Field is required
                           </div>
@@ -212,6 +218,16 @@ class Kyc extends React.Component {
                         <label>
                             <input id='terms_agreement_checkbox' type="checkbox" onChange={(e) => this.setState({isAgreedTerms: e.target.value})}/>
                             <span>I agree to the processing of personal data</span>
+                        </label>
+                    </div>
+
+                    <div className="confirm-checks">
+                        <label>
+                            <input id='terms_agreement_checkbox_2' type="checkbox" onChange={(e) => this.setState({isAgreedTermsTokens: e.target.value})}/>
+                            <span>You are acquainted and you agree with the
+                                <a href="https://drive.google.com/file/d/1f0zviV_rN6LgXyO-bWQqNzfix7YfwSEn/view?usp=sharing" target="_blank"> TRAVELCHAIN TRAVELTOKENS SALE AGREEMENT
+                                </a>
+                            </span>
                         </label>
                     </div>
 
