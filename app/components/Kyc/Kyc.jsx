@@ -3,9 +3,9 @@ import Translate from "react-translate-component";
 import classnames from "classnames";
 import axios from "axios";
 import ls from "common/localStorage";
-import IntlTelInput from '../CountriesSelectInput/src/components/IntlTelInputApp';
+import IntlTelInput from '../CountriesSelectInput/main.js';
 import 'react-intl-tel-input/dist/libphonenumber.js';
-import '../CountriesSelectInput/dist/main.css';
+import '../CountriesSelectInput/main.css';
 var validator = require("email-validator");
 
 const STORAGE_KEY = "__graphene__";
