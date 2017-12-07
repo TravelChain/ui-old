@@ -41,7 +41,10 @@ class CreateAccountPassword extends React.Component {
             confirm_password: "",
             understand_1: false,
             understand_2: false,
-            understand_3: false
+            understand_3: false,
+            understand_4: false,
+            understand_5: false,
+            understand_6: false,
         };
         this.onFinishConfirm = this.onFinishConfirm.bind(this);
 
@@ -72,7 +75,7 @@ class CreateAccountPassword extends React.Component {
         if (!firstAccount) {
             valid = valid && this.state.registrar_account;
         }
-        return valid && this.state.understand_1 && this.state.understand_2;
+        return valid && this.state.understand_1 && this.state.understand_2 && this.state.understand_4 && this.state.understand_5 && this.state.understand_6;
     }
 
     onAccountNameChange(e) {
@@ -239,6 +242,26 @@ class CreateAccountPassword extends React.Component {
                 <label>
                     <input type="checkbox" onChange={() => {}} checked={this.state.understand_2}/>
                     <Translate content="wallet.understand_2" />
+                </label>
+            </div>
+
+            <div className="confirm-checks" style={{paddingBottom: "1.5rem"}} onClick={this._onInput.bind(this, "understand_4")}>
+                <label>
+                    <input type="checkbox" onChange={() => {}} checked={this.state.understand_4}/>
+                    You are acquainted and you agree with the <a href='https://drive.google.com/file/d/1hcoyoxKzp-IaaGRHH079nqGQZENOyUZT/view?usp=sharing' target='_blank'>TRAVELTOKENS SALE PRIVACY POLICY</a>
+                </label>
+            </div>
+
+            <div className="confirm-checks" style={{paddingBottom: "1.5rem"}} onClick={this._onInput.bind(this, "understand_5")}>
+                <label>
+                    <input type="checkbox" onChange={() => {}} checked={this.state.understand_5}/>
+                    You are acquainted and you agree with the <a href="https://drive.google.com/file/d/1PKPznHh9RU_dY0fAKH9jG7A4fUh-TLPL/view?usp=sharing" target="_blank">TRAVELCHAIN GENERAL TERMS AND CONDITIONS OF TRAVELTOKENS SALE</a>
+                </label>
+            </div>
+            <div className="confirm-checks" style={{paddingBottom: "1.5rem"}} onClick={this._onInput.bind(this, "understand_6")}>
+                <label>
+                    <input type="checkbox" onChange={() => {}} checked={this.state.understand_6}/>
+                    You confirm that you are not a citizen of USA, CNR and Singapore and you are not a citizen or a resident of a country, where cryptocurrency or token usage is restricted.
                 </label>
             </div>
                 {/* If this is not the first account, show dropdown for fee payment account */}
