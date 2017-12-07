@@ -3,10 +3,9 @@ import Translate from "react-translate-component";
 import classnames from "classnames";
 import axios from "axios";
 import ls from "common/localStorage";
-
-require("./intlTelInput.css");
-require("./jquery.js");
-require("./intlTelInput.min.js");
+import IntlTelInput from '../react-intl-tel-input/main.js';
+import '../react-intl-tel-input/libphonenumber.js';
+import '../react-intl-tel-input/main.css';
 
 const STORAGE_KEY = "__graphene__";
 let ss = new ls(STORAGE_KEY);
@@ -29,7 +28,9 @@ class Kyc extends React.Component {
             phone: "",
             address: "",
             activity: "",
-            isAgreedTerms: false
+            isAgreedTerms: false,
+            currentCountryISO2: "ru",
+            currentCountryDialCode: "ru"
         };
 
     };
@@ -44,13 +45,16 @@ class Kyc extends React.Component {
             phone: "",
             address: "",
             activity: "",
-            isAgreedTerms: false
+            isAgreedTerms: false,
+            currentCountryISO2: "",
+            currentCountryDialCode: ""
         });
     }
 
 
     componentWillMount () {
-      $("#phone").intlTelInput();
+      // $('№phone').mask('0000-0000');
+      // $("#phone").intlTelInput();
       // axios.get("https://testnet.travelchain.io/api/accounts/me/", {
       //   headers: {
       //     Authorization: `JWT ${ss.get("backend_token")}`
@@ -81,7 +85,8 @@ class Kyc extends React.Component {
 
     render() {
 
-        let {first_name, surname, country, birthday, email, phone, address, activity, isAgreedTerms} = this.state;
+
+        let {first_name, surname, country, birthday, email, phone, address, activity, isAgreedTerms, currentCountryISO2} = this.state;
 
         const isSendNotValid = !first_name || !surname || !country || !birthday || !address || !activity || !isAgreedTerms ||
           !(/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email)) || !phone
@@ -157,7 +162,19 @@ class Kyc extends React.Component {
                   {/* Contact phone */}
                     <div className="content-block transfer-input">
                         <Translate className="left-label tooltip" component="label" content="kyc.phone" data-place="top"/>
-                        <input type="tel" style={{marginBottom: 0}}  id="phone" onChange={this.onKYCformInputChanged.bind(this)} />
+                        {/*<input type="tel" style={{marginBottom: 0}}  id="phone" onChange={this.onKYCformInputChanged.bind(this)} />*/}
+                        <IntlTelInput id="phone" css={['intl-tel-input', 'form-control']}
+                                      currentCountryISO2={currentCountryISO2}
+                                      utilsScript={'libphonenumber.js'}
+                                      defaultCountry={'ru'}
+                                      onSelectFlag={(currentNumber, countryDetails) => {
+                                          this.setState({
+                                              currentCountryISO2: countryDetails.iso2,
+                                              currentCountryDialCode: countryDetails.dialCode
+                                          });
+                                          document.getElementById("phone").value = "";
+                                      }} />
+
                         {/* warning */}
                         { !phone ?
                           <div className="error-area" style={{position: "absolute"}}>
