@@ -6,6 +6,7 @@ import ls from "common/localStorage";
 import IntlTelInput from '../CountriesSelectInput/main.js';
 import 'react-intl-tel-input/dist/libphonenumber.js';
 import '../CountriesSelectInput/main.css';
+import TextField from 'material-ui/TextField';
 var validator = require("email-validator");
 
 const STORAGE_KEY = "__graphene__";
@@ -98,35 +99,63 @@ class Kyc extends React.Component {
           !validator.validate(email) || !(phone.indexOf("_") === -1);
 
         return (
+
             <div className="grid-block vertical">
             <div className="grid-block shrink vertical medium-horizontal" style={{paddingTop: "2rem"}}>
 
-                <form style={{paddingBottom: 20, overflow: "visible"}} className="grid-content small-12 medium-6 large-5 large-offset-1 full-width-content" onSubmit={this.onSubmit.bind(this)} noValidate>
+                <form style={{paddingBottom: 20, overflow: "visible"}} className="grid-content small-12 medium-6 large-5 large-offset-1 full-width-content user-form" onSubmit={this.onSubmit.bind(this)} noValidate>
 
                     <Translate content="kyc.header" component="h2" />
                   {/*  First name  */}
                     <div className="content-block transfer-input">
-                        <Translate className="left-label tooltip" component="label" content="kyc.first_name" data-place="top"/>
-                        <input type="text" style={{marginBottom: 0}} id="first_name" onChange={this.onKYCformInputChanged.bind(this)} />
-                      {/* warning */}
-                      { !first_name ?
-                        <div className="error-area" style={{position: "absolute"}}>
-                            Field is required
-                        </div>
-                        :null}
+                        {/*<Translate className="left-label tooltip" component="label" content="kyc.first_name" data-place="top"/>*/}
+                        {/*<input type="text" style={{marginBottom: 0}} id="first_name" onChange={this.onKYCformInputChanged.bind(this)} />*/}
 
+
+                      {/* warning */}
+                      {/*{ !first_name ?*/}
+                        {/*<div className="error-area" style={{position: "absolute"}}>*/}
+                            {/*Field is required*/}
+                        {/*</div>*/}
+                        {/*:null}*/}
+
+
+                        <TextField
+                            required
+                            id="first_name"
+                            label="FIRST NAME"
+                            InputLabelProps={{
+                                shrink: true,
+                            }}
+                            placeholder="Tim"
+                            fullWidth
+                            margin="normal"
+                        />
                     </div>
+
 
                   {/*  Surname  */}
                     <div className="content-block transfer-input">
-                        <Translate className="left-label tooltip" component="label" content="kyc.surname" data-place="top"/>
-                        <input type="text" style={{marginBottom: 0}} id="surname" onChange={this.onKYCformInputChanged.bind(this)} />
-                        {/* warning */}
-                        { !surname ?
-                          <div className="error-area" style={{position: "absolute"}}>
-                            Field is required
-                          </div>
-                          :null}
+                        {/*<Translate className="left-label tooltip" component="label" content="kyc.surname" data-place="top"/>*/}
+                        {/*<input type="text" style={{marginBottom: 0}} id="surname" onChange={this.onKYCformInputChanged.bind(this)} />*/}
+                        {/*/!* warning *!/*/}
+                        {/*{ !surname ?*/}
+                          {/*<div className="error-area" style={{position: "absolute"}}>*/}
+                            {/*Field is required*/}
+                          {/*</div>*/}
+                          {/*:null}*/}
+
+                        <TextField
+                            required
+                            id="surname"
+                            label="LAST NAME"
+                            InputLabelProps={{
+                                shrink: true,
+                            }}
+                            placeholder="Smith"
+                            fullWidth
+                            margin="normal"
+                        />
                     </div>
 
                   {/* Country */}
@@ -139,6 +168,7 @@ class Kyc extends React.Component {
                             Field is required
                           </div>
                           :null}
+
                     </div>
 
                   {/* Birthday */}
@@ -151,18 +181,42 @@ class Kyc extends React.Component {
                           Field is required
                         </div>
                         :null}
+
+                        {/*<TextField*/}
+                            {/*required*/}
+                            {/*id="surname"*/}
+                            {/*label="LAST NAME"*/}
+                            {/*InputLabelProps={{*/}
+                                {/*shrink: true,*/}
+                            {/*}}*/}
+                            {/*placeholder="Smith"*/}
+                            {/*fullWidth*/}
+                            {/*margin="normal"*/}
+                        {/*/>*/}
                     </div>
 
                   {/* Contact email */}
                     <div className="content-block transfer-input">
-                        <Translate className="left-label tooltip" component="label" content="kyc.email" data-place="top"/>
-                        <input type="email" style={{marginBottom: 0}}  id="email" onChange={this.onKYCformInputChanged.bind(this)} />
-                      {/* warning */}
-                      { !validator.validate(email) ?
-                        <div className="error-area" style={{position: "absolute"}}>
-                          Email is wrong
-                        </div>
-                        :null}
+                        {/*<Translate className="left-label tooltip" component="label" content="kyc.email" data-place="top"/>*/}
+                        {/*<input type="email" style={{marginBottom: 0}}  id="email" onChange={this.onKYCformInputChanged.bind(this)} />*/}
+                      {/*/!* warning *!/*/}
+                      {/*{ !validator.validate(email) ?*/}
+                        {/*<div className="error-area" style={{position: "absolute"}}>*/}
+                          {/*Email is wrong*/}
+                        {/*</div>*/}
+                        {/*:null}*/}
+
+                        <TextField
+                            required
+                            id="surname"
+                            label="CONTACT EMAIL"
+                            InputLabelProps={{
+                                shrink: true,
+                            }}
+                            placeholder=""
+                            fullWidth
+                            margin="normal"
+                        />
                     </div>
 
                   {/* Contact phone */}
@@ -191,26 +245,51 @@ class Kyc extends React.Component {
 
                   {/* Address */}
                     <div className="content-block transfer-input">
-                        <Translate className="left-label tooltip" component="label" content="kyc.address" data-place="top"/>
-                        <input type="text" style={{marginBottom: 0}}  id="address" onChange={this.onKYCformInputChanged.bind(this)} />
-                      {/* warning */}
-                      { !address ?
-                        <div className="error-area" style={{position: "absolute"}}>
-                          Field is required
-                        </div>
-                        :null}
+                        {/*<Translate className="left-label tooltip" component="label" content="kyc.address" data-place="top"/>*/}
+                        {/*<input type="text" style={{marginBottom: 0}}  id="address" onChange={this.onKYCformInputChanged.bind(this)} />*/}
+                      {/*/!* warning *!/*/}
+                      {/*{ !address ?*/}
+                        {/*<div className="error-area" style={{position: "absolute"}}>*/}
+                          {/*Field is required*/}
+                        {/*</div>*/}
+                        {/*:null}*/}
+
+                        <TextField
+                            required
+                            id="surname"
+                            label="ADDRESS"
+                            InputLabelProps={{
+                                shrink: true,
+                            }}
+                            placeholder=""
+                            fullWidth
+                            margin="normal"
+                        />
                     </div>
 
                   {/* Kind of activity */}
                     <div className="content-block transfer-input">
-                        <Translate className="left-label tooltip" component="label" content="kyc.activity" data-place="top"/>
-                        <input type="text" style={{marginBottom: 0}}  id="activity" onChange={this.onKYCformInputChanged.bind(this)} />
-                      {/* warning */}
-                      { !activity ?
-                        <div className="error-area" style={{position: "absolute"}}>
-                          Field is required
-                        </div>
-                        :null}
+                        {/*<Translate className="left-label tooltip" component="label" content="kyc.activity" data-place="top"/>*/}
+                        {/*<input type="text" style={{marginBottom: 0}}  id="activity" onChange={this.onKYCformInputChanged.bind(this)} />*/}
+                      {/*/!* warning *!/*/}
+                      {/*{ !activity ?*/}
+                        {/*<div className="error-area" style={{position: "absolute"}}>*/}
+                          {/*Field is required*/}
+                        {/*</div>*/}
+                        {/*:null}*/}
+
+
+                        <TextField
+                            required
+                            id="surname"
+                            label="KIND OF ACTIVITY"
+                            InputLabelProps={{
+                                shrink: true,
+                            }}
+                            placeholder=""
+                            fullWidth
+                            margin="normal"
+                        />
                     </div>
 
 

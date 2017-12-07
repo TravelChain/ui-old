@@ -245,7 +245,8 @@
   // buttons
 
   .button {
-    background: $button-bg-color;
+    font-size: 18px;
+
     &:hover, &:focus, &:active {
       background-color: lighten($button-bg-color, 4%) !important;
     }
@@ -537,7 +538,7 @@
   }
 
   input[type="text"], input[type="password"], input[type="email"], input[type="number"], input[type="search"], textarea {
-    background: aliceblue;
+    background: transparent;
   }
 
   ul.button-group.segmented {
