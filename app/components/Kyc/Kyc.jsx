@@ -6,8 +6,13 @@ import ls from "common/localStorage";
 import IntlTelInput from '../CountriesSelectInput/main.js';
 import 'react-intl-tel-input/dist/libphonenumber.js';
 import '../CountriesSelectInput/main.css';
-import TextField from 'material-ui/TextField';
-import MenuItem from "material-ui/es/Menu/MenuItem";
+import TextField from 'material-ui-next/TextField';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import MenuItem from "material-ui-next/es/Menu/MenuItem";
+import DatePicker from 'material-ui/DatePicker/DatePicker';
+// import mui from "material-ui";
+
+// let ThemeManager = new mui.Styles.ThemeManager();
 var validator = require("email-validator");
 
 const STORAGE_KEY = "__graphene__";
@@ -18,7 +23,6 @@ class Kyc extends React.Component {
     constructor(props) {
         super(props);
         this.state = Kyc.getInitialState();
-
     }
 
     static getInitialState() {
@@ -26,7 +30,7 @@ class Kyc extends React.Component {
             first_name: "",
             surname: "",
             country: "",
-            birthday: "",
+            birthday: {},
             email: "",
             phone: "",
             address: "",
@@ -44,7 +48,7 @@ class Kyc extends React.Component {
             first_name: "",
             surname: "",
             country: "",
-            birthday: "",
+            birthday: {},
             email: "",
             phone: "",
             address: "",
@@ -97,6 +101,8 @@ class Kyc extends React.Component {
       [name]: event.target.value,
     });
   }
+
+  setBirthday = date => this.setState({birthday: date});
 
     render() {
 
@@ -1459,6 +1465,13 @@ class Kyc extends React.Component {
                     {/*</div>*/}
 
                   {/* Birthday */}
+
+                  <MuiThemeProvider>
+                    <DatePicker value={birthday} onChange={(something, date) => {this.setBirthday(date);}} hintText="day . month . year" />
+                  </MuiThemeProvider>
+
+
+
                     <div className="content-block transfer-input">
                         <Translate className="left-label tooltip" component="label" content="kyc.birthday" data-place="top"/>
                         <input type="date" style={{marginBottom: 0}}  id="birthday" onChange={this.onKYCformInputChanged.bind(this)} />
