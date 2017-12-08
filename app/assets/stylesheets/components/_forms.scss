@@ -322,12 +322,20 @@ form.full-width {
       }
     }
   }
+
+  // d2d2d2 color checkbox
+
   input[type="checkbox"], input[type="radio"] {
     width: 1rem;
     height: 1rem;
   }
+  .intl-tel-input {
+    border: 1px solid #c6c6c6;
+    border-radius: 4px;
+  }
+
   .button {
-    margin-bottom: 100px;
+    margin: 30px 0 100px !important;
     background: rgb(68,226,255);
     background: -moz-linear-gradient(top, rgba(68,226,255,1) 0%, rgba(0,202,243,1) 100%);
     background: -webkit-linear-gradient(top, rgba(68,226,255,1) 0%,rgba(0,202,243,1) 100%);
