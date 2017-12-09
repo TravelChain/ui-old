@@ -405,6 +405,25 @@ input[type=number]::-webkit-outer-spin-button {
     text-transform: uppercase;
     padding: 6px 10px;
     overflow: hidden;
+    color: #060e26;
+
+    &.bid,
+    &.ask {
+        > span {
+            color: #060e26;
+        }
+
+        .header-sub-title {
+            color: #00caf3;
+
+            span {
+                color: #d1d1d1;
+                span {
+                    color: #00caf3;
+                }
+            }
+        }
+    }
 }
 
 .mymarkets-base-select {
