@@ -224,7 +224,11 @@
     }
 
     .main-content {
+      padding: 2em 0;
       background-color: $bg-color;
+      -webkit-box-shadow: inset 24px 0px 20px -10px rgba(0,0,0,0.24);
+      -moz-box-shadow: inset 24px 0px 20px -10px rgba(0,0,0,0.24);
+      box-shadow: inset 24px 0px 20px -10px rgba(0,0,0,0.24);
     }
 
     .right-column {
@@ -865,12 +869,18 @@
 
   .menu-group.primary, .menu-group.primary .menu-bar {
     background-color: $header-color;
+    height: 60px;
 
-    .menu-bar > li {
+    .menu-bar {
+      height: 60px;
+      overflow: hidden;
+    }
+    > li {
 
       > a {
         background-color: transparent;
         color: #c4c4c4;
+        line-height: 57px;
         border-bottom: 3px solid transparent;
       }
 
@@ -1307,8 +1317,15 @@
   ul.account-overview {
 
     li {
+      &:nth-last-of-type(1) {
+        > a {
+          color: red;
+        }
+      }
+
       > a {
-        color: $account-dimmed;
+        font-size: 14px;
+        color: #c6c6c6;
         background-color: $account-header;
         border: none;
         &:hover {
@@ -1376,7 +1393,7 @@
           background-color: $account-header;
         }
         td:nth-child(n+2) {
-          color: $account-green;
+          color: #44e2ff;
           text-align: right;
         }
       }

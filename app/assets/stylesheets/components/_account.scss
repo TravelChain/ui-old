@@ -128,6 +128,17 @@
             border-right: 3px solid transparent;
             font-size: 14px;
             color: #c6c6c6 !important;
+
+            .icon {
+                margin-right: 10px;
+
+                svg {
+                    path {
+                        fill: #c8c8c8;
+                    }
+                }
+            }
+
             &.active {
                 background: rgb(68,226,255);
                 background: -moz-linear-gradient(left, rgba(68,226,255,1) 0%, rgba(16,157,205,1) 100%);
@@ -136,6 +147,14 @@
                 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#44e2ff', endColorstr='#109dcd',GradientType=1 );
                 color: #fff !important;
                 border-radius: 4px;
+
+                .icon {
+                    svg {
+                        path {
+                            fill: #fff;
+                        }
+                    }
+                }
             }
         }
     }

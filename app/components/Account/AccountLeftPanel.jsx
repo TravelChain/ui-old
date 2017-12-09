@@ -6,6 +6,7 @@ import AccountInfo from "./AccountInfo";
 import Translate from "react-translate-component";
 import AccountActions from "actions/AccountActions";
 import SettingsActions from "actions/SettingsActions";
+import Icon from "../Icon/Icon";
 
 class AccountLeftPanel extends React.Component {
 
@@ -107,19 +108,36 @@ class AccountLeftPanel extends React.Component {
                                 toggleQR={this._toggleQR.bind(this)}
                                 titleClass={this.state.titleClass}
                             />
-                           
                         </div>
                         <section className="block-list">
                             <ul className="account-left-menu" style={{marginBottom: 0}}>
-                                <li><Link to={`/account/${account_name}/dashboard/`} activeClassName="active"><Translate content="header.dashboard"/></Link></li>
-                                <li><Link to={`/account/${account_name}/member-stats/`} activeClassName="active"><Translate content="account.member.stats"/></Link></li>
+                                <li><Link to={`/account/${account_name}/dashboard/`} activeClassName="active">
+                                    <Icon name="dashboard_gray" size="1x" fillClass="fill-black"/>
+                                    <Translate content="header.dashboard"/></Link>
+                                </li>
+                                <li><Link to={`/account/${account_name}/member-stats/`} activeClassName="active">
+                                    <Icon name="membership_gray" size="1x" fillClass="fill-black"/>
+                                    <Translate content="account.member.stats"/></Link>
+                                </li>
                                 {/* <li><Link to={`/account/${account_name}/orders/`} activeClassName="active"><Translate content="account.open_orders"/></Link></li> */}
-                                <li><Link to={`/account/${account_name}/voting/`} activeClassName="active"><Translate content="account.voting"/></Link></li>
-
-                                 <li><Link to={`/account/${account_name}/assets/`} activeClassName="active"><Translate content="account.user_issued_assets.issued_assets"/></Link></li>
-                                <li><Link to={`/account/${account_name}/permissions/`} activeClassName="active"><Translate content="account.permissions"/></Link></li>
-                                <li><Link to={`/account/${account_name}/whitelist/`} activeClassName="active"><Translate content="account.whitelist.title"/></Link></li>
-                                {<li><Link to={`/account/${account_name}/vesting/`} activeClassName="active"><Translate content="account.vesting.title"/></Link></li>}
+                                <li><Link to={`/account/${account_name}/voting/`} activeClassName="active">
+                                    <Icon name="voting_gray" size="1x" fillClass="fill-black"/>
+                                    <Translate content="account.voting"/></Link>
+                                </li>
+                                 <li><Link to={`/account/${account_name}/assets/`} activeClassName="active">
+                                     <Icon name="issued_gray" size="1x" fillClass="fill-black"/>
+                                     <Translate content="account.user_issued_assets.issued_assets"/></Link>
+                                 </li>
+                                <li><Link to={`/account/${account_name}/permissions/`} activeClassName="active">
+                                    <Icon name="permition_gray" size="1x" fillClass="fill-black"/>
+                                    <Translate content="account.permissions"/></Link></li>
+                                <li><Link to={`/account/${account_name}/whitelist/`} activeClassName="active">
+                                    <Icon name="whitelist_gray" size="1x" fillClass="fill-black"/>
+                                    <Translate content="account.whitelist.title"/></Link></li>
+                                {<li><Link to={`/account/${account_name}/vesting/`} activeClassName="active">
+                                    <Icon name="balance_gray" size="1x" fillClass="fill-black"/>
+                                    <Translate content="account.vesting.title"/></Link>
+                                </li>}
                         
 
 

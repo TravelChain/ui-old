@@ -1431,28 +1431,7 @@ class Kyc extends React.Component {
                     </div>
 
                   {/* Country */}
-
-
-                    <TextField
-                      error={!country}
-                      id="select-country"
-                      select
-                      label="Country"
-                      className="c227 c228 c213 c216"
-                      value={country}
-                      onChange={this.handleChange("country")}
-                      helperText="Please select your country"
-                      margin="normal"
-                    >
-                      {defaultCountriesData.map((option, index) => (
-                        <MenuItem key={index} value={option[1]}>
-                          {option[0]}
-                        </MenuItem>
-                      ))}
-                    </TextField>
-
-
-                    {/*<div className="content-block transfer-input">*/}
+                    <div className="content-block transfer-input">
                         {/*<Translate className="left-label tooltip" component="label" content="kyc.country" data-place="top"/>*/}
                         {/*<input type="text" style={{marginBottom: 0}}  id="country" onChange={this.onKYCformInputChanged.bind(this)} />*/}
                         {/*/!* warning *!/*/}
@@ -1462,37 +1441,41 @@ class Kyc extends React.Component {
                           {/*</div>*/}
                           {/*:null}*/}
 
-                    {/*</div>*/}
+                      <TextField
+                          error={!country}
+                          id="select-country"
+                          select
+                          label="Country"
+                          className="c227 c228 c213 c216"
+                          value={country}
+                          onChange={this.handleChange("country")}
+                          helperText="Please select your country"
+                          margin="normal"
+                          fullWidth
+                      >
+                          {defaultCountriesData.map((option, index) => (
+                              <MenuItem key={index} value={option[1]}>
+                                  {option[0]}
+                              </MenuItem>
+                          ))}
+                      </TextField>
+                    </div>
 
                   {/* Birthday */}
-
-                  <MuiThemeProvider>
-                    <DatePicker value={birthday} onChange={(something, date) => {this.setBirthday(date);}} hintText="day . month . year" />
-                  </MuiThemeProvider>
-
-
-
                     <div className="content-block transfer-input">
-                        <Translate className="left-label tooltip" component="label" content="kyc.birthday" data-place="top"/>
-                        <input type="date" style={{marginBottom: 0}}  id="birthday" onChange={this.onKYCformInputChanged.bind(this)} />
-                      {/* warning */}
-                      { !birthday ?
-                        <div className="error-area" style={{position: "absolute"}}>
-                          Field is required
-                        </div>
-                        :null}
+                        {/*<Translate className="left-label tooltip" component="label" content="kyc.birthday" data-place="top"/>*/}
+                        {/*<input type="date" style={{marginBottom: 0}}  id="birthday" onChange={this.onKYCformInputChanged.bind(this)} />*/}
+                      {/*/!* warning *!/*/}
+                      {/*{ !birthday ?*/}
+                        {/*<div className="error-area" style={{position: "absolute"}}>*/}
+                          {/*Field is required*/}
+                        {/*</div>*/}
+                        {/*:null}*/}
 
-                        {/*<TextField*/}
-                            {/*required*/}
-                            {/*id="surname"*/}
-                            {/*label="LAST NAME"*/}
-                            {/*InputLabelProps={{*/}
-                                {/*shrink: true,*/}
-                            {/*}}*/}
-                            {/*placeholder="Smith"*/}
-                            {/*fullWidth*/}
-                            {/*margin="normal"*/}
-                        {/*/>*/}
+
+                      <MuiThemeProvider>
+                        <DatePicker value={birthday} onChange={(something, date) => {this.setBirthday(date);}} hintText="day . month . year" fullWidth/>
+                      </MuiThemeProvider>
                     </div>
 
                   {/* Contact email */}

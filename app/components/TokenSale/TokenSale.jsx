@@ -44,7 +44,7 @@ class TokenSale extends React.Component {
 
       <div className='grid-container'>
         {/*<div  className={this.props.contained ? "grid-content" : "grid-container"}>*/}
-        <div className='grid-container'>
+        <div className='grid-container' style={{paddingTop: "2rem"}}>
           {/*<div className={this.props.contained ? "" : "grid-content"} style={{paddingTop: "2rem"}}>*/}
 
           <div className="grid-block vertical medium-horizontal no-margin no-padding">
