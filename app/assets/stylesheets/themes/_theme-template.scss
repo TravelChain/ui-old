@@ -592,11 +592,12 @@
   }
 
   .bid-total {
-    color: $bid-color !important;
+    color: #00caf3;
   }
 
-  .ask-total {
-    color: $ask-color !important;
+  .ask-total,
+  .orderHistoryAsk {
+    color: #f9005a;
   }
 
   .stats .stat .negative {
@@ -906,24 +907,26 @@
 
   // Exchange
   .mymarkets-header {
-    border-bottom-color: $button-bg-color;
+    border-bottom-color: transparent;
     &.inactive {
-      border-bottom-color: transparent;
-      color: $secondary-text-color;
+      color: #c6c6c6;
+
+      span {
+        border-bottom-color: transparent;
+      }
+    }
+
+    span {
+      display: inline-block;
+      padding-bottom: 5px;
+      border-bottom: 1px solid #00caf3;
     }
   }
 
   .exchange-content-header {
     color: $light-text-color;
     background-color: $header-color !important;
-    border-bottom: 1px solid $button-bg-color;
-    &.bid {
-      border-bottom: 1px solid $bid-color;
-    }
-
-    &.ask {
-      border-bottom: 1px solid $ask-color;
-    }
+    border: none;
   }
 
   // .block-content-header {
@@ -931,29 +934,44 @@
   //   @include RobotoLight;
   // }
 
+  .order-table {
+    th {
+      font-size: 13px;
+      color: #d1d1d1;
+
+      span {
+        font-size: 13px;
+        color: #d1d1d1;
+      }
+    }
+
+    td {
+      color: #2a3b72;
+    }
+  }
+
+
   td.orderHistoryBid {
 
     > span.price-integer, > span > span.price-integer {
-      font-weight: bold;
-      color: $bid-color;
+      font-size: 12px;
+      color: #f9005a;
     }
 
     > span.price-decimal, > span > span.price-decimal {
-      color: $primary-text-color;
-      opacity: 0.6;
+      font-size: 12px;
+      color: #f9005a;
     }
 
   }
 
   td.orderHistoryAsk {
     > span.price-integer, > span > span.price-integer {
-      font-weight: bold;
-      color: $ask-color;
+      color: #f9005a;
     }
 
     > span.price-decimal, > span > span.price-decimal {
-      color: $primary-text-color;
-      opacity: 0.6;
+      color: #f9005a;
     }
   }
 
@@ -1007,7 +1025,15 @@
   }
 
   .mymarkets-header {
-    background-color: $header-color;
+    background-color: #fff;
+  }
+
+  .exchange-bordered {
+    border: none;
+    margin: 20px 15px !important;
+    padding: 15px 20px;
+    box-shadow: 0px 8px 21.36px 2.64px rgba(22, 22, 33, 0.06);
+    height: auto !important;
   }
 
   tr.activeMarket, tr.activeMarket:hover {
@@ -1089,7 +1115,7 @@
   }
 
   div.exchange-content-header {
-    background-color: $header-color !important;
+    background-color: #fff !important;
   }
 
   .table > tbody > tr:nth-of-type(even) {
