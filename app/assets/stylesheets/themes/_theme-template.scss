@@ -213,7 +213,7 @@
     .left-column {
       border-top-color: $bg-color;
       border-bottom-color: $bg-color;
-      background-color: $header-color;
+      background-color: #fff;
 
     }
 
@@ -245,7 +245,8 @@
   // buttons
 
   .button {
-    background: $button-bg-color;
+    font-size: 18px;
+
     &:hover, &:focus, &:active {
       background-color: lighten($button-bg-color, 4%) !important;
     }
@@ -314,6 +315,9 @@
       }
       > span {
         font-weight: bold;
+
+
+
       }
     }
     svg > path {
@@ -534,7 +538,7 @@
   }
 
   input[type="text"], input[type="password"], input[type="email"], input[type="number"], input[type="search"], textarea {
-    background: aliceblue;
+    background: transparent;
   }
 
   ul.button-group.segmented {
@@ -700,9 +704,9 @@
       background-color: lighten($panel-bg-color, 5%);
     }
     > li > a.active {
-      color: $light-text-color;
       background-color: lighten($panel-bg-color, 4%);
       border-right-color: darken($button-bg-color, 4%);
+      color: #fff;
     }
   }
 
@@ -1339,7 +1343,8 @@
 
         }
         > div.tab-subtext {
-          color: $account-green;
+          font-size: 12px;
+          color: #44e2ff;
         }
       }
       &.is-active {
