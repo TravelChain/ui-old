@@ -307,58 +307,10 @@ class ExchangeSubscriber extends React.Component {
   }
 
   render() {
-    // let { account } = this.props;
-    let { BTC, ETH, LTCT } = this.state;
-    console.log(this.state)
-
-    return (
-
-      <div className='grid-container'>
-        {/*<div  className={this.props.contained ? "grid-content" : "grid-container"}>*/}
-        <div className='grid-container' style={{paddingTop: "2rem"}}>
-          {/*<div className={this.props.contained ? "" : "grid-content"} style={{paddingTop: "2rem"}}>*/}
-
-          <div className="grid-block vertical medium-horizontal no-margin no-padding">
-            <div className="medium-10 show-for-medium">
-              <HelpContent path="components/DepositWithdraw" section="deposit-short"/>
-            </div>
-          </div>
-          <div>
-            <div className="grid-block vertical medium-horizontal no-margin no-padding">
-              <div className="medium-5 medium-offset-1 small-order-1 medium-order-2" style={{paddingBottom: 20}}>
-              </div>
-            </div>
-          </div>
-
-          <div className="grid-content no-padding" style={{paddingTop: 15}}>
-            <div className="content-block">
-              {/* <div className="float-right">
-                            <a href="https://www.ccedk.com/" target="__blank" rel="noopener noreferrer"><Translate content="gateway.website" /></a>
-                        </div> */}
-              <div className="service-selector">
-                <ul className="button-group segmented no-margin">
-                  {/*     <li onClick={this.toggleOLService.bind(this, "gateway")} className={olService === "gateway" ? "is-active" : ""}><a><Translate content="gateway.gateway" /></a></li>
-                                <li onClick={this.toggleOLService.bind(this, "fiat")} className={olService === "fiat" ? "is-active" : ""}><a>Fiat</a></li> */}
-                </ul>
-              </div>
-
-
-              <BlockTradesGateway
-              btcWallet={BTC}
-              ethWallet={ETH}
-              ltctWallet={LTCT}
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-// =======
-//     return <div className="grid-block vertical">
-//       {!this.props.marketReady ? <LoadingIndicator /> : null}
-//       <Exchange wallets={this.state.wallets} {...this.props} sub={this.state.sub} subToMarket={this._subToMarket} />
-//     </div>;
-// >>>>>>> 34ebf37ea004b492d6b1cab50faac0335d1aeabd
+    return <div className="grid-block vertical">
+      {!this.props.marketReady ? <LoadingIndicator /> : null}
+      <Exchange wallets={this.state.wallets} {...this.props} sub={this.state.sub} subToMarket={this._subToMarket} />
+    </div>;
   }
 }
 
