@@ -125,7 +125,7 @@ class AccountLeftPanel extends React.Component {
                                     <Translate content="account.voting"/></Link>
                                 </li>
                                  <li><Link to={`/account/${account_name}/assets/`} activeClassName="active">
-                                     <Icon name="issued_gray" size="1x" fillClass="fill-black"/>
+                                     <Icon name="issued_asset_gray" size="1x" fillClass="fill-black"/>
                                      <Translate content="account.user_issued_assets.issued_assets"/></Link>
                                  </li>
                                 <li><Link to={`/account/${account_name}/permissions/`} activeClassName="active">

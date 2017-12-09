@@ -3,13 +3,13 @@ import Translate from "react-translate-component";
 import classnames from "classnames";
 import axios from "axios";
 import ls from "common/localStorage";
-import IntlTelInput from '../CountriesSelectInput/main.js';
-import 'react-intl-tel-input/dist/libphonenumber.js';
-import '../CountriesSelectInput/main.css';
-import TextField from 'material-ui-next/TextField';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import IntlTelInput from "../CountriesSelectInput/main.js";
+import "react-intl-tel-input/dist/libphonenumber.js";
+import "../CountriesSelectInput/main.css";
+import TextField from "material-ui-next/TextField";
+import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import MenuItem from "material-ui-next/es/Menu/MenuItem";
-import DatePicker from 'material-ui/DatePicker/DatePicker';
+import DatePicker from "material-ui/DatePicker/DatePicker";
 // import mui from "material-ui";
 
 // let ThemeManager = new mui.Styles.ThemeManager();
@@ -68,7 +68,7 @@ class Kyc extends React.Component {
       //   headers: {
       //     Authorization: `JWT ${ss.get("backend_token")}`
       //   }
-      // }).then((response) => response.data.is_verified ? this.props.router.push("/dashboard") : false)
+      // }).then((response) => response.data.is_verified ? this.props.router.push("/dashboard") : false)npm start
       //   .catch(() => this.props.router.push("/dashboard"));
     }
 

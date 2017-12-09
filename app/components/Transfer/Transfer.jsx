@@ -17,6 +17,9 @@ import { checkFeeStatusAsync, checkBalance } from "common/trxHelper";
 import { debounce, isNaN } from "lodash";
 import classnames from "classnames";
 import { Asset } from "common/MarketClasses";
+import TextField from "material-ui/TextField";
+
+
 
 class Transfer extends React.Component {
 
@@ -394,16 +397,26 @@ class Transfer extends React.Component {
                                 dropDownContent={AccountStore.getMyAccounts()}
                             />
                         </div>
+
                         {/*  T O  */}
                         <div className="content-block">
-                            <AccountSelector
-                                label="transfer.to"
-                                accountName={to_name}
-                                onChange={this.toChanged.bind(this)}
-                                onAccountChanged={this.onToAccountChanged.bind(this)}
-                                account={to_name}
-                                size={60}
-                                tabIndex={tabIndex++}
+                            {/*<AccountSelector*/}
+                                {/*label="transfer.to"*/}
+                                {/*accountName={to_name}*/}
+                                {/*onChange={this.toChanged.bind(this)}*/}
+                                {/*onAccountChanged={this.onToAccountChanged.bind(this)}*/}
+                                {/*account={to_name}*/}
+                                {/*size={60}*/}
+                                {/*tabIndex={tabIndex++}*/}
+                            {/*/>*/}
+
+                            <TextField
+                                id="name"
+                                label="Name"
+                                className={classes.textField}
+                                value={this.state.name}
+                                onChange={this.handleChange('name')}
+                                margin="normal"
                             />
                         </div>
                         {/*  A M O U N T   */}
@@ -422,15 +435,25 @@ class Transfer extends React.Component {
                         {/*  M E M O  */}
                         <div className="content-block transfer-input">
                             {memo && memo.length ? <label className="right-label">{memo.length}</label> : null}
-                            <Translate className="left-label tooltip" component="label" content="transfer.memo" data-place="top" data-tip={counterpart.translate("tooltip.memo_tip")}/>
-                            <textarea style={{marginBottom: 0}} rows="1" value={memo} tabIndex={tabIndex++} onChange={this.onMemoChanged.bind(this)} />
-                            {/* warning */}
-                            { this.state.propose ?
-                                <div className="error-area" style={{position: "absolute"}}>
-                                    <Translate content="transfer.warn_name_unable_read_memo" name={this.state.from_name} />
-                                </div>
-                            :null}
+                            {/*<Translate className="left-label tooltip" component="label" content="transfer.memo" data-place="top" data-tip={counterpart.translate("tooltip.memo_tip")}/>*/}
+                            {/*<textarea style={{marginBottom: 0}} rows="1" value={memo} tabIndex={tabIndex++} onChange={this.onMemoChanged.bind(this)} />*/}
+                            {/*/!* warning *!/*/}
+                            {/*{ this.state.propose ?*/}
+                                {/*<div className="error-area" style={{position: "absolute"}}>*/}
+                                    {/*<Translate content="transfer.warn_name_unable_read_memo" name={this.state.from_name} />*/}
+                                {/*</div>*/}
+                            {/*:null}*/}
 
+
+                            <TextField
+                                id="multiline-static"
+                                label="MEMO / MESSAGE"
+                                multiline
+                                rows="4"
+                                defaultValue="Default Value"
+                                className={classes.textField}
+                                margin="normal"
+                            />
                         </div>
 
                         {/*  F E E   */}
