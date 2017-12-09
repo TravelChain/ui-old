@@ -3414,11 +3414,11 @@ he@1.1.1, he@1.1.x:
   resolved "https://registry.yarnpkg.com/he/-/he-1.1.1.tgz#93410fd21b009735151f8868c2f271f3427e23fd"
 
 highcharts@4.2.6:
-  version v4.2.6
+  version "4.2.6"
   resolved "https://registry.yarnpkg.com/highcharts/-/highcharts-4.2.6.tgz#f6fe336aa49f716d3cec77e60b535b851d751806"
 
 highcharts@^5.0.0:
-  version v5.0.14
+  version "5.0.14"
   resolved "https://registry.yarnpkg.com/highcharts/-/highcharts-5.0.14.tgz#0ef14cca9f1345408568b533dae1478950d96810"
 
 highlight.js@^9.0.0:
@@ -4765,7 +4765,7 @@ material-ui-icons@^1.0.0-beta.17:
   dependencies:
     recompose "^0.26.0"
 
-material-ui@next:
+material-ui@^1.0.0-beta.22:
   version "1.0.0-beta.22"
   resolved "https://registry.yarnpkg.com/material-ui/-/material-ui-1.0.0-beta.22.tgz#04e719f33230ec9eab2dd1361b44509f3ec4d98b"
   dependencies:
