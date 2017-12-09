@@ -8,6 +8,7 @@ import 'react-intl-tel-input/dist/libphonenumber.js';
 import '../CountriesSelectInput/main.css';
 import TextField from 'material-ui-next/TextField';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MenuItem from "material-ui-next/es/Menu/MenuItem";
 import DatePicker from 'material-ui/DatePicker/DatePicker';
 // import mui from "material-ui";
@@ -17,6 +18,19 @@ var validator = require("email-validator");
 
 const STORAGE_KEY = "__graphene__";
 let ss = new ls(STORAGE_KEY);
+
+const travelchainThemeSetts = {
+    fontFamily: 'Roboto-Regular',
+    palette: {
+        pickerHeaderColor: "#00caf3",
+        primary1Color: "#00caf3",
+        primary2Color: "#00caf3",
+        textColor: "#060e26",
+        iconColor: "#FFFFFF"
+    }
+};
+
+const travelchainTheme = getMuiTheme(travelchainThemeSetts);
 
 class Kyc extends React.Component {
 
@@ -1466,7 +1480,7 @@ class Kyc extends React.Component {
 
                   {/* Birthday */}
 
-                  <MuiThemeProvider>
+                  <MuiThemeProvider muiTheme={travelchainTheme}>
                     <DatePicker value={birthday} onChange={(something, date) => {this.setBirthday(date);}} hintText="day . month . year" />
                   </MuiThemeProvider>
 
