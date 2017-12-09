@@ -185,7 +185,8 @@
       "claim": "Claim now",
       "available": "Available to claim",
       "referral_link": "Your referral link",
-      "referral_text": "Give this to link to people you want to refer to TravelChain"
+      "referral_text": "Give this to link to people you want to refer to TravelChain",
+      "referral_text2": "You can use your referral link to register new people, but you will receive a cashback only if you have the status of a lifetime member."
     },
     "user_issued_assets": {
       "symbol": "Symbol",
