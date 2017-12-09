@@ -29,8 +29,8 @@ class BlockTradesGateway extends React.Component {
 
             <div>
                 <div className="grid-block no-margin vertical medium-horizontal no-padding">
-                    <div className="medium-4">
-                        <div>
+                    <div className="small-12">
+                        <div style={{paddingLeft: 10}}>
                             <label style={{minHeight: "2rem"}} className="left-label"><Translate content={"gateway.choose_deposit"} />: </label>
                             <select
                                 className="external-coin-types bts-select"
@@ -43,12 +43,14 @@ class BlockTradesGateway extends React.Component {
                         </div>
                     </div>
 
-                    <div className="medium-6 medium-offset-1">
-                        <label style={{minHeight: "2rem"}} className="left-label"><Translate content="gateway.gateway_text" />:</label>
-                        <div style={{paddingBottom: 15}}>
-                          {activeCoin === "BTC" ? <div><strong>{this.props.btcWallet}</strong></div> : null}
-                          {activeCoin === "ETH" ? <div><strong>{this.props.ethWallet}</strong></div> : null}
-                          {activeCoin === "LTCT" ? <div><strong>{this.props.ltctWallet}</strong></div> : null}
+                    <div className="small-12">
+                        <div style={{paddingLeft: 10}}>
+                            <label style={{minHeight: "2rem"}} className="left-label"><Translate content="gateway.gateway_text" />:</label>
+                            <div style={{paddingBottom: 15}}>
+                              {activeCoin === "BTC" ? <div><strong>{this.props.btcWallet}</strong></div> : null}
+                              {activeCoin === "ETH" ? <div><strong>{this.props.ethWallet}</strong></div> : null}
+                              {activeCoin === "LTCT" ? <div><strong>{this.props.ltctWallet}</strong></div> : null}
+                            </div>
                         </div>
                     </div>
                 </div>

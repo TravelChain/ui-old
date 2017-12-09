@@ -138,9 +138,6 @@ class AccountLeftPanel extends React.Component {
                                     <Icon name="balance_gray" size="1x" fillClass="fill-black"/>
                                     <Translate content="account.vesting.title"/></Link>
                                 </li>}
-                        
-
-
 
                                 {/* <li className="menu-subheader" >
                                 <span className="button outline small">
