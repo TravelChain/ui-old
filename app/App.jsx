@@ -20,7 +20,6 @@ import WalletUnlockModal from "./components/Wallet/WalletUnlockModal";
 import BrowserSupportModal from "./components/Modal/BrowserSupportModal";
 import Footer from "./components/Layout/Footer";
 import Deprecate from "./Deprecate";
-import MetaTags from 'react-meta-tags';
 // import Incognito from "./components/Layout/Incognito";
 // import { isIncognito } from "feature_detect";
 
@@ -194,9 +193,6 @@ class App extends React.Component {
 
         return (
             <div style={{backgroundColor: !this.state.theme ? "#2a2a2a" : null}} className={this.state.theme}>
-                <MetaTags>
-                    <meta httpEquiv="Content-Security-Policy" content="default-src 'self' data: gap: https://v2.zopim.com/ 'unsafe-eval'; style-src 'self' 'unsafe-inline'; script-src 'self' https://v2.zopim.com/ 'unsafe-inline' 'unsafe-eval';  media-src *"/>
-                </MetaTags>
                 <div id="content-wrapper">
                     {content}
                     <NotificationSystem
