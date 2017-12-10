@@ -3,12 +3,12 @@ import Translate from "react-translate-component";
 import classnames from "classnames";
 import axios from "axios";
 import ls from "common/localStorage";
-import IntlTelInput from '../CountriesSelectInput/main.js';
-import 'react-intl-tel-input/dist/libphonenumber.js';
-import '../CountriesSelectInput/main.css';
-import TextField from 'material-ui-next/TextField';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import IntlTelInput from "../CountriesSelectInput/main.js";
+import "react-intl-tel-input/dist/libphonenumber.js";
+import "../CountriesSelectInput/main.css";
+import TextField from "material-ui-next/TextField";
+import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
+import getMuiTheme from "material-ui/styles/getMuiTheme";
 import MenuItem from "material-ui-next/es/Menu/MenuItem";
 import DatePicker from "material-ui/DatePicker/DatePicker";
 // import mui from "material-ui";
@@ -20,7 +20,7 @@ const STORAGE_KEY = "__graphene__";
 let ss = new ls(STORAGE_KEY);
 
 const travelchainThemeSetts = {
-    fontFamily: 'Roboto-Regular',
+    fontFamily: "Roboto-Regular",
     palette: {
         pickerHeaderColor: "#00caf3",
         primary1Color: "#00caf3",
