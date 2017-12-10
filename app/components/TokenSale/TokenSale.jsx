@@ -231,6 +231,7 @@ class ExchangeSubscriber extends React.Component {
       }
     };
 
+
     this._subToMarket = this._subToMarket.bind(this);
   }
 
@@ -260,7 +261,12 @@ class ExchangeSubscriber extends React.Component {
     }).then((response) => {
         this.setState({wallets: response.data});
         if (!response.data.is_verified) this.props.router.push("/kyc");
-    }).catch(() => this.props.router.push("/TokenSale.jsx"));
+    }).catch(() =>
+    {
+      localStorage.clear();
+      this.props.router.push("/dashboard");
+      location.reload(true);
+    });
 
   }
 
