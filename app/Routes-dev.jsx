@@ -120,14 +120,14 @@ const routes = (
             <Route path="vesting" component={AccountVesting} />
             <Route path="permissions" component={AccountPermissions} />
             <Route path="voting" component={AccountVoting} />
-            <Route path="deposit-withdraw" component={AccountDepositWithdraw} />
+            {/*<Route path="deposit-withdraw" component={AccountDepositWithdraw} />*/}
             <Route path="orders" component={AccountOrders} />
             <Route path="whitelist" component={AccountWhitelist} />
             <Route path="signedmessages" component={AccountSignedMessages} />
             <Redirect from="overview" to="dashboard" />
         </Route>
 
-        <Route path="deposit-withdraw" component={AccountDepositWithdraw} />
+        {/*<Route path="deposit-withdraw" component={AccountDepositWithdraw} />*/}
         <Route path="create-worker" component={CreateWorker} />
         <Route path="/init-error" component={InitError} />
         <Route path="/help" component={Help} >

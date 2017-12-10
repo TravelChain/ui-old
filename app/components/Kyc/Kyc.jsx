@@ -44,11 +44,10 @@ class Kyc extends React.Component {
             first_name: "",
             surname: "",
             country: "",
-            birthday: {},
+            birthday: "",
             email: "",
             phone: "",
             address: "",
-            activity: "",
             isAgreedTerms: false,
             isAgreedTermsTokens: false,
             currentCountryISO2: "ru",
@@ -62,11 +61,10 @@ class Kyc extends React.Component {
             first_name: "",
             surname: "",
             country: "",
-            birthday: {},
+            birthday: "",
             email: "",
             phone: "",
             address: "",
-            activity: "",
             isAgreedTerms: false,
             isAgreedTermsTokens: false,
             currentCountryISO2: "",
@@ -111,12 +109,16 @@ class Kyc extends React.Component {
     }
 
   handleChange = name => event => {
+      console.log( this.state )
     this.setState({
       [name]: event.target.value,
     });
   }
 
-  setBirthday = date => this.setState({birthday: date});
+  setBirthday = date =>
+  {
+    this.setState({birthday: date.toISOString().substring(0, 10)});
+  }
 
     render() {
 
@@ -1377,11 +1379,9 @@ class Kyc extends React.Component {
         ],
       ];
 
-        let {first_name, surname, country, birthday, email, phone, address, activity, isAgreedTerms, isAgreedTermsTokens, currentCountryISO2} = this.state;
+        let {first_name, surname, country, birthday, email, phone, address, isAgreedTerms, isAgreedTermsTokens, currentCountryISO2} = this.state;
 
-
-
-        const isSendNotValid = !first_name || !surname || !country || !birthday || !address || !activity || !isAgreedTerms || !isAgreedTermsTokens ||
+        const isSendNotValid = !first_name || !surname || !country || !birthday || !address || !isAgreedTerms || !isAgreedTermsTokens ||
           !validator.validate(email) || !(phone.indexOf("_") === -1);
 
         return (
@@ -1413,6 +1413,7 @@ class Kyc extends React.Component {
                             InputLabelProps={{
                                 shrink: true,
                             }}
+                            onChange={this.handleChange("first_name")}
                             placeholder="Tim"
                             fullWidth
                             margin="normal"
@@ -1438,6 +1439,7 @@ class Kyc extends React.Component {
                             InputLabelProps={{
                                 shrink: true,
                             }}
+                            onChange={this.handleChange("surname")}
                             placeholder="Smith"
                             fullWidth
                             margin="normal"
@@ -1478,24 +1480,8 @@ class Kyc extends React.Component {
                   {/* Birthday */}
 
                   <MuiThemeProvider muiTheme={travelchainTheme}>
-                    <DatePicker value={birthday} onChange={(something, date) => {this.setBirthday(date);}} hintText="day . month . year" />
+                    <DatePicker onChange={(something, date) => {this.setBirthday(date);}} hintText="day . month . year" />
                   </MuiThemeProvider>
-
-                    <div className="content-block transfer-input">
-                        {/*<Translate className="left-label tooltip" component="label" content="kyc.birthday" data-place="top"/>*/}
-                        {/*<input type="date" style={{marginBottom: 0}}  id="birthday" onChange={this.onKYCformInputChanged.bind(this)} />*/}
-                      {/*/!* warning *!/*/}
-                      {/*{ !birthday ?*/}
-                        {/*<div className="error-area" style={{position: "absolute"}}>*/}
-                          {/*Field is required*/}
-                        {/*</div>*/}
-                        {/*:null}*/}
-
-
-                      <MuiThemeProvider>
-                        <DatePicker value={birthday} onChange={(something, date) => {this.setBirthday(date);}} hintText="day . month . year" fullWidth/>
-                      </MuiThemeProvider>
-                    </div>
 
                   {/* Contact email */}
                     <div className="content-block transfer-input">
@@ -1510,11 +1496,12 @@ class Kyc extends React.Component {
 
                         <TextField
                             required
-                            id="surname"
+                            id="email"
                             label="CONTACT EMAIL"
                             InputLabelProps={{
                                 shrink: true,
                             }}
+                            onChange={this.handleChange("email")}
                             placeholder=""
                             fullWidth
                             margin="normal"
@@ -1526,16 +1513,16 @@ class Kyc extends React.Component {
                         <Translate className="left-label tooltip" component="label" content="kyc.phone" data-place="top"/>
                         {/*<input type="tel" style={{marginBottom: 0}}  id="phone" onChange={this.onKYCformInputChanged.bind(this)} />*/}
                         <IntlTelInput id="phone" css={['intl-tel-input', 'form-control']}
-                                      currentCountryISO2={currentCountryISO2}
-                                      onPhoneNumberChange={(...args) => this.updatePhoneNumber(args[1])}
-                                      utilsScript={'libphonenumber.js'}
-                                      defaultCountry={'ru'}
-                                      onSelectFlag={(currentNumber, countryDetails) => {
-                                          this.setState({
-                                              currentCountryISO2: countryDetails.iso2,
-                                              currentCountryDialCode: countryDetails.dialCode
-                                          });
-                                      }} />
+                            currentCountryISO2={currentCountryISO2}
+                            onPhoneNumberChange={(...args) => this.updatePhoneNumber(args[1])}
+                            utilsScript={'libphonenumber.js'}
+                            defaultCountry={'ru'}
+                            onSelectFlag={(currentNumber, countryDetails) => {
+                                this.setState({
+                                    currentCountryISO2: countryDetails.iso2,
+                                    currentCountryDialCode: countryDetails.dialCode
+                                });
+                            }} />
 
                         {/* warning */}
                         { !(phone.indexOf("_") === -1) ?
@@ -1558,11 +1545,12 @@ class Kyc extends React.Component {
 
                         <TextField
                             required
-                            id="surname"
+                            id="address"
                             label="ADDRESS"
                             InputLabelProps={{
                                 shrink: true,
                             }}
+                            onChange={this.handleChange("address")}
                             placeholder=""
                             fullWidth
                             margin="normal"
@@ -1583,11 +1571,12 @@ class Kyc extends React.Component {
 
                         <TextField
                             required
-                            id="surname"
+                            id="activitykind"
                             label="KIND OF ACTIVITY"
                             InputLabelProps={{
                                 shrink: true,
                             }}
+                            onChange={this.handleChange("activitykind")}
                             placeholder=""
                             fullWidth
                             margin="normal"
@@ -1597,14 +1586,14 @@ class Kyc extends React.Component {
 
                     <div className="confirm-checks">
                         <label>
-                            <input id='terms_agreement_checkbox' type="checkbox" onChange={(e) => this.setState({isAgreedTerms: e.target.value})}/>
+                            <input value={isAgreedTerms} id='terms_agreement_checkbox' type="checkbox" onChange={(e) => { this.setState({isAgreedTerms: e.target.value == "false" })}}/>
                             <span>I agree to the processing of personal data</span>
                         </label>
                     </div>
 
                     <div className="confirm-checks">
                         <label>
-                            <input id='terms_agreement_checkbox_2' type="checkbox" onChange={(e) => this.setState({isAgreedTermsTokens: e.target.value})}/>
+                            <input value={isAgreedTermsTokens} id='terms_agreement_checkbox_2' type="checkbox" onChange={(e) => this.setState({isAgreedTermsTokens: e.target.value == "false"})}/>
                             <span>You are acquainted and you agree with the
                                 <a href="https://drive.google.com/file/d/1f0zviV_rN6LgXyO-bWQqNzfix7YfwSEn/view?usp=sharing" target="_blank"> TRAVELCHAIN TRAVELTOKENS SALE AGREEMENT
                                 </a>
