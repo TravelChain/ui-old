@@ -17,6 +17,7 @@ import { checkFeeStatusAsync, checkBalance } from "common/trxHelper";
 import { debounce, isNaN } from "lodash";
 import classnames from "classnames";
 import { Asset } from "common/MarketClasses";
+import TextField from 'material-ui-next/TextField';
 // import TextField from "material-ui/TextField";
 
 
@@ -410,14 +411,14 @@ class Transfer extends React.Component {
                                 {/*tabIndex={tabIndex++}*/}
                             {/*/>*/}
 
-                            {/*<TextField*/}
-                                {/*id="name"*/}
-                                {/*label="Name"*/}
-                                {/*className={classes.textField}*/}
-                                {/*value={this.state.name}*/}
-                                {/*onChange={this.handleChange('name')}*/}
-                                {/*margin="normal"*/}
-                            {/*/>*/}
+                            <TextField
+                                id="name"
+                                label="Name"
+                                // className={classes.textField}
+                                // value={this.state.name}
+                                // onChange={this.handleChange('name')}
+                                margin="normal"
+                            />
                         </div>
                         {/*  A M O U N T   */}
                         <div className="content-block transfer-input">
@@ -521,7 +522,14 @@ class Transfer extends React.Component {
                 </div>
 
                 <div className="grid-content medium-6 large-4">
-
+                    <TextField
+                      required
+                      id="1231gsf"
+                      label="CONTACT EMAIL"
+                      placeholder="123"
+                      fullWidth
+                      margin="normal"
+                    />
                 </div>
                 </div>
             </div>
