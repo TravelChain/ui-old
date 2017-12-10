@@ -226,7 +226,7 @@ class WalletUnlockModal extends React.Component {
                                     />
                                 </div>
                             </div>
-                            {this.state.password_error ? <div className="error-area">
+                            {this.state.password_error ? <div className="error-area no-padding">
                                 <Translate content="wallet.pass_incorrect" />
                             </div> : null}
                         </div>
