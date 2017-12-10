@@ -111,7 +111,6 @@ class Kyc extends React.Component {
     }
 
   handleChange = name => event => {
-      console.log( this.state )
     this.setState({
       [name]: event.target.value,
     });

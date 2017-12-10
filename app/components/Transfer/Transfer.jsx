@@ -214,6 +214,7 @@ class Transfer extends React.Component {
     }
 
     onAmountChanged({amount, asset}) {
+        console.log( asset )
         if (!asset) {
             return;
         }
@@ -418,10 +419,11 @@ class Transfer extends React.Component {
 
                             <FormHelperText>BASIC MEMBER #46</FormHelperText>
                             <TextField
-                                id="username"
+                                id="from_name"
                                 label="FROM"
                                 placeholder="Tim Smith"
                                 margin="normal"
+                                onChange={ (e) => this.fromChanged(e.target.value) }
                                 fullWidth
                             />
                         </div>
@@ -439,10 +441,11 @@ class Transfer extends React.Component {
                             {/*/>*/}
 
                             <TextField
-                                id="username"
+                                id="to_name"
                                 label="TO"
                                 placeholder=""
                                 margin="normal"
+                                onChange={ (e) => this.toChanged(e.target.value) }
                                 fullWidth
                             />
                         </div>
