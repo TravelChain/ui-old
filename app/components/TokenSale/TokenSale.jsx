@@ -260,7 +260,7 @@ class ExchangeSubscriber extends React.Component {
     }).then((response) => {
         this.setState({wallets: response.data});
         if (!response.data.is_verified) this.props.router.push("/kyc");
-    }).catch(() => this.props.router.push("/dashboard"));
+    }).catch(() => this.props.router.push("/TokenSale.jsx"));
 
   }
 

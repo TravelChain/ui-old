@@ -10,6 +10,13 @@
 
   .left-column {
     background-color: #fafafa;
+
+    & + .grid-block.main-content {
+      padding: 2rem;
+      -webkit-box-shadow: inset 24px 0px 20px -10px rgba(0,0,0,0.24);
+      -moz-box-shadow: inset 24px 0px 20px -10px rgba(0,0,0,0.24);
+      box-shadow: inset 24px 0px 20px -10px rgba(0,0,0,0.24);
+    }
   }
 
   .main-content {
@@ -100,4 +107,26 @@ div.bordered-header {
 
 .grid-content.app-tables > .content-block {
   margin-bottom: 0 !important;
+}
+
+.highcharts-series-0 {
+  path {
+    fill: #00caf3;
+  }
+
+  .highcharts-area {
+    stroke: #dcf7fd;
+  }
+  .highcharts-graph {
+    stroke: #00caf3;
+  }
+}
+
+.highcharts-series-1 {
+  .highcharts-area {
+    stroke: #fadeea;
+  }
+  .highcharts-graph {
+    stroke: #f9005a;
+  }
 }
