@@ -48,6 +48,7 @@ class Kyc extends React.Component {
             email: "",
             phone: "",
             address: "",
+            activity: "",
             isAgreedTerms: false,
             isAgreedTermsTokens: false,
             currentCountryISO2: "ru",
@@ -65,6 +66,7 @@ class Kyc extends React.Component {
             email: "",
             phone: "",
             address: "",
+            activity: "",
             isAgreedTerms: false,
             isAgreedTermsTokens: false,
             currentCountryISO2: "",
@@ -1571,12 +1573,12 @@ class Kyc extends React.Component {
 
                         <TextField
                             required
-                            id="activitykind"
+                            id="activity"
                             label="KIND OF ACTIVITY"
                             InputLabelProps={{
                                 shrink: true,
                             }}
-                            onChange={this.handleChange("activitykind")}
+                            onChange={this.handleChange("activity")}
                             placeholder=""
                             fullWidth
                             margin="normal"
