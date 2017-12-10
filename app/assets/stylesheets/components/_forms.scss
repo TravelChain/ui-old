@@ -59,6 +59,7 @@ div.account-image {
 .account-selector, .pubkey-input {
   clear: right;
   input {
+    padding: 1.5rem 1rem 1.5rem 3rem;
     display: block;
     flex: auto;
   }
@@ -254,11 +255,26 @@ div.transfer-input {
 div.input-wrapper {
   position: relative;
   width: 100%;
+
   div.floating-dropdown {
     background: transparent;
     position: absolute;
     right: 0;
     text-align: right;
+  }
+
+  &.login .icon, &.password .icon {
+    position: absolute;
+    top: 1em;
+    left: 1em;
+  }
+
+  .input-area {
+    width: 100%;
+  }
+
+  input:focus {
+    box-shadow: #c7c7c7 0 5px 10px -3px;
   }
 }
 
@@ -315,7 +331,7 @@ form.full-width {
       top: 6px;
       right: 0;
     }
-    
+
     > div {
       p {
         font-size: 14px;
@@ -323,7 +339,6 @@ form.full-width {
       }
     }
   }
-
 
   label {
     color: #d1d1d1;
