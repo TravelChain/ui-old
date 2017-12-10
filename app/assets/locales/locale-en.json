@@ -38,7 +38,7 @@
     "logout": "Logout",
     "settings": "Settings",
     "current": "Current Account",
-    "create_account": "Create Account",
+    "create_account": "Register",
     "create_asset": "Create Asset",
     "update_asset": "Update Asset",
     "lock": "Log out (lock the local wallet)",

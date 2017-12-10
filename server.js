@@ -21,6 +21,14 @@ app.use(devMiddleware(compiler, {
 
 app.use(hotMiddleware(compiler));
 
+app.use(function(request, response, next) {
+  response.header("Access-Control-Allow-Origin", 'http://localhost:8080/');
+  response.header("Access-Control-Allow-Headers", "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
+  response.header("Access-Control-Allow-Methods", "GET,HEAD,POST,PUT,DELETE,OPTIONS");
+  response.header("Access-Control-Allow-Credentials", "true");
+  next();
+});
+
 app.get("*", function (req, res) {
     res.sendFile(path.join(__dirname, "app/assets/index-dev.html"));
 });

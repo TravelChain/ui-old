@@ -1,19 +1,26 @@
 .page-layout {
   > .grid-block {
- //   display: grid !important;
-    border-top: 1px solid transparent;
+    //   display: grid !important;
+    border-top: none;
     border-bottom: 1px solid transparent;
     > .grid-content, > .grid-block {
-      padding: 8px 0px 0px 18px;
+      padding: 0;
     }
   }
 
   .left-column {
     background-color: #fafafa;
+
+    & + .grid-block.main-content {
+      padding: 2rem;
+      -webkit-box-shadow: inset 24px 0px 20px -10px rgba(0,0,0,0.24);
+      -moz-box-shadow: inset 24px 0px 20px -10px rgba(0,0,0,0.24);
+      box-shadow: inset 24px 0px 20px -10px rgba(0,0,0,0.24);
+    }
   }
 
   .main-content {
-    padding-top: 0px ;
+    padding-top: 0px;
     background-color: #f3f3f3;
   }
 
@@ -27,10 +34,10 @@
 }
 
 #account-notify {
-    position: absolute;
-    top: auto !important;
-    right: 0.5em;
-    width: 30em;
+  position: absolute;
+  top: auto !important;
+  right: 0.5em;
+  width: 30em;
 }
 
 @media (max-width: 1100px) {
@@ -75,15 +82,15 @@ div.bordered-header {
 }
 
 .block-content-header {
-  font-size: 1.4375rem;
+  font-size: 2.3125rem;
   padding: 1.5rem 0;
 
   @include breakpoint(small only) {
-      font-size: 1.125rem;
+    font-size: 1.125rem;
   }
 }
 
-.table-cell{
+.table-cell {
   display: table-cell;
 }
 
@@ -100,4 +107,26 @@ div.bordered-header {
 
 .grid-content.app-tables > .content-block {
   margin-bottom: 0 !important;
+}
+
+.highcharts-series-0 {
+  path {
+    fill: #00caf3;
+  }
+
+  .highcharts-area {
+    stroke: #dcf7fd;
+  }
+  .highcharts-graph {
+    stroke: #00caf3;
+  }
+}
+
+.highcharts-series-1 {
+  .highcharts-area {
+    stroke: #fadeea;
+  }
+  .highcharts-graph {
+    stroke: #f9005a;
+  }
 }

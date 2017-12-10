@@ -1,6 +1,7 @@
 import React from "react";
 import Translate from "react-translate-component";
-
+import {DropDownMenu, MenuItem} from "material-ui";
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 
 class BlockTradesGateway extends React.Component {
@@ -14,15 +15,21 @@ class BlockTradesGateway extends React.Component {
 
 
 
-    onSelectCoin(e) {
+    onSelectCoin(event, index, value){
         this.setState({
-            activeCoin: e.target.value
+            activeCoin: value
         });
     }
 
     render() {
 
         let {activeCoin} = this.state;
+
+      const styles = {
+        customWidth: {
+          width: '100%',
+        },
+      };
 
 
         return (
@@ -32,14 +39,20 @@ class BlockTradesGateway extends React.Component {
                     <div className="small-12">
                         <div style={{paddingLeft: 10}}>
                             <label style={{minHeight: "2rem"}} className="left-label"><Translate content={"gateway.choose_deposit"} />: </label>
-                            <select
-                                className="external-coin-types bts-select"
-                                onChange={this.onSelectCoin.bind(this)}
-                                value={activeCoin}>
-                                <option value="BTC">BTC</option>
-                                <option value="ETH">ETH</option>
-                                <option value="LTCT">LTCT</option>
-                            </select>
+
+                            <MuiThemeProvider>
+                                <DropDownMenu
+                                  value={activeCoin}
+                                  onChange={this.onSelectCoin.bind(this)}
+                                  autoWidth={true}
+                                  style={styles.customWidth}
+                                >
+                                    <MenuItem value='BTC' primaryText="BTC" />
+                                    <MenuItem value='ETH' primaryText="ETH" />
+                                    <MenuItem value='LTCT' primaryText="LTCT" />
+                                </DropDownMenu>
+                            </MuiThemeProvider>
+
                         </div>
                     </div>
 
