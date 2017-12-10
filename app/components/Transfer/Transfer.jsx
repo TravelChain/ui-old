@@ -17,7 +17,7 @@ import { checkFeeStatusAsync, checkBalance } from "common/trxHelper";
 import { debounce, isNaN } from "lodash";
 import classnames from "classnames";
 import { Asset } from "common/MarketClasses";
-import TextField from "material-ui/TextField";
+// import TextField from "material-ui/TextField";
 
 
 
@@ -410,14 +410,14 @@ class Transfer extends React.Component {
                                 {/*tabIndex={tabIndex++}*/}
                             {/*/>*/}
 
-                            <TextField
-                                id="name"
-                                label="Name"
-                                className={classes.textField}
-                                value={this.state.name}
-                                onChange={this.handleChange('name')}
-                                margin="normal"
-                            />
+                            {/*<TextField*/}
+                                {/*id="name"*/}
+                                {/*label="Name"*/}
+                                {/*className={classes.textField}*/}
+                                {/*value={this.state.name}*/}
+                                {/*onChange={this.handleChange('name')}*/}
+                                {/*margin="normal"*/}
+                            {/*/>*/}
                         </div>
                         {/*  A M O U N T   */}
                         <div className="content-block transfer-input">
@@ -445,15 +445,15 @@ class Transfer extends React.Component {
                             {/*:null}*/}
 
 
-                            <TextField
-                                id="multiline-static"
-                                label="MEMO / MESSAGE"
-                                multiline
-                                rows="4"
-                                defaultValue="Default Value"
-                                className={classes.textField}
-                                margin="normal"
-                            />
+                            {/*<TextField*/}
+                                {/*id="multiline-static"*/}
+                                {/*label="MEMO / MESSAGE"*/}
+                                {/*multiline*/}
+                                {/*rows="4"*/}
+                                {/*defaultValue="Default Value"*/}
+                                {/*className={classes.textField}*/}
+                                {/*margin="normal"*/}
+                            {/*/>*/}
                         </div>
 
                         {/*  F E E   */}

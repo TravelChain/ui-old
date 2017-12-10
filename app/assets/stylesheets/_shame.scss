@@ -104,6 +104,19 @@ button, .button {
     background: none;
     border: 1px solid #555;
   }
+
+  &.dashboard {
+    border-radius: 5px;
+    box-shadow: #828282 0px 0px 15px -2px;
+
+    &.create-acc {
+      background: $button-bg-color-red;
+    }
+
+    &.login {
+      background: $button-bg-color-light;
+    }
+  }
 }
 
 td > button:first-child, td > .button:first-child, div > button:first-child, div > .button:first-child {

@@ -38,14 +38,14 @@ export default class LoginSelector extends React.Component {
                         <div className="button-group">
                             <label style={{textAlign: "left"}}><Translate content="account.new_user" /><br/>
                                 <Link to="/create-account/password">
-                                    <div className="button">
+                                    <div className="button dashboard create-acc">
                                         <Translate content="header.create_account" />
                                     </div>
                                 </Link>
                             </label>
 
                             <label style={{textAlign: "left"}}><Translate content="account.existing_user" /><br/>
-                                <div className="button success" onClick={() => {
+                                <div className="button dashboard login" onClick={() => {
                                     SettingsActions.changeSetting({setting: "passwordLogin", value: true});
                                     WalletUnlockActions.unlock.defer();
                                 }}>
@@ -54,11 +54,11 @@ export default class LoginSelector extends React.Component {
                             </label>
                         </div>}
 
-                        {!!childCount ? null :
-                        <div className="creation-options">
-                            <div><Link to="/wallet/backup/restore"><Translate content="account.restore" /></Link></div>
-                            <div><Link to="/create-account/wallet"><Translate content="account.advanced" /></Link></div>
-                        </div>}
+                        {/*{!!childCount ? null :*/}
+                        {/*<div className="creation-options">*/}
+                            {/*<div><Link to="/wallet/backup/restore"><Translate content="account.restore" /></Link></div>*/}
+                            {/*<div><Link to="/create-account/wallet"><Translate content="account.advanced" /></Link></div>*/}
+                        {/*</div>}*/}
 
                         {this.props.children}
                     </div>
