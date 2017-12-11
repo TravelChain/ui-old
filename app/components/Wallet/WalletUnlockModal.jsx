@@ -16,6 +16,7 @@ import SettingsActions from "actions/SettingsActions";
 import {Apis} from "bitsharesjs-ws";
 import utils from "common/utils";
 import AccountSelector from "../Account/AccountSelector";
+import Icon from "../Icon/Icon";
 var logo = require("assets/logo-ico-blue.png");
 
 class WalletUnlockModal extends React.Component {
@@ -154,7 +155,7 @@ class WalletUnlockModal extends React.Component {
             );
         }
         return (
-            <form className="full-width" onSubmit={this.onPasswordEnter} noValidate style={{paddingTop: 20, margin: "0 3.5rem "}}>
+            <form className="full-width" onSubmit={this.onPasswordEnter} noValidate style={{paddingTop: 20}}>
                 <PasswordInput
                     ref="password_input"
                     onEnter={this.onPasswordEnter}
@@ -190,7 +191,7 @@ class WalletUnlockModal extends React.Component {
         let tabIndex = 1;
 
         return (
-            <form onSubmit={this.onPasswordEnter} noValidate style={{paddingTop: 20, marginRight: "3.5rem"}}>
+            <form onSubmit={this.onPasswordEnter} noValidate style={{paddingTop: 20}}>
                 {/* Dummy input to trick Chrome into disabling auto-complete */}
                 <input type="text" className="no-padding no-margin" style={{visibility: "hidden", height: 0}}/>
 
@@ -209,13 +210,23 @@ class WalletUnlockModal extends React.Component {
                 <div className="content-block">
                     <div className="account-selector">
                         <div className="content-area">
-                            <div className="header-area">
-                                <label className="left-label"><Translate content="settings.password" /></label>
+                            {/*<div className="header-area">*/}
+                                {/*<label className="left-label"><Translate content="settings.password" /></label>*/}
+                            {/*</div>*/}
+                            <div className="inline-label input-wrapper password">
+                                <Icon name="locked-padlock" className="icon-14px" />
+                                <div className="input-area password">
+                                    <input
+                                        ref="password_input"
+                                        name="password"
+                                        id="password"
+                                        type="password"
+                                        tabIndex={tabIndex++}
+                                        placeholder={this.props.placeholder || counterpart.translate("settings.password")}
+                                    />
+                                </div>
                             </div>
-                            <div className="input-area" style={{marginLeft: "3.5rem"}}>
-                                <input ref="password_input" name="password" id="password" type="password" tabIndex={tabIndex++} />
-                            </div>
-                            {this.state.password_error ? <div className="error-area">
+                            {this.state.password_error ? <div className="error-area no-padding">
                                 <Translate content="wallet.pass_incorrect" />
                             </div> : null}
                         </div>
@@ -223,11 +234,11 @@ class WalletUnlockModal extends React.Component {
                 </div>
 
 
-                <div style={{marginLeft: "3.5rem"}}>
+                <div>
                     <div className="button-group">
-                        <button tabIndex={tabIndex++} className="button" type="submit" onClick={this.onPasswordEnter}><Translate content="header.unlock_short" /></button>
+                        <button tabIndex={tabIndex++} className="button unlock-form dashboard login" type="submit" onClick={this.onPasswordEnter}><Translate content="header.unlock_short" /></button>
                         <Trigger close={this.props.modalId}>
-                            <div tabIndex={tabIndex++} className=" button"><Translate content="account.perm.cancel" /></div>
+                            <div tabIndex={tabIndex++} className="button unlock-form dashboard transparent"><Translate content="account.perm.cancel" /></div>
                         </Trigger>
                     </div>
                     {/* <div onClick={this._toggleLoginType.bind(this)} className="button small outline float-right"><Translate content="wallet.switch_model_wallet" /></div> */}
@@ -247,7 +258,7 @@ class WalletUnlockModal extends React.Component {
             // U N L O C K
             <BaseModal id={this.props.modalId} ref="modal" overlay={true} overlayClose={false}>
                 <div className="text-center">
-                    <img src={logo}/>
+                    {/*<img src={logo}/>*/}
                     <div style={{marginTop: "1rem"}}>
                         <Translate component="h4" content={"header.unlock" + (passwordLogin ? "_password" : "")} />
                     </div>

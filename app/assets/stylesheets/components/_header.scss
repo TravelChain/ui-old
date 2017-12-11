@@ -4,63 +4,78 @@
 
 .icon > svg {
   > path {
-    fill : #fff;
+    //fill: #fff;
   }
 }
 
 .float-left > span.icon.user {
-    top: 0;
+  top: 0;
 }
 
 .header {
-  .button{background: #cbd7e1;}
+  .button {
+    background: #cbd7e1;
+  }
 
-    .electron-navigation > ul > li {
-        border: none;
-    }
-    &.primary {
-        border-bottom: 0.1px solid $border-color;
-    }
+  .electron-navigation > ul > li {
+    border: none;
+  }
+  &.primary {
+    border-bottom: 0.1px solid $border-color;
+  }
   padding-left: 0 !important;
-  min-height: 66px;
-  text-transform: uppercase;
+  min-height: 60px;
+  text-transform: none;
   .menu-bar > li {
     display: list-item;
-    
-    border-right: 1px solid $border-color;
-    > a {
-      font-weight: bold;
-      line-height: 2rem;
-      padding-left: 0.5rem;
-      padding-right: 0.5rem;
-      font-size: 0.9rem;
-      @include breakpoint(large) {
-        padding-left: 1.75rem;
-        padding-right: 1.75rem;
+
+    & + li {
+      margin-left: 20px;
+    }
+
+    &#menubar {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      a {
+        line-height: 1;
+
+        svg path {
+          fill: #fff;
+        }
       }
+    }
+
+    > a {
+      padding: 0 15px;
+      font-size: 14px;
+      line-height: 60px;
+      font-weight: bold;
     }
   }
 }
 
 div.header-balance {
-    a {
-        font-size: 90%;
-        font-weight: bold;
-        &:hover {
-            background-color: transparent !important;
-        };
+  a {
+    font-size: 90%;
+    font-weight: bold;
+    &:hover {
+      background-color: transparent !important;
     }
+  ;
+  }
 }
 
 div.account-drop-down {
-    font-size: 90%;
-    .dropdown-divider {
-        padding-bottom: 10px;
-    }
+  font-size: 90%;
+  .dropdown-divider {
+    padding-bottom: 10px;
+  }
   a.button {
-      font-weight: bold;
-      font-size: 90%;
-      background-color: transparent;
+    font-weight: bold;
+    font-size: 90%;
+    background-color: transparent;
   }
   a:active.button, a:hover.button {
     background-color: transparent !important;
@@ -68,17 +83,35 @@ div.account-drop-down {
 }
 
 div.header-right-menu {
-    > .grp-menu-item {
-        //border-left: 1px solid $border-color;
-        line-height: 2rem;
+  > .grp-menu-item {
+    //border-left: 1px solid $border-color;
+    line-height: 2rem;
 
-        > a {
-            @include breakpoint(large) {
-              padding-left: 1.25rem;
-              padding-right: 1.25rem;
-            }
-        }
+    &.header-balance {
+      margin-right: 100px;
+
+      a {
+        font-size: 14px;
+        color: #00caf3 !important;
+      }
+      .font-secondary {
+        font-size: 14px;
+        color: #00caf3;
+      }
     }
+    &.account-drop-down {
+      .lower-case {
+        font-size: 14px;
+        color: #c8c8c8;
+      }
+    }
+    > a {
+      @include breakpoint(large) {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+      }
+    }
+  }
 }
 
 .grp-menu-items-group {

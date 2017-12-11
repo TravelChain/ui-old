@@ -1163,8 +1163,12 @@ class Exchange extends React.Component {
               {hasPrediction ? <div className="small-12 no-overflow" style={{margin: "0 10px", lineHeight: "1.2rem"}}><p>{description}</p></div> : null}
 
               {isFrozen ? <div className="error small-12 no-overflow" style={{margin: "0 10px", lineHeight: "1.2rem"}}><Translate content="exchange.market_frozen" asset={frozenAsset} component="p"/></div> : null}
+              
+              <div className="small-12 medium-4 middle-content" style={{padding: 35, paddingBottom: 0}}>
+                <HelpContent path="components/DepositWithdraw" section="deposit-short"/>
+              </div>
 
-              <div className="small-6 no-padding middle-content">
+              <div className="small-12 medium-4 middle-content" style={{padding: 35}}>
                 <BlockTradesGateway
                   btcWallet={this.props.wallets.BTC}
                   ethWallet={this.props.wallets.ETH}
@@ -1172,9 +1176,7 @@ class Exchange extends React.Component {
                 />
               </div>
 
-              <div className="small-6 no-padding middle-content">
-                <HelpContent path="components/DepositWithdraw" section="deposit-short"/>
-              </div>
+              
               <MarketHistory
                 className={cnames(
                   !smallScreen && !leftOrderBook ? "medium-6 xlarge-4" : "",

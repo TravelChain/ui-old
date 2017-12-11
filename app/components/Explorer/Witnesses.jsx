@@ -45,7 +45,7 @@ class WitnessCard extends React.Component {
         let last_aslot_time = new Date(Date.now() - ((this.props.most_recent - witness_aslot ) * ChainStore.getObject( "2.0.0" ).getIn( ["parameters","block_interval"] )*1000));
 
         return (
-            <div className="grid-content account-card" onClick={this._onCardClick.bind(this)}>
+            <div className="grid-content account-card noborder" onClick={this._onCardClick.bind(this)}>
                 <div className="card" style={color}>
                     <h4 className="text-center">#{this.props.rank}: {this.props.witness.get('name')}</h4>
                     <div className="card-content">
@@ -53,7 +53,7 @@ class WitnessCard extends React.Component {
                             <AccountImage account={this.props.witness.get('name')} size={{height: 64, width: 64}}/>
                         </div>
                         <br/>
-                        <table className="table key-value-table">
+                        <table className="table key-value-table nobackdiff">
                             <tbody>
                                 <tr>
                                     <td>Votes</td>
@@ -330,8 +330,8 @@ class Witnesses extends React.Component {
 
         return (
             <div className="grid-block">
-                <div className="grid-block page-layout">
-                    <div className="grid-block vertical small-5 medium-3">
+                <div className="grid-block page-layout flex">
+                    <div className="grid-block vertical small-5 medium-4">
                         <div className="grid-content">
                             <br/>
                             <table className="table key-value-table">
@@ -372,7 +372,7 @@ class Witnesses extends React.Component {
                         </div>
                     </div>
                     <div className="grid-block">
-                            <div className="grid-content ">
+                            <div className="grid-content">
                                 <WitnessList
                                     current_aslot={dynGlobalObject.current_aslot}
                                     current={current ? current.get("id") : null}

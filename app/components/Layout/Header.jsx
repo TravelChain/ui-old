@@ -21,7 +21,7 @@ import notify from "actions/NotificationActions";
 import IntlActions from "actions/IntlActions";
 import AccountImage from "../Account/AccountImage";
 
-var logo = require("assets/TravelChain.png");
+var logo = require("assets/logo-white.png");
 
 const FlagImage = ({flag, width = 20, height = 20}) => {
     return <img height={height} width={width} src={`${__BASE_URL__}language-dropdown/${flag.toUpperCase()}.png`} />;
@@ -264,7 +264,7 @@ class Header extends React.Component {
             <div className="header menu-group primary">
                 <div className="show-for-small-only">
                     <ul className="primary menu-bar title">
-                        <li><a href onClick={this._triggerMenu}><Icon className="icon-32px" name="menu"/></a></li>
+                        <li id="menubar"><a href onClick={this._triggerMenu}><Icon className="icon-32px" name="menu"/></a></li>
                     </ul>
                 </div>
                 {__ELECTRON__ ? <div className="grid-block show-for-medium shrink electron-navigation">
@@ -285,11 +285,12 @@ class Header extends React.Component {
                     <ul className="menu-bar">
                         <li>{dashboard}</li>
                         <li><a className={cnames({active: active.indexOf("explorer") !== -1})} onClick={this._onNavigate.bind(this, "/explorer")}><Translate component="span" content="header.explorer" /></a></li>
-                        
+
                         {!currentAccount ? null : <li><Link to={`/account/${currentAccount}/overview`} className={cnames({active: active.indexOf("account/") !== -1})}><Translate content="header.account" /></Link></li>}
                         {currentAccount || myAccounts.length ? <li><a className={cnames({active: active.indexOf("transfer") !== -1})} onClick={this._onNavigate.bind(this, "/transfer")}><Translate component="span" content="header.payments" /></a></li> : null}
                         
-                        {enableDepositWithdraw && currentAccount && myAccounts.indexOf(currentAccount) !== -1 ? <li><Link to={"/token-sale/"} activeClassName="active"><Translate content="account.deposit_withdraw"/></Link></li> : null}
+                          
+                      {enableDepositWithdraw && currentAccount && myAccounts.indexOf(currentAccount) !== -1 ? <li><Link to={"/token-sale/"} activeClassName="active"><Translate content="account.deposit_withdraw"/></Link></li> : null}
                     </ul>
                 </div>
                 <div className="grid-block show-for-medium shrink">
@@ -297,16 +298,13 @@ class Header extends React.Component {
 
                         {!myAccountCount || !walletBalance ? null : walletBalance}
 
-                        {myAccountCount !== 0 ? null :<div className="grp-menu-item overflow-visible" >
-                            {settingsDropdown}
-                        </div>}
-
-                        
-
                         <div className="grp-menu-item overflow-visible account-drop-down">
                             {accountsDropDown}
                         </div>
 
+                        {myAccountCount !== 0 ? null :<div className="grp-menu-item overflow-visible" >
+                            {settingsDropdown}
+                        </div>}
                        
                         {!myAccountCount ? null : <div className="grp-menu-item overflow-visible" >
                             {settingsDropdown}

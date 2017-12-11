@@ -42,7 +42,6 @@ function checkFeeStatusAsync({accountID, feeID = "1.3.0", type = "transfer", opt
             if (feeID === "1.3.0") feeAsset = coreAsset;
             let coreBalanceID = account.getIn(["balances", "1.3.0"]),
                 feeBalanceID = account.getIn(["balances", feeID]);
-
             if (feeID === "1.3.0" && !coreBalanceID) return res({fee: new Asset({amount: coreFee}), hasBalance, hasPoolBalance});
 
             Promise.all([
@@ -82,9 +81,7 @@ function checkFeeStatusAsync({accountID, feeID = "1.3.0", type = "transfer", opt
                         hasPoolBalance = false;
                     }
                 }
-
                 if (feeBalance && feeBalance.get("balance") >= fee.getAmount()) hasBalance = true;
-
                 res({fee, hasBalance, hasPoolBalance, hasValidCER});
             });
         }).catch(rej);

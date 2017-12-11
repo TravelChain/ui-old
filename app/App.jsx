@@ -55,7 +55,6 @@ class App extends React.Component {
         ChainStore.unsubscribe(this._chainStoreSub);
         clearInterval(this.syncCheckInterval);
     }
-
     _syncStatus(setState = false) {
         let synced = true;
         let dynGlobalObject = ChainStore.getObject("2.1.0");

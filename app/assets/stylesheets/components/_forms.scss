@@ -43,39 +43,41 @@ td > input, td > .autocomplete input {
 }
 
 div.account-image {
-    .icon.key > svg {
-        fill: #808080 !important;
-        height: 2rem !important;
-        width: 2rem !important;
-    }
+  .icon.key > svg {
+    fill: #808080 !important;
+    height: 2rem !important;
+    width: 2rem !important;
+  }
 }
 
 .asset-selector {
-    .error-area {
-        position: absolute;
-    }
+  .error-area {
+    position: absolute;
+  }
 }
+
 .account-selector, .pubkey-input {
   clear: right;
   input {
+    padding: 1.5rem 1rem 1.5rem 3rem;
     display: block;
     flex: auto;
   }
 
   .header-area {
-      margin-left: 3.5rem;
+    margin-left: 3.5rem;
   }
   .error-area {
-      position: absolute;
-      padding-left: 3.5rem;
+    position: absolute;
+    padding-left: 3.5rem;
   }
   .account-image {
     float: left;
     width: 3.5rem;
     > canvas, .icon.key > svg {
-        height: 2rem !important;
-        width: 2rem !important;
-      
+      height: 2rem !important;
+      width: 2rem !important;
+
     }
   }
   > .content-area {
@@ -85,15 +87,15 @@ div.account-image {
     display: inline-block;
 
     @include breakpoint(small only) {
-        width: 100%;
+      width: 100%;
     }
   }
 }
 
 .error-area {
-    min-height: 2rem;
-    font-size: 0.9rem;
-    line-height: normal;
+  min-height: 2rem;
+  font-size: 0.9rem;
+  line-height: normal;
 }
 
 .right-label, .left-label {
@@ -104,7 +106,7 @@ div.account-image {
 }
 
 .right-label {
-    float: right;
+  float: right;
 }
 
 div.transfer-input {
@@ -113,170 +115,355 @@ div.transfer-input {
   display: inline-block;
 
   &.fee-row {
-      border-top: 1px solid $border-color;
-      padding-top: 2rem;
-      position: relative;
+    border-top: 1px solid $border-color;
+    padding-top: 2rem;
+    position: relative;
   }
 
   &.fee-row {
-      > .amount-selector {
-          width: calc(100% - 6.6rem);
-      }
-      &.proposal > .amount-selector {
-          width: calc(100% - 9rem);
-      }
-      > button {
-          position: absolute;
-          right: 0;
-          bottom: 0;
-          font-size: 1.3rem;
-          border-radius: 5px;
-      }
+    > .amount-selector {
+      width: calc(100% - 6.6rem);
+    }
+    &.proposal > .amount-selector {
+      width: calc(100% - 9rem);
+    }
+    > button {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      font-size: 1.3rem;
+      border-radius: 5px;
+    }
   }
 
   @include breakpoint(small only) {
-      width: 100%;
+    width: 100%;
 
-      &.fee-row {
-        > .amount-selector {
-            width: 100%;
-            padding-bottom: 20px;
-        }
-
-        > button {
-            position: inherit;
-        }
+    &.fee-row {
+      > .amount-selector {
+        width: 100%;
+        padding-bottom: 20px;
       }
 
-
+      > button {
+        position: inherit;
+      }
+    }
 
   }
 }
 
 .dropdown-wrapper {
+  /* Size & position */
+  position: relative;
+  margin: 0 auto;
+  padding: 12px 15px;
+
+  /* Styles */
+  background: transparent;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s ease-out;
+
+  &.inactive {
+    cursor: default;
+  }
+
+  > div:first-of-type {
+    font-size: 0.9rem;
+    font-weight: bold;
+
+    > span.hidden {
+      visibility: hidden;
+    }
+  }
+
+  &.active {
+    border-radius: 5px 5px 0 0;
+    box-shadow: none;
+    border-bottom: none;
+  }
+
+  &.active .dropdown {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    max-height: 400px;
+  }
+
+  ul.dropdown {
     /* Size & position */
-    position: relative;
-    margin: 0 auto;
-    padding: 12px 15px;
+    min-width: 200px;
+    position: absolute;
+    top: 2.4rem;
+    right: 0;
+    z-index: 999;
+    margin-left: 0;
 
     /* Styles */
-    background: transparent;
-    cursor: pointer;
-    outline: none;
+    background: #fff;
+    border-radius: 0 0 5px 5px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-top: none;
+    border-bottom: none;
+    list-style: none;
     transition: all 0.3s ease-out;
 
-    &.inactive {
-        cursor: default;
-    }
+    /* Hiding */
+    max-height: 0;
+    overflow: hidden;
 
-    > div:first-of-type {
+    > li {
+      width: 100%;
+
+      &:last-of-type span {
+        border: none;
+      }
+
+      span {
         font-size: 0.9rem;
         font-weight: bold;
-
-        > span.hidden {
-            visibility: hidden;
-        }
-    }
-
-    &.active {
-        border-radius: 5px 5px 0 0;
-        box-shadow: none;
-        border-bottom: none;
-    }
-
-    &.active .dropdown {
-        border-bottom: 1px solid rgba(0,0,0,0.2);
-        max-height: 400px;
-    }
-
-    ul.dropdown {
-        /* Size & position */
-        min-width: 200px;
-        position: absolute;
-        top: 2.4rem;
-        right: 0;
-        z-index: 999;
-        margin-left: 0;
-
-        /* Styles */
-        background: #fff;
-        border-radius: 0 0 5px 5px;
-        border: 1px solid rgba(0,0,0,0.2);
-        border-top: none;
-        border-bottom: none;
-        list-style: none;
+        display: block;
+        text-decoration: none;
+        color: #333;
+        padding: 10px 10px;
         transition: all 0.3s ease-out;
-
-        /* Hiding */
-        max-height: 0;
-        overflow: hidden;
-
-        > li {
-            width: 100%;
-
-            &:last-of-type span {
-                border: none;
-            }
-
-            span {
-                font-size: 0.9rem;
-                font-weight: bold;
-                display: block;
-                text-decoration: none;
-                color: #333;
-                padding: 10px 10px;
-                transition: all 0.3s ease-out;
-            }
-            i {
-                margin-right: 5px;
-                color: inherit;
-                vertical-align: middle;
-            }
-        }
+      }
+      i {
+        margin-right: 5px;
+        color: inherit;
+        vertical-align: middle;
+      }
     }
+  }
 }
+
 .dropdown-wrapper:after { /* Little arrow */
-    content: "";
-    width: 0;
-    height: 0;
-    position: absolute;
-    top: 50%;
-    right: 10px;
-    margin-top: -3px;
-    border-width: 6px 6px 0 6px;
-    border-style: solid;
+  content: "";
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  margin-top: -3px;
+  border-width: 6px 6px 0 6px;
+  border-style: solid;
 }
+
 .dropdown-wrapper.inactive:after {
-    border: 0;
+  border: 0;
 }
 
 div.input-wrapper {
-    position: relative;
+  position: relative;
+  width: 100%;
+
+  div.floating-dropdown {
+    background: transparent;
+    position: absolute;
+    right: 0;
+    text-align: right;
+  }
+
+  &.login .icon, &.password .icon {
+    position: absolute;
+    top: 1em;
+    left: 1em;
+  }
+
+  .input-area {
     width: 100%;
-    div.floating-dropdown {
-        background: transparent;
-        position: absolute;
-        right: 0;
-        text-align: right;
-    }
+  }
+
+  input:focus {
+    box-shadow: #c7c7c7 0 5px 10px -3px;
+  }
 }
 
 div.ok-indicator {
-    position: absolute;
-    top: 11px;
-    right: 10px;
+  position: absolute;
+  top: 11px;
+  right: 10px;
 }
 
 div.dropdown-wrapper.upper-case {
-    > div, > ul > li {
-        text-transform: uppercase;
-    }
+  > div, > ul > li {
+    text-transform: uppercase;
+  }
 }
 
 form.full-width {
 
-    section > input {
-        max-width: 100%;
+  section > input {
+    max-width: 100%;
+  }
+
+}
+
+.user-form,
+.transfer-form {
+  h2 {
+    margin-bottom: 30px;
+    font-size: 30px;
+  }
+
+  .content-block {
+    position: relative;
+
+    p {
+      font-size: 14px;
+      color: #d1d1d1;
+      margin-top: 0;
+      min-height: 1em;
+      line-height: 1em;
+      display: inline-block;
+      position: absolute;
+      top: 20px;
+      right: 0;
     }
 
+    span {
+      font-size: 14px;
+      color: #44e2ff;
+      margin-top: 0;
+      min-height: 1em;
+      line-height: 1em;
+      display: inline-block;
+      position: absolute;
+      top: 6px;
+      right: 0;
+    }
+
+    > div {
+      p {
+        font-size: 14px;
+        color: #2a3b72;
+      }
+    }
+  }
+
+  label {
+    color: #d1d1d1;
+    font-size: 14px;
+  }
+
+  .MuiInput-inkbar-17:after {
+    background: #2a3b72;
+  }
+
+  input {
+    background-color: transparent !important;
+    padding: 0 10px;
+    border: none;
+    border-radius: 0 !important;
+    height: 40px;
+    margin: 0;
+    line-height: 40px;
+    color: #d1d1d1;
+
+    &:hover, &:focus {
+      border: none;
+    }
+    &:focus {
+      color: #2a3b72;
+    }
+  }
+  textarea {
+    &:hover,
+    &:focus {
+      border: none;
+    }
+  }
+  .confirm-checks {
+    label {
+      input[type='checkbox']:not(checked) + span:before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+        border: 2px solid #d2d2d2;
+        content: '';
+        z-index: 1;
+      }
+      input[type='checkbox']:checked + span:before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+        border: 2px solid #d2d2d2;
+        content: '';
+        z-index: 1;
+      }
+
+      input[type='checkbox']:checked + span:after {
+        position: absolute;
+        top: 4px;
+        left: 7px;
+        display: inline-block;
+        width: 5px;
+        height: 10px;
+        margin-right: 10px;
+        border: none;
+        border-bottom: 2px solid #d2d2d2;
+        border-right: 2px solid #d2d2d2;
+        transform: rotate(45deg);
+        content: '';
+        z-index: 1;
+      }
+
+      span {
+        position: relative;
+        line-height: 1.8;
+        color: #d1d1d1;
+        margin-left: -20px;
+        padding-left: 25px;
+      }
+    }
+  }
+
+  // d2d2d2 color checkbox
+
+  input[type="checkbox"], input[type="radio"] {
+    opacity: 0;
+    width: 1rem;
+    height: 1rem;
+  }
+  .intl-tel-input {
+    border: 1px solid #c6c6c6;
+    border-radius: 4px;
+  }
+
+  .button {
+    display: block;
+    width: 100%;
+    margin: 30px 0 100px !important;
+    background: rgb(68, 226, 255);
+    background: -moz-linear-gradient(top, rgba(68, 226, 255, 1) 0%, rgba(0, 202, 243, 1) 100%);
+    background: -webkit-linear-gradient(top, rgba(68, 226, 255, 1) 0%, rgba(0, 202, 243, 1) 100%);
+    background: linear-gradient(to bottom, rgba(68, 226, 255, 1) 0%, rgba(0, 202, 243, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#44e2ff', endColorstr='#00caf3', GradientType=0);
+  }
+}
+
+.transfer-history {
+  .who {
+    float: left;
+    display: inline-block;
+    font-size: 14px;
+    color: #d1d1d1;
+
+    span {
+      color: #44e2ff;
+    }
+  }
+  .time {
+    float: right;
+    display: inline-block;
+    font-size: 14px;
+    color: #d1d1d1;
+  }
 }

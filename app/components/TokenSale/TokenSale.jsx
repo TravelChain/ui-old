@@ -113,6 +113,7 @@ import MarketsActions from "actions/MarketsActions";
 import axios from 'axios'
 import ls from "common/localStorage";
 
+
 const STORAGE_KEY = "__graphene__";
 let ss = new ls(STORAGE_KEY);
 
@@ -230,6 +231,7 @@ class ExchangeSubscriber extends React.Component {
       }
     };
 
+
     this._subToMarket = this._subToMarket.bind(this);
   }
 
@@ -259,7 +261,12 @@ class ExchangeSubscriber extends React.Component {
     }).then((response) => {
         this.setState({wallets: response.data});
         if (!response.data.is_verified) this.props.router.push("/kyc");
-    }).catch(() => this.props.router.push("/kyc"));
+    }).catch(() =>
+    {
+      localStorage.clear();
+      this.props.router.push("/dashboard");
+      location.reload(true);
+    });
 
   }
 

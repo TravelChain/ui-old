@@ -57,7 +57,7 @@ module.exports = {
         positiveColor: "#528c0a",
         negativeColor: "rgba(225, 66, 74, 1)",
         strokeColor: "#000000",
-        primaryText: "#242424",
+        primaryText: "#2a3b72",
         volumeColor: "#848484",
 
         //tooltip
