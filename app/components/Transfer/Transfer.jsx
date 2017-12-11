@@ -59,7 +59,7 @@ class Transfer extends React.Component {
             from_account: null,
             to_account: null,
             amount: "",
-            asset_id: null,
+            asset_id: "1.3.0",
             asset: null,
             memo: "",
             error: null,
@@ -79,29 +79,30 @@ class Transfer extends React.Component {
         this._checkFeeStatus();
     }
 
-    shouldComponentUpdate(np, ns) {
-        let {asset_types: current_types} = this._getAvailableAssets();
-        let {asset_types: next_asset_types} = this._getAvailableAssets(ns);
-
-        if (next_asset_types.length === 1) {
-            let asset = ChainStore.getAsset(next_asset_types[0]);
-            if (current_types.length !== 1) {
-                this.onAmountChanged({amount: ns.amount, asset});
-            }
-
-            if (next_asset_types[0] !== this.state.fee_asset_id) {
-                if (asset && this.state.fee_asset_id !== next_asset_types[0]) {
-                    this.setState({
-                        feeAsset: asset,
-                        fee_asset_id: next_asset_types[0]
-                    });
-                }
-            }
-        }
-        return true;
-    }
+    // shouldComponentUpdate(np, ns) {
+        // let {asset_types: current_types} = this._getAvailableAssets();
+        // let {asset_types: next_asset_types} = this._getAvailableAssets(ns);
+        //
+        // if (next_asset_types.length === 1) {
+        //     let asset = ChainStore.getAsset(next_asset_types[0]);
+        //     if (current_types.length !== 1) {
+        //         this.onAmountChanged({amount: ns.amount, asset});
+        //     }
+        //
+        //     if (next_asset_types[0] !== this.state.fee_asset_id) {
+        //         if (asset && this.state.fee_asset_id !== next_asset_types[0]) {
+        //             this.setState({
+        //                 feeAsset: asset,
+        //                 fee_asset_id: next_asset_types[0]
+        //             });
+        //         }
+        //     }
+        // }
+        // return true;
+    // }
 
     componentWillReceiveProps(np) {
+        console.log('componentWillReceiveProps');
         if (np.currentAccount !== this.state.from_name && np.currentAccount !== this.props.currentAccount) {
             this.setState({
                 from_name: np.currentAccount,
@@ -109,15 +110,16 @@ class Transfer extends React.Component {
                 feeStatus: {},
                 fee_asset_id: "1.3.0",
                 feeAmount: new Asset({amount: 0})
-            }, () => {
-                this._updateFee();
-                this._checkFeeStatus(ChainStore.getAccount(np.currentAccount));
-            });
+            }, () => {this._updateFee(); this._checkFeeStatus(ChainStore.getAccount(np.currentAccount));});
         }
     }
 
     _checkBalance() {
+      console.log('_checkBalance');
         const {feeAmount, amount, from_account, asset} = this.state;
+
+        console.log(feeAmount)
+        console.log('feeAmount')
         if (!asset) return;
         const balanceID = from_account.getIn(["balances", asset.get("id")]);
         const feeBalanceID = from_account.getIn(["balances", feeAmount.asset_id]);
@@ -135,9 +137,11 @@ class Transfer extends React.Component {
     }
 
     _checkFeeStatus(account = this.state.from_account) {
+      console.log('_checkFeeStatus');
         if (!account) return;
 
         const assets = Object.keys(account.get("balances").toJS()).sort(utils.sortID);
+
         let feeStatus = {};
         let p = [];
         assets.forEach(a => {
@@ -167,12 +171,17 @@ class Transfer extends React.Component {
     }
 
     _updateFee(state = this.state) {
+      console.log('_updateFee');
         let {fee_asset_id, from_account} = state;
         const {fee_asset_types} = this._getAvailableAssets(state);
+      console.log(12131)
         if (fee_asset_types.length === 1 && fee_asset_types[0] !== fee_asset_id) {
+            console.log(1)
             fee_asset_id = fee_asset_types[0];
         }
+      console.log(22)
         if (!from_account) return null;
+      console.log(3)
         checkFeeStatusAsync({
             accountID: from_account.get("id"),
             feeID: fee_asset_id,
@@ -183,6 +192,7 @@ class Transfer extends React.Component {
             }
         })
             .then(({fee, hasBalance, hasPoolBalance}) => {
+              console.log('checkFeeStatusAsync then');
                 this.setState({
                     feeAmount: fee,
                     fee_asset_id: fee.asset_id,
@@ -193,32 +203,34 @@ class Transfer extends React.Component {
             });
     }
 
-    fromChanged(from_name) {
+    fromChanged(event) {
+      console.log('fromChanged')
+        const from_name = event.target.value;
         if (!from_name) this.setState({from_account: null});
-        this.setState({from_name, error: null, propose: false, propose_account: ""});
+        // this.setState({from_name, error: null, propose: false, propose_account: ""});
+        this.onFromAccountChanged(from_name);
     }
 
-    toChanged(to_name) {
+    toChanged(event) {
+      console.log('toChanged')
+        const to_name = event.target.value
         this.setState({to_name, error: null});
     }
 
-    onFromAccountChanged(from_account) {
-        this.setState({from_account, error: null}, () => {
-            this._updateFee();
-            this._checkFeeStatus();
-        });
+    onFromAccountChanged(name) {
+      console.log('onFromAccountChanged')
+      this.setState({from_account: ChainStore.getAccount(name), error: null}, () => {
+          this._updateFee(); this._checkFeeStatus();
+      });
     }
 
     onToAccountChanged(to_account) {
         this.setState({to_account, error: null});
     }
 
-    onAmountChanged({amount, asset}) {
-        console.log( asset )
-        if (!asset) {
-            return;
-        }
-        this.setState({amount, asset, asset_id: asset.get("id"), error: null}, this._checkBalance);
+    onAmountChanged({ target: {value}}) {
+      console.log('onAmountChanged')
+        this.setState({amount: value}, this._checkBalance);
     }
 
     onFeeChanged({asset}) {
@@ -230,6 +242,7 @@ class Transfer extends React.Component {
     }
 
     onTrxIncluded(confirm_store_state) {
+        console.log('onTrxIncluded')
         if (confirm_store_state.included && confirm_store_state.broadcasted_transaction) {
             // this.setState(Transfer.getInitialState());
             TransactionConfirmStore.unlisten(this.onTrxIncluded);
@@ -241,11 +254,13 @@ class Transfer extends React.Component {
     }
 
     onPropose(propose, e) {
+        console.log('onPropose')
         e.preventDefault();
         this.setState({propose, propose_account: null});
     }
 
     onProposeAccount(propose_account) {
+      console.log('onProposeAccount')
         this.setState({propose_account});
     }
 
@@ -283,15 +298,12 @@ class Transfer extends React.Component {
     }
 
     _setTotal(asset_id, balance_id) {
+        console.log('_setTotal')
         const {feeAmount} = this.state;
         let balanceObject = ChainStore.getObject(balance_id);
         let transferAsset = ChainStore.getObject(asset_id);
 
-        let balance = new Asset({
-            amount: balanceObject.get("balance"),
-            asset_id: transferAsset.get("id"),
-            precision: transferAsset.get("precision")
-        });
+        let balance = new Asset({amount: balanceObject.get("balance"), asset_id: transferAsset.get("id"), precision: transferAsset.get("precision")});
 
         if (balanceObject) {
             if (feeAmount.asset_id === balance.asset_id) {
@@ -302,20 +314,24 @@ class Transfer extends React.Component {
     }
 
     _getAvailableAssets(state = this.state) {
+      console.log('_getAvailableAssets')
         const {feeStatus} = this.state;
 
         function hasFeePoolBalance(id) {
+          console.log('hasFeePoolBalance')
             if (feeStatus[id] === undefined) return true;
             return feeStatus[id] && feeStatus[id].hasPoolBalance;
         }
 
         function hasBalance(id) {
+            console.log('hasBalance')
             if (feeStatus[id] === undefined) return true;
             return feeStatus[id] && feeStatus[id].hasBalance;
         }
 
         const {from_account, from_error} = state;
         let asset_types = [], fee_asset_types = [];
+
         if (!(from_account && from_account.get("balances") && !from_error)) {
             return {asset_types, fee_asset_types};
         }
@@ -349,6 +365,11 @@ class Transfer extends React.Component {
         }
     }
 
+  // get_asset_precision (precision) {
+  //   precision = precision.toJS ? precision.get("precision") : precision;
+  //   return Math.pow(10, precision);
+  // }
+
     render() {
         let from_error = null;
         let {
@@ -366,20 +387,24 @@ class Transfer extends React.Component {
 
         let {asset_types, fee_asset_types} = this._getAvailableAssets();
         let balance = null;
-
+        let userBalance = null;
         // Estimate fee
         let fee = this.state.feeAmount.getAmount({real: true});
+
+        from_account = ChainStore.getAccount( this.state.from_name );
         if (from_account && from_account.get("balances") && !from_error) {
+
+            userBalance = ChainStore.getAccountBalance(from_account, '1.3.0');
+            userBalance = parseInt(userBalance, 10);
+            // console.log( return Math.pow(10, precision);from_account.get("precision") )
 
             let account_balances = from_account.get("balances").toJS();
             if (asset_types.length === 1) asset = ChainStore.getAsset(asset_types[0]);
             if (asset_types.length > 0) {
                 let current_asset_id = asset ? asset.get("id") : asset_types[0];
                 let feeID = feeAsset ? feeAsset.get("id") : "1.3.0";
-                balance = (<span style={{borderBottom: "#A09F9F 1px dotted", cursor: "pointer"}}
-                                 onClick={this._setTotal.bind(this, current_asset_id, account_balances[current_asset_id], fee, feeID)}><Translate
-                    component="span" content="transfer.available"/>: <BalanceComponent
-                    balance={account_balances[current_asset_id]}/></span>);
+              balance = (<span style={{borderBottom: "#A09F9F 1px dotted", cursor: "pointer"}} onClick={this._setTotal.bind(this, current_asset_id, account_balances[current_asset_id], fee, feeID)}><Translate component="span" content="transfer.available"/>: <BalanceComponent balance={account_balances[current_asset_id]}/></span>);
+
             } else {
                 balance = "No funds";
             }
@@ -419,12 +444,13 @@ class Transfer extends React.Component {
 
                             <FormHelperText>BASIC MEMBER #46</FormHelperText>
                             <TextField
-                                id="from_name"
                                 label="FROM"
                                 placeholder="Tim Smith"
                                 margin="normal"
                                 onChange={ (e) => this.fromChanged(e.target.value) }
                                 fullWidth
+                                value={this.state.from_name}
+                                disabled={true}
                             />
                         </div>
 
@@ -441,12 +467,12 @@ class Transfer extends React.Component {
                             {/*/>*/}
 
                             <TextField
-                                id="to_name"
                                 label="TO"
                                 placeholder=""
                                 margin="normal"
                                 onChange={ (e) => this.toChanged(e.target.value) }
                                 fullWidth
+                                onChange={this.toChanged.bind(this)}
                             />
                         </div>
 
@@ -461,23 +487,22 @@ class Transfer extends React.Component {
                         {/*display_balance={balance}*/}
                         {/*tabIndex={tabIndex++}*/}
                         {/*/>*/}
-                        {/*{this.state.balanceError ?*/}
-                        {/*<p className="has-error no-margin" style={{paddingTop: 10}}><Translate*/}
-                        {/*content="transfer.errors.insufficient"/></p> : null}*/}
-                        {/**/}
-                        {/*</div>*/}
 
                         {/* QUANTITY */}
                         <div className="content-block transfer-input">
-                            <span>AVAILABLE: 100.0000 TT</span>
+                            <span>AVAILABLE: {userBalance}TT</span>
                             <FormControl fullWidth>
                                 <InputLabel htmlFor="amount">QUANTITY</InputLabel>
                                 <Input
-                                    id="amount"
-                                    value={this.state.amount}
+                                    // asset={asset_types.length > 0 && asset ? asset.get("id") : ( asset_id ? asset_id : asset_types[0])}
+                                    // assets={asset_types}
+                                    onChange={this.onAmountChanged.bind(this)}
                                     endAdornment={<InputAdornment position="end">TT</InputAdornment>}
                                 />
                             </FormControl>
+                            {this.state.balanceError ?
+                            <p className="has-error no-margin" style={{paddingTop: 10}}><Translate
+                              content="transfer.errors.insufficient"/></p> : null}
                         </div>
 
 
@@ -536,7 +561,7 @@ class Transfer extends React.Component {
                                 <InputLabel htmlFor="amount">FEE</InputLabel>
                                 <Input
                                     id="amount"
-                                    value={this.state.amount}
+                                    // value={this.state.amount}
                                     endAdornment={<InputAdornment position="end">TT</InputAdornment>}
                                 />
                             </FormControl>
