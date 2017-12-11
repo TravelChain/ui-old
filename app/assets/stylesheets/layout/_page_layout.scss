@@ -1,10 +1,20 @@
 .page-layout {
   > .grid-block {
     //   display: grid !important;
-    border-top: none;
-    border-bottom: 1px solid transparent;
+    border-top: 1px solid #efeded;
+    border-right: 1px solid #efeded;
+
     > .grid-content, > .grid-block {
       padding: 0;
+      border: 1px solid #efeded;
+      border-right: none;
+      border-top: none;
+
+      &:last-child
+      {
+        max-width: 100%;
+        flex: 0 0 100%;
+      }
     }
   }
 

@@ -339,21 +339,6 @@
   .category-list {
     margin: 30px;
     justify-content: center;
-
-    .grid-content {
-      & + .grid-content {
-        border-bottom: 1px solid #efeded;
-        border-left: 1px solid #efeded;
-      }
-      &:nth-of-type(3n+1) {
-        border-left: none;
-      }
-      &:nth-last-of-type(1) {
-        border-bottom: none;
-        border-left: 1px solid #efeded;
-        border-right: 1px solid #efeded;
-      }
-    }
   }
 
   .card-section {
