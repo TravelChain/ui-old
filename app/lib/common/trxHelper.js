@@ -3,7 +3,6 @@ import { Price, Asset } from "common/MarketClasses";
 const { operations } = ChainTypes;
 
 function estimateFeeAsync(type, options = null, data = {}) {
-    console.log('a')
     return new Promise((res, rej) => {
         FetchChain("getObject", "2.0.0").then(obj => {
             res(estimateFee(type, options, obj, data));
@@ -29,9 +28,7 @@ function checkFeePoolAsync({assetID, type = "transfer", options = null, data} = 
 }
 
 function checkFeeStatusAsync({accountID, feeID = "1.3.0", type = "transfer", options = null, data} = {}) {
-    console.log(1)
     return new Promise((res, rej) => {
-      console.log(2)
         Promise.all([
             estimateFeeAsync(type, options, data),
             checkFeePoolAsync({assetID: feeID, type, options, data}),
@@ -40,13 +37,11 @@ function checkFeeStatusAsync({accountID, feeID = "1.3.0", type = "transfer", opt
             feeID !== "1.3.0" ? FetchChain("getAsset", feeID) : null
         ])
         .then(result => {
-          console.log(3)
             let [coreFee, hasPoolBalance, account, coreAsset, feeAsset] = result;
             let hasBalance = false;
             if (feeID === "1.3.0") feeAsset = coreAsset;
             let coreBalanceID = account.getIn(["balances", "1.3.0"]),
                 feeBalanceID = account.getIn(["balances", feeID]);
-          console.log(4)
             if (feeID === "1.3.0" && !coreBalanceID) return res({fee: new Asset({amount: coreFee}), hasBalance, hasPoolBalance});
 
             Promise.all([
@@ -54,7 +49,6 @@ function checkFeeStatusAsync({accountID, feeID = "1.3.0", type = "transfer", opt
                 feeBalanceID ? FetchChain("getObject", feeBalanceID) : null
             ])
             .then(balances => {
-              console.log(5)
                 let [coreBalance, feeBalance] = balances;
                 let fee = new Asset({amount: coreFee});
                 let hasValidCER = true;
@@ -87,9 +81,7 @@ function checkFeeStatusAsync({accountID, feeID = "1.3.0", type = "transfer", opt
                         hasPoolBalance = false;
                     }
                 }
-                    console.log(9)
                 if (feeBalance && feeBalance.get("balance") >= fee.getAmount()) hasBalance = true;
-              console.log(10)
                 res({fee, hasBalance, hasPoolBalance, hasValidCER});
             });
         }).catch(rej);
