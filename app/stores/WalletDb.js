@@ -23,11 +23,18 @@ const STORAGE_KEY = "__graphene__";
 let ss = new ls(STORAGE_KEY);
 
 // Patch for TTT node
-ChainConfig.networks.TTT = {
+ChainConfig.networks.MAIN = {
+  core_asset: 'TT',
+  address_prefix: 'TTT',
+  chain_id: 'c848eb7e7fab7bc524b42b865b5739f397297f142daa077661afa4ae04215130'
+}
+
+ChainConfig.networks.TTT_TESTNET = {
   core_asset: 'TT',
   address_prefix: 'TTT',
   chain_id: '5cfd61a07cf5026c094676e154f8fa9203c4a4963fa28509e51364581f54c2af'
 }
+
 
 
 let aes_private = null;
