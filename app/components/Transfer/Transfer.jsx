@@ -173,6 +173,8 @@ class Transfer extends React.Component {
             fee_asset_id = fee_asset_types[0];
         }
         if (!from_account) return null;
+
+
         checkFeeStatusAsync({
             accountID: from_account.get("id"),
             feeID: fee_asset_id,
@@ -415,7 +417,6 @@ class Transfer extends React.Component {
                                 onDropdownSelect={this._onAccountDropdown.bind(this)}
                                 dropDownContent={AccountStore.getMyAccounts()}
                                 placeholder={'USERNAME'}
-                                disabled={true}
                             />
                         </div>
 
@@ -451,7 +452,7 @@ class Transfer extends React.Component {
 
 
                         {/*  M E M O  */}
-                        <div className="content-block transfer-input">
+                        {/*<div className="content-block transfer-input">*/}
                             {/*{memo && memo.length ? <label className="right-label">{memo.length}</label> : null}*/}
                             {/*<Translate className="left-label tooltip" component="label" content="transfer.memo" data-place="top" data-tip={counterpart.translate("tooltip.memo_tip")}/>*/}
                             {/*<textarea style={{marginBottom: 0}} rows="1" value={memo} tabIndex={tabIndex++} onChange={this.onMemoChanged.bind(this)} />*/}
@@ -462,18 +463,25 @@ class Transfer extends React.Component {
                             {/*:null}*/}
 
 
-                            <TextField
-                                id="memo-message"
-                                onChange={this.onMemoChanged.bind(this)}
-                                value={memo}
-                                label="MEMO / MESSAGE"
-                                multiline
-                                rows="4"
-                                defaultValue=""
-                                margin="normal"
-                                fullWidth
-                            />
-                        </div>
+                            {/*<TextField*/}
+                                {/*id="memo-message"*/}
+                                {/*onChange={this.onMemoChanged.bind(this)}*/}
+                                {/*value={memo}*/}
+                                {/*label="MEMO / MESSAGE"*/}
+                                {/*multiline*/}
+                                {/*rows="4"*/}
+                                {/*defaultValue=""*/}
+                                {/*margin="normal"*/}
+                                {/*fullWidth*/}
+                            {/*/>*/}
+
+                          {/*{ this.state.propose ?*/}
+                              {/*<div className="error-area" style={{position: "absolute"}}>*/}
+                                  {/*<Translate content="transfer.warn_name_unable_read_memo" name={this.state.from_name} />*/}
+                              {/*</div>*/}
+                          {/*:null}*/}
+
+                        {/*</div>*/}
 
                         {/*  F E E   */}
                         <div className={"content-block transfer-input" + (this.state.propose ? " proposal" : "")}>
@@ -501,15 +509,6 @@ class Transfer extends React.Component {
                                 {/*</button>*/}
                             {/*}*/}
 
-
-                            {/*<FormControl fullWidth>*/}
-                                {/*<InputLabel htmlFor="amount">FEE</InputLabel>*/}
-                                {/*<Input*/}
-                                    {/*id="amount"*/}
-                                    {/*value={this.state.amount}*/}
-                                    {/*endAdornment={<InputAdornment position="end">TT</InputAdornment>}*/}
-                                {/*/>*/}
-                            {/*</FormControl>*/}
                         </div>
 
                         {/* P R O P O S E   F R O M
