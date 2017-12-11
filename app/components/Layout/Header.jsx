@@ -264,7 +264,7 @@ class Header extends React.Component {
             <div className="header menu-group primary">
                 <div className="show-for-small-only">
                     <ul className="primary menu-bar title">
-                        <li><a href onClick={this._triggerMenu}><Icon className="icon-32px" name="menu"/></a></li>
+                        <li id="menubar"><a href onClick={this._triggerMenu}><Icon className="icon-32px" name="menu"/></a></li>
                     </ul>
                 </div>
                 {__ELECTRON__ ? <div className="grid-block show-for-medium shrink electron-navigation">

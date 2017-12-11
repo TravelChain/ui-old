@@ -295,8 +295,23 @@ label.inline {
   flex: auto;
 }
 .blocks-row {
+  padding-bottom: 2em;
+  margin-bottom: 2em;
+  border-bottom: 1px solid #d8d8d8;
+
   > div.grid-block {
     padding-bottom: 0 !important;
+
+    &:not(.ps-container) > .grid-content {
+      padding: 0 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .txtlabel:not(.subheader) {
+        font-size: 1.5em;
+      }
+    }
   }
 }
 

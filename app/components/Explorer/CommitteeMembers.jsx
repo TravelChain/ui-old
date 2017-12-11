@@ -271,8 +271,8 @@ class CommitteeMembers extends React.Component {
 
         return (
             <div className="grid-block">
-                <div className="grid-block page-layout vertical medium-horizontal">
-                    <div className="grid-block shrink">
+                <div className="grid-block page-layout vertical medium-horizontal flex nowrap">
+                    <div className="grid-block medium-4">
                         <div className="grid-content">
                             <h5><Translate content="explorer.committee_members.active" />: {Object.keys(globalObject.active_committee_members).length}</h5>
                             <br/>

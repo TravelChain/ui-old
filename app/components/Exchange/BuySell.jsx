@@ -108,7 +108,7 @@ class BuySell extends React.Component {
                 <div className="grid-block small-5 no-margin no-overflow buy-sell-input">
                     <input disabled type="text" id="baseMarketFee" value={baseFee} autoComplete="off"/>
                 </div>
-                <div className="grid-block small-4 no-margin no-overflow buy-sell-box">
+                <div className="grid-block small-2 no-margin no-overflow buy-sell-box">
                     <AssetName noTip name={base.get("symbol")} />
                     <span
                         data-tip={counterpart.translate(
@@ -139,7 +139,7 @@ class BuySell extends React.Component {
                 <div className="grid-block small-5 no-margin no-overflow buy-sell-input">
                     <input disabled type="text" id="baseMarketFee" value={quoteFee} autoComplete="off"/>
                 </div>
-                <div className="grid-block small-4 no-margin no-overflow buy-sell-box">
+                <div className="grid-block small-2 no-margin no-overflow buy-sell-box">
                     <AssetName noTip name={quote.get("symbol")} />
                     <span
                         data-tip={counterpart.translate(
@@ -234,7 +234,7 @@ class BuySell extends React.Component {
                                     <div className="grid-block small-5 no-margin no-overflow buy-sell-input">
                                         <ExchangeInput id="buyPrice" value={price} onChange={priceChange} autoComplete="off" placeholder="0.0" />
                                     </div>
-                                    <div className="grid-block small-4 no-margin no-overflow buy-sell-box">
+                                    <div className="grid-block small-2 no-margin no-overflow buy-sell-box">
                                         <AssetName dataPlace="right" name={base.get("symbol")} />
                                         &nbsp;/&nbsp;
                                         <AssetName dataPlace="right" name={quote.get("symbol")} />
@@ -248,7 +248,7 @@ class BuySell extends React.Component {
                                     <div className="grid-block small-5 no-margin no-overflow buy-sell-input">
                                         <ExchangeInput id="buyAmount" value={amount} onChange={amountChange} autoComplete="off" placeholder="0.0"/>
                                     </div>
-                                    <div className="grid-block small-4 no-margin no-overflow buy-sell-box">
+                                    <div className="grid-block small-2 no-margin no-overflow buy-sell-box">
                                         <AssetName dataPlace="right" name={quote.get("symbol")} />
                                     </div>
                                 </div>
@@ -260,7 +260,7 @@ class BuySell extends React.Component {
                                     <div className="grid-block small-5 no-margin no-overflow buy-sell-input">
                                         <ExchangeInput id="buyAmount" value={total} onChange={totalChange} autoComplete="off" placeholder="0.0"/>
                                     </div>
-                                    <div className="grid-block small-4 no-margin no-overflow buy-sell-box">
+                                    <div className="grid-block small-2 no-margin no-overflow buy-sell-box">
                                         <AssetName dataPlace="right" name={base.get("symbol")} />
                                     </div>
                                 </div>
@@ -273,7 +273,7 @@ class BuySell extends React.Component {
                                         <input className={!hasFeeBalance ? "no-balance" : ""} disabled type="text" id="fee" value={!hasFeeBalance ? counterpart.translate("transfer.errors.insufficient") : fee.getAmount({real: true})} autoComplete="off"/>
                                     </div>
 
-                                    <div className="grid-block small-4 no-margin no-overflow buy-sell-box" style={{paddingLeft: feeAssets.length !== 1 ? 0 : 5}}>
+                                    <div className="grid-block small-2 no-margin no-overflow buy-sell-box" style={{paddingLeft: feeAssets.length !== 1 ? 0 : 5}}>
                                         <select
                                             style={feeAssets.length === 1 ? {background: "none"} : null}
                                             disabled={feeAssets.length === 1}
