@@ -54,7 +54,7 @@
     p {
         span {
             font-size: 11px;
-            color: #c6c6c6;
+            color: #5c5c5c;
         }
     }
 
@@ -127,7 +127,7 @@
             padding-left: 1.75rem !important;
             border-right: 3px solid transparent;
             font-size: 14px;
-            color: #c6c6c6 !important;
+            color: #c6c6c6;
 
             .icon {
                 margin-right: 10px;
@@ -166,6 +166,13 @@
 //     font-size: 0.9rem;
 //     font-weight: bold;
 // }
+
+.table {
+    border-bottom: 1px solid #eaeaea;
+}
+.table th {
+    border-color: #eaeaea !important;
+}
 
 .weight-input {
     display: table-cell;
