@@ -91,11 +91,11 @@ class Kyc extends React.Component {
         e.preventDefault();
 
       let faucetAddress = SettingsStore.getSetting("faucet_address");
-      var current_chain  = faucetAddress.split("/")[2].split(".")[0]
+      var current_chain  = faucetAddress.split("/")[2].split(".")[0];
 
         axios({
           method: "PUT",
-          url: "https://" + current_chain + ".travelchain.io/api/",
+          url: "https://" + current_chain + ".travelchain.io/api/accounts/me/",
           data: {...this.state},
           headers: {
             'Authorization': `JWT ${ss.get('backend_token')}`

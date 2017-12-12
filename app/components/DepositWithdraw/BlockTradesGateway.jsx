@@ -31,6 +31,14 @@ class BlockTradesGateway extends React.Component {
         },
       };
 
+      // let wallets = this.props.wallets;
+      //
+      // const listWallets = wallets.map((wallet) =>
+        {/*<MenuItem value='BTC' primaryText="BTC" />*/}
+      // );
+
+      console.log(this.props.wallets)
+      console.log("this.props.wallets")
 
         return (
 
@@ -47,6 +55,7 @@ class BlockTradesGateway extends React.Component {
                                   autoWidth={true}
                                   style={styles.customWidth}
                                 >
+
                                     <MenuItem value='BTC' primaryText="BTC" />
                                     <MenuItem value='ETH' primaryText="ETH" />
                                     <MenuItem value='LTCT' primaryText="LTCT" />
