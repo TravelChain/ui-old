@@ -36,7 +36,6 @@ ChainConfig.networks.TTT_TESTNET = {
 }
 
 
-
 let aes_private = null;
 let _passwordKey = null;
 // let transaction;
@@ -320,9 +319,14 @@ class WalletDb extends BaseStore {
                 if (!_passwordKey) _passwordKey = {};
                 _passwordKey[pub] = priv;
 
+                
+
+              // TODO Вынести определение блокчейна
+              let faucetAddress = SettingsStore.getSetting("faucet_address");
+              let current_chain  = faucetAddress.split("/")[2].split(".")[0]
 
                 if(role === "active") {
-                    axios.get("https://testnet.travelchain.io/api/", { method: "get", withCredentials: true })
+                    axios.get("https://" + current_chain + ".travelchain.io/api/", { method: "get", withCredentials: true })
                        .then(response => {
                            let authSigHash = response.headers["auth-sig-hash"];
 
