@@ -377,10 +377,14 @@ class Transfer extends React.Component {
             if (asset_types.length > 0) {
                 let current_asset_id = asset ? asset.get("id") : asset_types[0];
                 let feeID = feeAsset ? feeAsset.get("id") : "1.3.0";
-                balance = (<span style={{borderBottom: "#A09F9F 1px dotted", cursor: "pointer"}}
-                                 onClick={this._setTotal.bind(this, current_asset_id, account_balances[current_asset_id], fee, feeID)}><Translate
-                    component="span" content="transfer.available"/>: <BalanceComponent
-                    balance={account_balances[current_asset_id]}/></span>);
+                balance = (
+                    <span
+                        className="available-balance"
+                        onClick={this._setTotal.bind(this, current_asset_id, account_balances[current_asset_id], fee, feeID)}>
+                        <Translate content="transfer.available"/>:&nbsp;
+                        <BalanceComponent balance={account_balances[current_asset_id]}/>
+                    </span>
+                );
             } else {
                 balance = "No funds";
             }

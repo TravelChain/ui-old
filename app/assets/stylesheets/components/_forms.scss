@@ -139,6 +139,15 @@ div.transfer-input {
     }
   }
 
+  .available-balance {
+    top: 10px !important;
+    right: 50px !important;
+
+    span {
+      position: static;
+    }
+  }
+
   @include breakpoint(small only) {
     width: 100%;
 
