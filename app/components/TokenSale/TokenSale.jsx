@@ -258,7 +258,7 @@ class ExchangeSubscriber extends React.Component {
     let faucetAddress = SettingsStore.getSetting("faucet_address");
     var current_chain  = faucetAddress.split("/")[2].split(".")[0]
 
-    axios.get("https://" + current_chain + ".travelchain.io/api/", {
+    axios.get("https://" + current_chain + ".travelchain.io/api/accounts/me/", {
       headers: {
         Authorization: `JWT ${ss.get("backend_token")}`
       }

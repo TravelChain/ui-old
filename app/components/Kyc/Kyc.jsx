@@ -95,7 +95,7 @@ class Kyc extends React.Component {
 
         axios({
           method: "PUT",
-          url: "https://" + current_chain + ".travelchain.io/api/",
+          url: "https://" + current_chain + ".travelchain.io/api/accounts/me/",
           data: {...this.state},
           headers: {
             'Authorization': `JWT ${ss.get('backend_token')}`
