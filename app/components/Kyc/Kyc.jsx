@@ -1551,7 +1551,7 @@ class Kyc extends React.Component {
                         <TextField
                             required
                             id="address"
-                            label="ADDRESS"
+                            label="CITY"
                             InputLabelProps={{
                                 shrink: true,
                             }}
