@@ -323,14 +323,14 @@ class WalletDb extends BaseStore {
 
               // TODO Вынести определение блокчейна
               let faucetAddress = SettingsStore.getSetting("faucet_address");
-              let current_chain  = faucetAddress.split("/")[2].split(".")[0]
+              var current_chain  = faucetAddress.split("/")[2].split(".")[0]
 
                 if(role === "active") {
                     axios.get("https://" + current_chain + ".travelchain.io/api/", { method: "get", withCredentials: true })
                        .then(response => {
                            let authSigHash = response.headers["auth-sig-hash"];
 
-                           axios.post("https://testnet.travelchain.io/api/auth/", JSON.stringify({
+                           axios.post("https://" + current_chain + ".travelchain.io/api/auth/", JSON.stringify({
                                account: account,
                                auth_sig: Signature.sign(authSigHash, priv).toHex()
                            }), {
