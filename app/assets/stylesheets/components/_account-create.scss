@@ -183,12 +183,15 @@ div.account-creation {
         .button {
           font-size: 18px;
           right: 0;
-          top: 1rem;
+          top: 13px;
           position: absolute;
           background: transparent;
+          z-index: 99;
+          margin: 0 !important;
+          width: auto;
 
           &:hover {
-            background: transparent;
+            background: transparent !important;
           }
 
           svg {
