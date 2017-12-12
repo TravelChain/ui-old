@@ -175,7 +175,8 @@ class Header extends React.Component {
                 className={cnames({active: active === "/" || (active.indexOf("dashboard") !== -1 && active.indexOf("account") === -1)})}
                 onClick={this._onNavigate.bind(this, "/dashboard")}
             >
-                <img style={{margin: 0, height: 40}} src={logo} />
+                {/*<img style={{margin: 0, height: 40}} src={logo} />*/}
+                <Icon name="logo"/>
             </a>
         );
 

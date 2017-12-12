@@ -52,7 +52,12 @@
     }
 }
 
-.logo svg {
-    width: 1.75rem !important;
-    height: 1.75rem !important;
+.icon.logo {
+    width: auto;
+    height: 33px;
+
+    svg {
+        width: 40px !important;
+        height: auto !important;
+    }
 }
