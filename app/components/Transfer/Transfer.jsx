@@ -555,10 +555,10 @@ class Transfer extends React.Component {
                             />
 
 
-                            <div className="transfer-history">
-                                <p className="who"><span>faucet</span> sent 100 TT to <span>Tim Smith</span></p>
-                                <p className="time">2 days ago</p>
-                            </div>
+                            {/*<div className="transfer-history">*/}
+                                {/*<p className="who"><span>faucet</span> sent 100 TT to <span>Tim Smith</span></p>*/}
+                                {/*<p className="time">2 days ago</p>*/}
+                            {/*</div>*/}
                         </div>
                     </div>
                 </div>

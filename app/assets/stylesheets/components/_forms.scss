@@ -69,7 +69,10 @@ div.account-image {
   }
   .error-area {
     position: absolute;
-    padding-left: 3.5rem;
+    left: 0;
+    top: 100%;
+    right: 0;
+    white-space: nowrap;
   }
   .account-image {
     float: left;
