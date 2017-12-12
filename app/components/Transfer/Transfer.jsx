@@ -544,7 +544,7 @@ class Transfer extends React.Component {
 
                         {/* TODO: show remaining balance */}
                     </form>
-                    <div className="grid-content small-12 medium-5 large-3 large-offset-1 right-column">
+                    <div className="grid-content small-12 medium-5 large-4 large-offset-1 right-column">
                         <div className="grid-content no-padding">
                             <RecentTransactions
                                 accountsList={accountsList}
