@@ -286,3 +286,13 @@ div.account-creation {
     margin: 0 -3rem;
   }
 }
+
+@media (max-width: 767px) {
+  div.account-creation {
+    padding: 2rem 0 1rem;
+
+    div.sub-content {
+      padding: 50px 10px;
+    }
+  }
+}
