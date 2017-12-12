@@ -1,10 +1,8 @@
-import React from "react";
-import {PropTypes} from "react";
+import React, {PropTypes} from "react";
 import classNames from "classnames";
 import AccountActions from "actions/AccountActions";
 import AccountStore from "stores/AccountStore";
 import {ChainValidation} from "bitsharesjs/es";
-import Translate from "react-translate-component";
 import counterpart from "counterpart";
 import AltContainer from "alt-container";
 
@@ -59,7 +57,7 @@ class AccountNameInput extends React.Component {
     }
 
     clear() {
-        this.setState({ account_name: null, error: null, warning: null })
+        this.setState({account_name: null, error: null, warning: null})
     }
 
     focus() {
@@ -71,7 +69,7 @@ class AccountNameInput extends React.Component {
     }
 
     getError() {
-        if(this.state.value === null) return null;
+        if (this.state.value === null) return null;
         let error = null;
         if (this.state.error) {
             error = this.state.error;
@@ -98,11 +96,11 @@ class AccountNameInput extends React.Component {
             ChainValidation.is_account_name_error(value)
 
         this.state.warning = null
-        if(this.props.cheapNameOnly) {
-            if( ! this.state.error && ! this.is_cheap_name( value ))
+        if (this.props.cheapNameOnly) {
+            if (!this.state.error && !this.is_cheap_name(value))
                 this.state.error = counterpart.translate("account.name_input.premium_name_faucet");
         } else {
-            if( ! this.state.error && ! this.is_cheap_name( value ))
+            if (!this.state.error && !this.is_cheap_name(value))
                 this.state.warning = counterpart.translate("account.name_input.premium_name_warning");
         }
         this.setState({value: value, error: this.state.error, warning: this.state.warning});
@@ -117,7 +115,7 @@ class AccountNameInput extends React.Component {
         var account_name = e.target.value.toLowerCase()
         account_name = account_name.match(/[a-z0-9\.-]+/)
         account_name = account_name ? account_name[0] : null
-        this.setState({ account_name })
+        this.setState({account_name})
         this.validateAccountName(account_name);
 
     }
@@ -136,14 +134,17 @@ class AccountNameInput extends React.Component {
             <div className={class_name}>
                 {/* {noLabel ? null : <label><Translate content="account.name" /></label>} */}
                 <section>
-                    <label className="left-label">{this.props.placeholder}</label>
+                    <span className="icon user icon-14px">
+                        <svg width="14" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.5 11C6.467 11 4 8.533 4 5.5S6.467 0 9.5 0 15 2.467 15 5.5 12.533 11 9.5 11zm0-10C7.019 1 5 3.019 5 5.5S7.019 10 9.5 10 14 7.981 14 5.5 11.981 1 9.5 1zM17.5 20h-16C.673 20 0 19.327 0 18.5c0-.068.014-1.685 1.225-3.3.705-.94 1.67-1.687 2.869-2.219C5.558 12.33 7.377 12 9.5 12s3.942.33 5.406.981c1.199.533 2.164 1.279 2.869 2.219C18.986 16.815 19 18.432 19 18.5c0 .827-.673 1.5-1.5 1.5zm-8-7c-3.487 0-6.06.953-7.441 2.756C1.024 17.107 1.001 18.488 1 18.502a.5.5 0 0 0 .5.498h16a.5.5 0 0 0 .5-.5c0-.012-.023-1.393-1.059-2.744C15.559 13.953 12.986 13 9.5 13z"></path></svg>
+                    </span>
+
                     <input
                         name="username"
                         id="username"
                         type="text"
                         ref="input"
                         autoComplete="off"
-                        placeholder={null}
+                        placeholder="Account name (public)"
                         onChange={this.handleChange}
                         onKeyDown={this.onKeyDown}
                         value={this.state.account_name || this.props.initial_value}
@@ -162,11 +163,11 @@ export default class StoreWrapper extends React.Component {
 
         return (
             <AltContainer stores={[AccountStore]}
-                inject={{
-                        searchAccounts: () => {
-                            return AccountStore.getState().searchAccounts;
-                        }
-                    }}
+                          inject={{
+                              searchAccounts: () => {
+                                  return AccountStore.getState().searchAccounts;
+                              }
+                          }}
             >
                 <AccountNameInput
                     ref="nameInput"
