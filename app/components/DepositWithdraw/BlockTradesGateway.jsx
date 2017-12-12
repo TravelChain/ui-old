@@ -31,17 +31,11 @@ class BlockTradesGateway extends React.Component {
         },
       };
 
-      // let wallets = this.props.wallets;
-      //
-      // const listWallets = wallets.map((wallet) =>
-        {/*<MenuItem value='BTC' primaryText="BTC" />*/}
-      // );
 
-      console.log(this.props.wallets)
-      console.log("this.props.wallets")
+      const wallets = this.props.wallets;
+
 
         return (
-
             <div>
                 <div className="grid-block no-margin vertical medium-horizontal no-padding">
                     <div className="small-12 middle-content">
@@ -49,16 +43,16 @@ class BlockTradesGateway extends React.Component {
                             <label style={{minHeight: "2rem"}} className="left-label"><Translate content={"gateway.choose_deposit"} />: </label>
 
                             <MuiThemeProvider>
+
                                 <DropDownMenu
                                   value={activeCoin}
                                   onChange={this.onSelectCoin.bind(this)}
                                   autoWidth={true}
                                   style={styles.customWidth}
                                 >
-
-                                    <MenuItem value='BTC' primaryText="BTC" />
-                                    <MenuItem value='ETH' primaryText="ETH" />
-                                    <MenuItem value='LTCT' primaryText="LTCT" />
+                                  {Object.keys(wallets).map(function(key) {
+                                      return <MenuItem key={key} value={wallets[key]} primaryText={key} />;
+                                  })}
                                 </DropDownMenu>
                             </MuiThemeProvider>
 
@@ -69,9 +63,7 @@ class BlockTradesGateway extends React.Component {
                         <div style={{paddingLeft: 10, paddingTop:35}}>
                             <label style={{minHeight: "2rem"}} className="left-label"><Translate content="gateway.gateway_text" />:</label>
                             <div style={{paddingBottom: 15, fontSize: 13}}>
-                              {activeCoin === "BTC" ? <div><strong>{this.props.btcWallet}</strong></div> : null}
-                              {activeCoin === "ETH" ? <div><strong>{this.props.ethWallet}</strong></div> : null}
-                              {activeCoin === "LTCT" ? <div><strong>{this.props.ltctWallet}</strong></div> : null}
+                              <div><strong>{this.state.activeCoin}</strong></div>
                             </div>
                         </div>
                     </div>

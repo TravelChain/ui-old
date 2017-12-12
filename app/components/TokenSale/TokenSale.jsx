@@ -225,9 +225,6 @@ class ExchangeSubscriber extends React.Component {
     this.state = {
       sub: null,
       wallets: {
-        BTC: "",
-        ETH: "",
-        LTCT: ""
       }
     };
 
@@ -263,7 +260,7 @@ class ExchangeSubscriber extends React.Component {
         Authorization: `JWT ${ss.get("backend_token")}`
       }
     }).then((response) => {
-        // this.setState({wallets: {...response.BTC, }});
+        this.setState({wallets: {...response.data.wallets }});
         if (!response.data.is_verified) this.props.router.push("/kyc");
     }).catch(() =>
     {
