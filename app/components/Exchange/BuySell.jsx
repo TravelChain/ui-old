@@ -224,6 +224,8 @@ class BuySell extends React.Component {
 
                     </div>
 
+
+
                     <form className={(!this.props.isOpen ? "hide-container " : "") + "order-form"} noValidate>
                         <div className="grid-block vertical no-overflow no-padding">
 
@@ -234,7 +236,7 @@ class BuySell extends React.Component {
                                     <div className="grid-block small-5 no-margin no-overflow buy-sell-input">
                                         <ExchangeInput id="buyPrice" value={price} onChange={priceChange} autoComplete="off" placeholder="0.0" />
                                     </div>
-                                    <div className="grid-block small-2 no-margin no-overflow buy-sell-box">
+                                    <div className="grid-block small-3 no-overflow buy-sell-box">
                                         <AssetName dataPlace="right" name={base.get("symbol")} />
                                         &nbsp;/&nbsp;
                                         <AssetName dataPlace="right" name={quote.get("symbol")} />
@@ -248,19 +250,19 @@ class BuySell extends React.Component {
                                     <div className="grid-block small-5 no-margin no-overflow buy-sell-input">
                                         <ExchangeInput id="buyAmount" value={amount} onChange={amountChange} autoComplete="off" placeholder="0.0"/>
                                     </div>
-                                    <div className="grid-block small-2 no-margin no-overflow buy-sell-box">
+                                    <div className="grid-block small-3 no-overflow buy-sell-box">
                                         <AssetName dataPlace="right" name={quote.get("symbol")} />
                                     </div>
                                 </div>
 
-                                <div className="grid-block buy-sell-row bottom-row">
+                                <div className="grid-block no-padding buy-sell-row">
                                     <div className="grid-block small-3 no-margin no-overflow buy-sell-label">
                                         <Translate content="exchange.total" />:
                                     </div>
                                     <div className="grid-block small-5 no-margin no-overflow buy-sell-input">
                                         <ExchangeInput id="buyAmount" value={total} onChange={totalChange} autoComplete="off" placeholder="0.0"/>
                                     </div>
-                                    <div className="grid-block small-2 no-margin no-overflow buy-sell-box">
+                                    <div className="grid-block small-3 no-overflow buy-sell-box">
                                         <AssetName dataPlace="right" name={base.get("symbol")} />
                                     </div>
                                 </div>
@@ -273,7 +275,7 @@ class BuySell extends React.Component {
                                         <input className={!hasFeeBalance ? "no-balance" : ""} disabled type="text" id="fee" value={!hasFeeBalance ? counterpart.translate("transfer.errors.insufficient") : fee.getAmount({real: true})} autoComplete="off"/>
                                     </div>
 
-                                    <div className="grid-block small-2 no-margin no-overflow buy-sell-box" style={{paddingLeft: feeAssets.length !== 1 ? 0 : 5}}>
+                                    <div className="grid-block small-3 no-overflow buy-sell-box" style={{paddingLeft: feeAssets.length !== 1 ? 0 : 5}}>
                                         <select
                                             style={feeAssets.length === 1 ? {background: "none"} : null}
                                             disabled={feeAssets.length === 1}
@@ -296,7 +298,7 @@ class BuySell extends React.Component {
                                           <tr className="buy-sell-info">
                                                 <td><Translate content="exchange.balance" />:</td>
                                                 <td style={{paddingLeft: 5, textAlign: "right"}}>
-                                                    <span style={{borderBottom: "#A09F9F 1px dotted", cursor: "pointer"}} onClick={this._addBalance.bind(this, balanceToAdd)}>
+                                                    <span style={{borderBottom: "#00caf3 2px solid", cursor: "pointer"}} onClick={this._addBalance.bind(this, balanceToAdd)}>
                                                         {utils.format_number(balanceAmount.getAmount({real: true}), balancePrecision)} <AssetName name={balanceSymbol} />
                                                     </span>
                                                 </td>
@@ -306,7 +308,7 @@ class BuySell extends React.Component {
                                                 <td style={{paddingTop: 5}}>{isBid ? <Translate content="exchange.lowest_ask" /> : <Translate content="exchange.highest_bid" />}:&nbsp;</td>
                                                 {currentPrice ? (
                                                 <td style={{paddingLeft: 5, textAlign: "right", paddingTop: 5, verticalAlign: "bottom"}}>
-                                                    <span style={{borderBottom: "#A09F9F 1px dotted", cursor: "pointer"}} onClick={this.props.setPrice.bind(this, type, currentPriceObject.sellPrice())}>
+                                                    <span style={{borderBottom: "#00caf3 2px solid", cursor: "pointer"}} onClick={this.props.setPrice.bind(this, type, currentPriceObject.sellPrice())}>
                                                     <PriceText price={currentPrice} quote={quote} base={base} /> <AssetName name={base.get("symbol")} />/<AssetName name={quote.get("symbol")} />
                                                     </span>
                                                 </td>) : null}

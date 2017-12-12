@@ -1053,8 +1053,36 @@
     }
   }
 
+  .buySellButton.bid {
+    padding: 10px 20px;
+    width: 122px;
+    height: auto;
+    background-color: #00caf3 !important;
+    font-size: 13px;
+    line-height: 1;
+    display: block;
+    color: #fff;
+    border-radius: 0 !important;
+  }
+  .buySellButton.ask {
+    padding: 10px 20px;
+    width: 122px;
+    height: auto;
+    background-color: #f9005a !important;
+    font-size: 13px;
+    line-height: 1;
+    display: block;
+    color: #fff;
+    border-radius: 0 !important;
+  }
+
+
   .buy-sell-box {
-    background-color: $header-color;
+    background-color: transparent;
+    margin: 0 10px;
+    font-size: 13px;
+    border-radius: 5px;
+    color: #2a3b72;
 
     > select {
       padding: 0;
