@@ -69,7 +69,7 @@ class SettingsStore {
             apiServer: [],
             unit: [
                 CORE_ASSET,
-                "DACOM.USD",
+          //      "DACOM.USD",
           //      "USD",
           //      "CNY",
           //      "BTC",
