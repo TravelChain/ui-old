@@ -69,7 +69,10 @@ div.account-image {
   }
   .error-area {
     position: absolute;
-    padding-left: 3.5rem;
+    left: 0;
+    top: 100%;
+    right: 0;
+    white-space: nowrap;
   }
   .account-image {
     float: left;
@@ -133,6 +136,15 @@ div.transfer-input {
       bottom: 0;
       font-size: 1.3rem;
       border-radius: 5px;
+    }
+  }
+
+  .available-balance {
+    top: 10px !important;
+    right: 50px !important;
+
+    span {
+      position: static;
     }
   }
 

@@ -112,17 +112,23 @@ class AccountMembership extends React.Component {
 
                 <div className="content-block no-margin">
                 <div className="no-margin grid-block vertical large-horizontal">
-                    <div className="no-margin grid-block large-5">
-                        <div className="grid-content">
+                    <div className="no-margin noborder grid-block large-5">
+                        <div className="grid-content noborder">
                             <div>
                                 <h4><Translate content="account.member.referral_link"/></h4>
                                 <Translate content="account.member.referral_text"/>:
                                 <h5>{`https://wallet.travelchain.io/?r=${account.name}`}</h5>
+                                <div className="button disabled">
+                                   <Translate content="account.member.referrals" />
+                               </div>
                             </div>
+                            <br />
                             <div>
-                            <Translate content="account.member.referral_text2"/>:
+                                <Translate content="account.member.referral_text2"/>
                             </div>
-                            <br ></br>
+                            <br />
+                            <hr />
+                            <br />
                             <h4><Translate content="account.member.fee_allocation"/></h4>
                             <table className="table key-value-table">
                                 <tbody>
@@ -161,8 +167,9 @@ class AccountMembership extends React.Component {
                             </table>
                         </div>
                     </div>
-                    <div className="grid-block large-7">
-                        <div className="grid-content">
+                    <br />
+                    <div className="grid-block large-7 no-margin noborder">
+                        <div className="grid-content noborder">
                             <FeeHelp
                                 account={account_name}
                                 networkFee={network_fee}
