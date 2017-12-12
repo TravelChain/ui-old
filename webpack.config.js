@@ -101,15 +101,15 @@ module.exports = function(env) {
         plugins.push(new webpack.optimize.ModuleConcatenationPlugin());
         if (!env.noUgly) {
 
-            plugins.push(new webpack.optimize.UglifyJsPlugin({
-                sourceMap: true,
-                compress: {
-                    warnings: true
-                },
-                output: {
-                    screw_ie8: true
-                }
-            }));
+            // plugins.push(new webpack.optimize.UglifyJsPlugin({
+            //     sourceMap: true,
+            //     compress: {
+            //         warnings: true
+            //     },
+            //     output: {
+            //         screw_ie8: true
+            //     }
+            // }));
         }
     } else {
         // plugins.push(new webpack.optimize.OccurenceOrderPlugin());
