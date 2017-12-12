@@ -114,6 +114,7 @@ class AccountMembership extends React.Component {
                 <div className="no-margin grid-block vertical large-horizontal">
                     <div className="no-margin noborder grid-block large-5">
                         <div className="grid-content noborder">
+                        {member_status=== "lifetime" ? (
                             <div>
                                 <h4><Translate content="account.member.referral_link"/></h4>
                                 <Translate content="account.member.referral_text"/>:
@@ -122,13 +123,7 @@ class AccountMembership extends React.Component {
                                    <Translate content="account.member.referrals" />
                                </div>
                             </div>
-                            <br />
-                            <div>
-                                <Translate content="account.member.referral_text2"/>
-                            </div>
-                            <br />
-                            <hr />
-                            <br />
+                        ) : null}
                             <h4><Translate content="account.member.fee_allocation"/></h4>
                             <table className="table key-value-table">
                                 <tbody>
