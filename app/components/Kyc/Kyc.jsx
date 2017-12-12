@@ -12,7 +12,11 @@ import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import getMuiTheme from "material-ui/styles/getMuiTheme";
 import MenuItem from "material-ui-next/es/Menu/MenuItem";
 import DatePicker from "material-ui/DatePicker/DatePicker";
+import IconButton from 'material-ui/IconButton';
+import DatePickerIcon from 'material-ui-icons/Event';
 // import mui from "material-ui";
+import jQuery from 'jquery';
+import 'jquery-mask-plugin';
 
 // let ThemeManager = new mui.Styles.ThemeManager();
 var validator = require("email-validator");
@@ -38,6 +42,7 @@ class Kyc extends React.Component {
     constructor(props) {
         super(props);
         this.state = Kyc.getInitialState();
+        this.datepickerPopuper = null;
     }
 
     static getInitialState() {
@@ -77,6 +82,9 @@ class Kyc extends React.Component {
 
 
     componentWillMount () {
+        jQuery('.dateinput input').mask('0000-00-00', {
+          placeholder: "0000-00-00"
+        });
       // $('№phone').mask('0000-0000');
       // $("#phone").intlTelInput();
       // axios.get("https://testnet.travelchain.io/api/accounts/me/", {
@@ -91,7 +99,7 @@ class Kyc extends React.Component {
         e.preventDefault();
 
       let faucetAddress = SettingsStore.getSetting("faucet_address");
-      var current_chain  = faucetAddress.split("/")[2].split(".")[0]
+      var current_chain  = faucetAddress.split("/")[2].split(".")[0];
 
         axios({
           method: "PUT",
@@ -105,6 +113,16 @@ class Kyc extends React.Component {
     }
 
 
+
+    setDatepickerPopuper( el )
+    {
+        this.datepickerPopuper = el;
+    }
+
+    getDatepickerPopuper()
+    {
+        return this.datepickerPopuper;
+    }
 
     onKYCformInputChanged (e) {
         this.setState({[e.target.id]: e.target.value});
@@ -122,7 +140,7 @@ class Kyc extends React.Component {
 
   setBirthday = date =>
   {
-    this.setState({birthday: date.toISOString().substring(0, 10)});
+    this.setState({birthday: date.toLocaleString().substring(0, 10).split(".").reverse().join("-")});
   }
 
     render() {
@@ -1387,7 +1405,7 @@ class Kyc extends React.Component {
         let {first_name, surname, country, birthday, email, phone, address, isAgreedTerms, isAgreedTermsTokens, currentCountryISO2} = this.state;
 
         const isSendNotValid = !first_name || !surname || !country || !birthday || !address || !isAgreedTerms || !isAgreedTermsTokens ||
-          !validator.validate(email) || !(phone.indexOf("_") === -1);
+          !validator.validate(email) || !(phone.indexOf("_") === -1) || !/[0-9]{4}-[0-9]{2}-[0-9]{2}/.test(birthday);
 
         return (
 
@@ -1446,8 +1464,8 @@ class Kyc extends React.Component {
                             }}
                             onChange={this.handleChange("surname")}
                             placeholder="Smith"
-                            fullWidth
                             margin="normal"
+                            fullWidth
                         />
                     </div>
 
@@ -1463,14 +1481,16 @@ class Kyc extends React.Component {
                           {/*:null}*/}
 
                       <TextField
-                          error={!country}
-                          id="select-country"
                           select
+                          error={!country}
                           label="Country"
                           className="c227 c228 c213 c216"
                           value={country}
+                          InputLabelProps={{
+                              shrink: true,
+                          }}
                           onChange={this.handleChange("country")}
-                          helperText="Please select your country"
+                          // helperText="Please select your country"
                           margin="normal"
                           fullWidth
                       >
@@ -1484,9 +1504,38 @@ class Kyc extends React.Component {
 
                   {/* Birthday */}
 
-                  <MuiThemeProvider muiTheme={travelchainTheme}>
-                    <DatePicker onChange={(something, date) => {this.setBirthday(date);}} hintText="day . month . year" />
-                  </MuiThemeProvider>
+                    <div className="content-block transfer-input">
+
+                        <TextField
+                            required
+                            value={ this.state.birthday }
+                            className="dateinput"
+                            label="Date birth"
+                            InputLabelProps={{ shrink: true }}
+                            onChange={this.handleChange("birthday")}
+                            fullWidth
+                        />
+
+                        <MuiThemeProvider>
+                            <IconButton
+                                className="datepicker-popover"
+                                aria-haspopup="true"
+                                onClick={ (e) => { this.getDatepickerPopuper().openDialog() } }
+                            >
+                              <DatePickerIcon />
+                            </IconButton>
+                        </MuiThemeProvider>
+
+                        <div className="datepicker-by-icon">
+                          <MuiThemeProvider muiTheme={travelchainTheme}>
+                            <DatePicker
+                                ref={(input)=> {this.setDatepickerPopuper(input); }}
+                                onChange={(something, date) => {this.setBirthday(date);}}
+                                hintText="day . month . year"
+                            />
+                          </MuiThemeProvider>
+                        </div>
+                    </div>
 
                   {/* Contact email */}
                     <div className="content-block transfer-input">
@@ -1527,7 +1576,9 @@ class Kyc extends React.Component {
                                     currentCountryISO2: countryDetails.iso2,
                                     currentCountryDialCode: countryDetails.dialCode
                                 });
-                            }} />
+                            }}
+                            fullWidth
+                        />
 
                         {/* warning */}
                         { !(phone.indexOf("_") === -1) ?

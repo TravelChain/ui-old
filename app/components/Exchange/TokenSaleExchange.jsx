@@ -1170,9 +1170,7 @@ class Exchange extends React.Component {
 
               <div className="small-12 medium-4 middle-content" style={{padding: 35}}>
                 <BlockTradesGateway
-                  btcWallet={this.props.wallets.BTC}
-                  ethWallet={this.props.wallets.ETH}
-                  ltctWallet={this.props.wallets.LTCT}
+                  wallets={this.props.wallets}
                 />
               </div>
 
