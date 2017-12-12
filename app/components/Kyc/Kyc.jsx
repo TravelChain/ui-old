@@ -1,5 +1,6 @@
 import React from "react";
 import Translate from "react-translate-component";
+import SettingsStore from "stores/SettingsStore";
 import classnames from "classnames";
 import axios from "axios";
 import ls from "common/localStorage";
@@ -89,9 +90,12 @@ class Kyc extends React.Component {
     onSubmit(e) {
         e.preventDefault();
 
+      let faucetAddress = SettingsStore.getSetting("faucet_address");
+      var current_chain  = faucetAddress.split("/")[2].split(".")[0]
+
         axios({
           method: "PUT",
-          url: 'https://testnet.travelchain.io/api/accounts/me/',
+          url: "https://" + current_chain + ".travelchain.io/api/",
           data: {...this.state},
           headers: {
             'Authorization': `JWT ${ss.get('backend_token')}`
