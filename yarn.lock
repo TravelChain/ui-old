@@ -4183,6 +4183,10 @@ jest-util@^18.1.0:
     jest-mock "^18.0.0"
     mkdirp "^0.5.1"
 
+jquery-mask-plugin@^1.14.13:
+  version "1.14.13"
+  resolved "https://registry.yarnpkg.com/jquery-mask-plugin/-/jquery-mask-plugin-1.14.13.tgz#a80368d3b1d1402e4d6963a8ae7797c49bc21fc6"
+
 jquery@1.11.1:
   version "1.11.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-1.11.1.tgz#b6ec928590112ebed69e1e49cbfd0025ccd60ddb"

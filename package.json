@@ -143,6 +143,7 @@
     "intl": "^1.1.0",
     "jdenticon": "git+https://github.com/cryptonomex/jdenticon.git",
     "jquery": "1.11.1",
+    "jquery-mask-plugin": "^1.14.13",
     "js-sha256": "^0.2.3",
     "lodash": "^3.10.1",
     "lzma": "2.1.6",
