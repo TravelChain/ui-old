@@ -271,7 +271,6 @@ class ExchangeSubscriber extends React.Component {
       this.props.router.push("/dashboard");
       location.reload(true);
     });
-
   }
 
   componentWillReceiveProps(nextProps) {
