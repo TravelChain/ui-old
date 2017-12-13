@@ -169,7 +169,7 @@ class AccountVoting extends React.Component {
             let active = this.props.globalObject.get(isWitness ? "active_witnesses" : "active_committee_members");
             const lastActive = active.last() || `1.${isWitness ? "6" : "5"}.1`;
             lastIdx = parseInt(lastActive.split(".")[2], 10);
-            for (var i = 1; i <= lastIdx + 10; i++) {
+            for (var i = 0; i <= lastIdx + 10; i++) {
                 vote_ids.push(`1.${isWitness ? "6" : "5"}.${i}`);
             }
         } else {
