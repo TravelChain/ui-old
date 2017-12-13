@@ -59,9 +59,10 @@ div.account-image {
 .account-selector, .pubkey-input {
   clear: right;
   input {
-    padding: 1.5rem 1rem 1.5rem 3rem;
+    padding: 0 1rem 0 3rem;
     display: block;
     flex: auto;
+    height: 50px;
   }
 
   .header-area {
