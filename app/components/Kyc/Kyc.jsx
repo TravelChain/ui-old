@@ -17,6 +17,8 @@ import DatePickerIcon from 'material-ui-icons/Event';
 // import mui from "material-ui";
 import jQuery from 'jquery';
 import 'jquery-mask-plugin';
+import "inputmask/dist/inputmask/inputmask.numeric.extensions";
+import Inputmask from "inputmask/dist/inputmask/inputmask.date.extensions";
 
 // let ThemeManager = new mui.Styles.ThemeManager();
 var validator = require("email-validator");
@@ -82,9 +84,9 @@ class Kyc extends React.Component {
 
 
     componentWillMount () {
-        jQuery('.dateinput input').mask('0000-00-00', {
-          placeholder: "YYYY-MM-DD"
-        });
+        // jQuery('.dateinput input').mask('0000-00-00', {
+        //   placeholder: "YYYY-MM-DD"
+        // });
       // $('№phone').mask('0000-0000');
       // $("#phone").intlTelInput();
       // axios.get("https://testnet.travelchain.io/api/accounts/me/", {
@@ -93,6 +95,11 @@ class Kyc extends React.Component {
       //   }
       // }).then((response) => response.data.is_verified ? this.props.router.push("/dashboard") : false)npm start
       //   .catch(() => this.props.router.push("/dashboard"));
+    }
+
+    componentDidMount () {
+      var im = new Inputmask("yyyy-mm-dd");
+      im.mask(jQuery(".dateinput input"));
     }
 
     onSubmit(e) {
@@ -1508,6 +1515,8 @@ class Kyc extends React.Component {
 
                         <TextField
                             required
+                            data-inputmask-alias="datetime"
+                            data-inputmask-inputformat="yyyy/mm/dd"
                             value={ this.state.birthday }
                             className="dateinput"
                             label="Date birth"

@@ -9,7 +9,7 @@ class BlockTradesGateway extends React.Component {
         super();
 
         this.state = {
-            activeCoin: "BTC"
+            activeCoin: props.wallets[0]
         };
     }
 

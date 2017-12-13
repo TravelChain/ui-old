@@ -140,6 +140,7 @@
     "highcharts": "4.2.6",
     "immutable": "^3.8.1",
     "indexeddbshim": "^2.2.1",
+    "inputmask": "^3.3.11",
     "intl": "^1.1.0",
     "jdenticon": "git+https://github.com/cryptonomex/jdenticon.git",
     "jquery": "1.11.1",
