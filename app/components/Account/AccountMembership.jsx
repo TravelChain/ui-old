@@ -114,16 +114,18 @@ class AccountMembership extends React.Component {
                 <div className="no-margin grid-block vertical large-horizontal">
                     <div className="no-margin noborder grid-block large-5">
                         <div className="grid-content noborder">
-                        {member_status=== "lifetime" ? (
                             <div>
                                 <h4><Translate content="account.member.referral_link"/></h4>
                                 <Translate content="account.member.referral_text"/>:
                                 <h5>{`https://wallet.travelchain.io/?r=${account.name}`}</h5>
+                                <Translate content="account.member.referral_text2"/>
+                                <br ></br><br ></br>
                                 <div className="button disabled">
                                    <Translate content="account.member.referrals" />
                                </div>
                             </div>
-                        ) : null}
+                            <br ></br>
+
                             <h4><Translate content="account.member.fee_allocation"/></h4>
                             <table className="table key-value-table">
                                 <tbody>
