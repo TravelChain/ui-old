@@ -131,9 +131,9 @@ class AccountLeftPanel extends React.Component {
                                 <li><Link to={`/account/${account_name}/permissions/`} activeClassName="active">
                                     <Icon name="permition_gray" size="1x" fillClass="fill-black"/>
                                     <Translate content="account.permissions"/></Link></li>
-                                <li><Link to={`/account/${account_name}/whitelist/`} activeClassName="active">
+                                {/* <li><Link to={`/account/${account_name}/whitelist/`} activeClassName="active">
                                     <Icon name="whitelist_gray" size="1x" fillClass="fill-black"/>
-                                    <Translate content="account.whitelist.title"/></Link></li>
+                                    <Translate content="account.whitelist.title"/></Link></li> */}
                                 {<li><Link to={`/account/${account_name}/vesting/`} activeClassName="active">
                                     <Icon name="balance_gray" size="1x" fillClass="fill-black"/>
                                     <Translate content="account.vesting.title"/></Link>
