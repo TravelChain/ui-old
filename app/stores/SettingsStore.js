@@ -85,9 +85,7 @@ class SettingsStore {
                 {translate: "no"}
             ],
             themes: [
-                "darkTheme",
                 "lightTheme",
-                "olDarkTheme"
             ],
             passwordLogin: [
                 {translate: "cloud_login"},
