@@ -83,7 +83,7 @@ class Kyc extends React.Component {
 
     componentWillMount () {
         jQuery('.dateinput input').mask('0000-00-00', {
-          placeholder: "0000-00-00"
+          placeholder: "YYYY-MM-DD"
         });
       // $('№phone').mask('0000-0000');
       // $("#phone").intlTelInput();
