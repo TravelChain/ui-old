@@ -1,6 +1,6 @@
 #### Table of Contents
 
- * [BitShares](introduction/bitshares.md)
+ * [TravelChain](introduction/bitshares.md)
  * [Wallet](introduction/wallets.md)
  * [Backups](introduction/backups.md)
  * [Blockchain](introduction/blockchain.md)

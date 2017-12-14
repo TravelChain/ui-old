@@ -10,7 +10,7 @@
     "tr": "Turkish"
   },
   "header": {
-    "title": "비트쉐어 2.0",
+    "title": "TravelChain",
     "account": "계정",
     "dashboard": "전체보기",
     "explorer": "탐색기",
@@ -40,7 +40,7 @@
     "no_price": "There's no recent price available for this asset that can be used to estimate its value.",
     "hide_asset": "Click here to hide this asset from this list.",
     "show_asset": "Click here to show this asset in the main list.",
-    "settle": "Settling will let you convert your holdings of %(asset)s to BTS after a delay of 24 hours, at a price equal to the feed price at that time.",
+    "settle": "Settling will let you convert your holdings of %(asset)s to TT after a delay of 24 hours, at a price equal to the feed price at that time.",
     "filter_ops": "Use this list to filter your history by operation type.",
     "show_block": "Click here to show block #%(block)s where this transaction occured.",
     "coll_ratio": "The collateral ratio of the position is COLLATERAL * FEED PRICE / DEBT.",
@@ -50,12 +50,18 @@
     "cr_danger": "This position is currently being margin called. Consider adding collateral to bring the collateral ratio above %(mr)s or closing the position.",
     "cr_warning": "This position has a low level of collateral, and will get margin called if the collateral ratio drops below %(mr)s. Consider adding collateral or closing the position.",
     "propose_scam": "This proposal was created by a known scammer, do not approve it!",
-    "login": "This BitShares wallet does not offer a traditional login but instead simply locks or unlocks a wallet that is <b>only</b> stored locally in your browser.<br/><br/>Whenever you close the wallet it will be locked and you will effectively be logged out.",
+    "login": "This TravelChain wallet does not offer a traditional login but instead simply locks or unlocks a wallet that is <b>only</b> stored locally in your browser.<br/><br/>Whenever you close the wallet it will be locked and you will effectively be logged out.",
     "buy_min": "You will receive at minimum this amount. If there are matching orders with a cheaper price than you specified, you will receive more than this amount.",
     "borrow": "Borrow %(asset)s from the network. This creates a smart contract that locks your collateral until you either modify the position or a margin call is required.",
     "memo_tip": "You may include any message in the memo field. Memos are optional but generally required for transfers to exchanges."
   },
   "account": {
+    "intro_text_title": "Welcome to TravelChain",
+      "intro_text_1": "Decentralized Data Exchange for the Travel Industry",
+      "intro_text_2": "",
+      "intro_text_3": "<b>The DEX</b> also enables creation of user-issued assets (UIAs), which can be traded against any other UIAs or trustless assets on the platform.  One well-known issuer on The DEX is <b>OpenLedger</b>, offering a host of assets including BTC, ETH, STEEM, DASH, LTC, DOGE, and many more",
+    "intro_text_4": "This gives cryptocurrency traders a unique blend of traditional and decentralized trading, all in a familiar exchange interface. Happy trading!",
+    
     "in_open": "This is the amount of %(asset)s you have in open orders.",
     "in_open_value": "This is the estimated value of the %(asset)s you have in open orders.",
     "transfer_actions": "Transfer actions",
@@ -70,7 +76,7 @@
     "recent": "최근 활동",
     "name": "계정명",
     "more": "더 보기",
-    "deposit_withdraw": "입출금",
+    "deposit_withdraw": "Token Sale",
     "member": {
       "stats": "회원정보",
       "join": "가입일",
@@ -92,7 +98,11 @@
       "upgrade_lifetime": "평생회원권 구입",
       "subscribe": "연간회원권 구입",
       "expires": "만료됨",
-      "membership_expiration": "멤버쉽 만료일"
+      "membership_expiration": "멤버쉽 만료일",
+      "referral_link": "Your referral link",
+      "referral_text": "Give this to link to people you want to refer to TravelChain",
+      "referral_text2": "You can use your referral link to invite new people to the registration, but the cashback bonus is only available if you have the lifetime member status."
+
     },
     "user_issued_assets": {
       "symbol": "약자",
@@ -208,6 +218,17 @@
   "pagination": {
     "newer": "이전",
     "older": "다음"
+  },
+    "kyc": {
+    "header": "Enter your personal data",
+    "first_name": "First name",
+    "surname": "Last name",
+    "country": "Country",
+    "email": "Contact email",
+    "phone": "Contact phone",
+    "address": "Address",
+    "birthday": "Birthday",
+    "activity": "Kind of activity"
   },
   "transfer": {
     "from": "보내는 사람",
@@ -412,7 +433,8 @@
       "avg_conf_time": "평균 승인시간",
       "trx_per_sec": "초당 거래",
       "last_block": "마지막 블록",
-      "current_block": "현재 블록"
+      "current_block": "현재 블록",
+      "reserve_fund": "Reserve Fund"
     },
     "block": {
       "title": "블록",
@@ -521,7 +543,7 @@
     "workers": {
       "title": "예산 항목",
       "period": "Worker duration",
-      "daily_pay": "Daily pay (BTS)",
+      "daily_pay": "Daily pay (TT)",
       "website": "Website",
       "vesting_pay": "Salary vesting period (days)",
       "create": "Create a new worker proposal",
@@ -529,7 +551,7 @@
       "create_text_2": "Consider carefully the parameters you choose as they can not be changed once you've published your worker.",
       "name_text": "The name of your worker should be short and descriptive, something like this: 'Worker Purpose - Account Name'",
       "date_text": "The start date should be at least a week into the future in order to allow people the time to discover, evaluate and vote for your worker.",
-      "pay_text": "The daily pay defines how much you want to be paid per day and is defined in BTS. The current best practice is to define a salary in USD/CNY, and commit to burning whatever surplus you receive as a result of the BTS price increasing. As long as your worker is active and has sufficient votes to be above the refund worker, you will receive this daily salary.",
+      "pay_text": "The daily pay defines how much you want to be paid per day and is defined in TT. The current best practice is to define a salary in USD/CNY, and commit to burning whatever surplus you receive as a result of the TT price increasing. As long as your worker is active and has sufficient votes to be above the refund worker, you will receive this daily salary.",
       "url_text": "You should supply a website, github document or google doc that describes in more detail the purpose of the worker and how you intend to use the worker pay.",
       "vesting_text": "The vesting period defines the number of days that worker earnings will vest before being fully claimable."
     },
@@ -726,7 +748,7 @@
     "generated": "Generated password",
     "understand_1": "I understand that no one can recover my password if I lose or forget it",
     "understand_2": "I have written down or otherwise stored my password",
-    "bts_rules": "The first rule of Bitshares is: Do not lose your password.<br/>The second rule of Bitshares is: Do not lose your password.<br />The third rule of Bitshares is: We cannot recover your password.<br />The fourth rule: If you can remember the password, it's not secure.<br />The fifth rule: Use only randomly-generated passwords.<br />The sixth rule: Do not tell anyone your password.<br />The seventh rule: Always back up your password."
+    "bts_rules": "The first rule of TravelChain is: Do not lose your password.<br/>The second rule of TravelChain is: Do not lose your password.<br />The third rule of TravelChain is: We cannot recover your password.<br />The fourth rule: If you can remember the password, it's not secure.<br />The fifth rule: Use only randomly-generated passwords.<br />The sixth rule: Do not tell anyone your password.<br />The seventh rule: Always back up your password."
   },
   "borrow": {
     "title": "Collateral position for %(asset_symbol)s",
@@ -774,6 +796,7 @@
     "bridge": "Bridge",
     "gateway": "Gateway",
     "symbol": "Symbol",
+    "gateway_text": "Send your cryptocurrency to this address",
     "deposit_to": "Deposit To",
     "balance": "Balance",
     "generate": "Generate",

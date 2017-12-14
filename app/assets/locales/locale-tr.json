@@ -10,7 +10,7 @@
     "tr": "Türkçe"
   },
   "header": {
-    "title": "BitKapital",
+    "title": "TravelChain",
     "account": "Hesap",
     "dashboard": "Ana Sayfa",
     "explorer": "İncele",
@@ -41,7 +41,7 @@
     "no_price": "Bu dijital varlığın değerini tespit etmek için piyasada yeterli veri bulunmamaktadır.",
     "hide_asset": "Bu dijital varlığı gizlemek için tıklayın.",
     "show_asset": "Bu dijital varlığı ana listede göstermek için tıklayın.",
-    "settle": "Sona erdirme işlemi dijital varlıklarınızı 24 saatlik bir gecikme ile o anki fiyat üzerinden BTS'ye dönüştürmenizi sağlar",
+    "settle": "Sona erdirme işlemi dijital varlıklarınızı 24 saatlik bir gecikme ile o anki fiyat üzerinden TT'ye dönüştürmenizi sağlar",
     "filter_ops": "İşlem türüne göre listeyi filtrelemek için burayı kullanabilirsiniz.",
     "show_block": "İşlemin gerçekleşmiş olduğu #%(block)s numaralı bloğa bakmak için buraya tıklayın.",
     "coll_ratio": "Pozisyonun teminat oranı = TEMİNAT * PİYASA FİYATI / BORÇ",
@@ -51,9 +51,9 @@
     "cr_danger": "Pozisyonun teminat seviyesi itfa değerinin altındadır. Teminat oranını en az %(mr)s yapacak şekilde teminat yatırabilir ya da pozisyonu kapatabilirsiniz.",
     "cr_warning": "Pozisyonun teminat seviyesi düşük durumdadır ve %(mr)s seviyesinin altına düştüğünde teminat tamamlama çağrısı yapılacaktır.",
     "propose_scam": "Bu işlem teklifi bilinen bir dolandırıcı tarafından sunulmuştur, onaylamayın!",
-    "login": "Bitshares cüzdanında geleneksel oturum açma-kapatma yoktur, bunun yerine cüzdanınız <b>kilitli</b> ve <b>açık</b> konumlarından birinde tutulur. Cüzdanınız kilitli olduğunda herhangi bir işlem yapılamaz, yalnızca gözlemci olunabilir.",
+    "login": "TravelChain cüzdanında geleneksel oturum açma-kapatma yoktur, bunun yerine cüzdanınız <b>kilitli</b> ve <b>açık</b> konumlarından birinde tutulur. Cüzdanınız kilitli olduğunda herhangi bir işlem yapılamaz, yalnızca gözlemci olunabilir.",
     "buy_min": "En az bu miktar kadar dijital varlık alacaksınız. Belirlediğiniz fiyattan daha iyi bir fiyat piyasada varsa, toplam alacağınız miktar bu miktarı geçebilir.",
-    "borrow": "Blokzincirinden %(asset)s borç al. Bu işlem ile belirli bir miktar teminat belirleyerek Bitshares'in akıllı kontrat sistemi aracılığıyla dijital ürün borç alabilirsiniz. Borcu ödediğinizde teminat da serbest kalacaktır.",
+    "borrow": "Blokzincirinden %(asset)s borç al. Bu işlem ile belirli bir miktar teminat belirleyerek TravelChain'in akıllı kontrat sistemi aracılığıyla dijital ürün borç alabilirsiniz. Borcu ödediğinizde teminat da serbest kalacaktır.",
     "transfer_actions": "Dijital ürün transferi ya da (eğer destekleniyorsa) yatırma-çekme işlemi yapmak için buraya tıklayın.",
     "deposit_tip": "Yatıma işlemini tamamlamak için aşağıdaki adrese %(asset)s gönderin. Transfer işleminiz onaylandığı zaman bakiyenizi yüklenecektir. Aşağıda bir işem açıklaması (memo) belirtilmişse transfere o açıklamayı eklemeniz ZORUNLUDUR.",
     "copy_tip": "Metni kopyalamak için tıklayın",
@@ -64,10 +64,10 @@
   "propose": "Teklif Et",
   "cancel": "İptal",
   "account": {
-    "intro_text_title": "Bitshares'e Hoş Geldiniz",
-    "intro_text_1": "<b>Bitshares Merkezsiz Kriptopara Borsası</b> (BMKB) kripto para al-sat deneyiminizi kökten değiştirecek, yeni nesil bir borsa platformudur.",
-    "intro_text_2": "<b>Bitshares</b>'de al-sat işlemleri herhangi bir aracı olmaksızın, doğrudan kullanıcıların kendi arasında gerçekleşir.",
-    "intro_text_3": "Platform üzerinde kullanıcılar kendi hesaplarının tam kontrolüne sahiptir - hiçbir aracı kurum işlemlerinize müdahale edemez!",
+    "intro_text_title": "Welcome to TravelChain",
+      "intro_text_1": "Decentralized Data Exchange for the Travel Industry",
+      "intro_text_2": "",
+      "intro_text_3": "Platform üzerinde kullanıcılar kendi hesaplarının tam kontrolüne sahiptir - hiçbir aracı kurum işlemlerinize müdahale edemez!",
     "intro_text_4": "Platformda BTC, ETH, STEEM, DASH, LTC, DOGE gibi coin'lerle işlem yapabileceğiniz gibi aynı zamanda kendi coin'inizi oluşturabilir ve hemen ticaretine başlayabilirsiniz.",
     "in_open": "Bekleyen emirlerinizdeki %(asset)s miktarı: ",
     "in_open_value": "%(asset)s piyasasındaki bekleyen emirlerin büyüklüğü (anlık değere göre): ",
@@ -79,7 +79,7 @@
     "api_server": "API Sunucusu",
     "bittrex_scam": "Bu adres Bittrex'in gerçek adresi değildir. Lütfen alıcıyı bittrex-deposit olarak değiştirin.",
     "estimate_value": "Toplam hesap değeri (yaklaşık)",
-    "welcome": "Bitshares'e Hoşgeldiniz",
+    "welcome": "TravelChain'e Hoşgeldiniz",
     "asset": "Dijital Varlık",
     "market_value": "Piyasa Değeri",
     "hour_24": "24 Saat",
@@ -89,7 +89,7 @@
     "id": "Hesap No",
     "mine": "Hesabım",
     "more": "fazlası",
-    "deposit_withdraw": "Yatır/Çek",
+    "deposit_withdraw": "Token Sale",
     "as_collateral": "Teminat",
     "open_orders": "Açık Emirler",
     "total_value": "Toplam değeri",
@@ -147,8 +147,10 @@
       "remaining": "Bekletilecek günler",
       "claim": "Şimdi iste",
       "available": "Sahip olunabilecek",
-      "referral_link": "Davet bağlantınız",
-      "referral_text": "Bu bağlantıyı BitShares'e davet etmek istediğiniz kişilere gönderin"
+      "referral_link": "Your referral link",
+      "referral_text": "Give this to link to people you want to refer to TravelChain",
+      "referral_text2": "You can use your referral link to invite new people to the registration, but the cashback bonus is only available if you have the lifetime member status."
+
     },
     "user_issued_assets": {
       "symbol": "Sembol",
@@ -358,6 +360,18 @@
     "newer": "Daha yeni",
     "older": "Daha eski"
   },
+    "kyc": {
+    "header": "Enter your personal data",
+    "first_name": "First name",
+    "surname": "Last name",
+    "country": "Country",
+    "email": "Contact email",
+    "phone": "Contact phone",
+    "address": "Address",
+    "birthday": "Birthday",
+    "activity": "Kind of activity"
+  },
+
   "transfer": {
     "from": "Gönderen",
     "pay_from": "Ödeyen hesap",
@@ -616,7 +630,8 @@
       "avg_conf_time": "Ortalama teyit süresi",
       "trx_per_sec": "İşlem/s",
       "last_block": "Son blok",
-      "current_block": "Şimdiki Blok"
+      "current_block": "Şimdiki Blok",
+      "reserve_fund": "Reserve Fund"
     },
     "block": {
       "title": "Blok",
@@ -729,7 +744,7 @@
     "workers": {
       "title": "Bütçe Öğeleri",
       "period": "Worker duration",
-      "daily_pay": "Daily pay (BTS)",
+      "daily_pay": "Daily pay (TT)",
       "website": "Website",
       "vesting_pay": "Salary vesting period (days)",
       "create": "Create a new worker proposal",
@@ -737,7 +752,7 @@
       "create_text_2": "Consider carefully the parameters you choose as they can not be changed once you've published your worker.",
       "name_text": "The name of your worker should be short and descriptive, something like this: 'Worker Purpose - Account Name'",
       "date_text": "The start date should be at least a week into the future in order to allow people the time to discover, evaluate and vote for your worker.",
-      "pay_text": "The daily pay defines how much you want to be paid per day and is defined in BTS. The current best practice is to define a salary in USD/CNY, and commit to burning whatever surplus you receive as a result of the BTS price increasing. As long as your worker is active and has sufficient votes to be above the refund worker, you will receive this daily salary.",
+      "pay_text": "The daily pay defines how much you want to be paid per day and is defined in TT. The current best practice is to define a salary in USD/CNY, and commit to burning whatever surplus you receive as a result of the TT price increasing. As long as your worker is active and has sufficient votes to be above the refund worker, you will receive this daily salary.",
       "url_text": "You should supply a website, github document or google doc that describes in more detail the purpose of the worker and how you intend to use the worker pay.",
       "vesting_text": "The vesting period defines the number of days that worker earnings will vest before being fully claimable."
     },
@@ -804,7 +819,7 @@
     "backupcreate_brainkey": "TekAnahtar yedeği oluştur",
     "restore_brainkey_text": "Hesabınıza TekAnahtar ile erişim sağlamak için öncelikle yeni, boş bir cüzdan oluşturmalısınız. Cüzdanı oluşturmak için lütfen bir cüzdan ismi (herhangi bir şey olabilir, hatırlamanız içindir, sisteme kaydedilmez) ve şifre belirleyin, ve sonra TekAnahtarınızı girin. Bu işlemle yeni bir cüzdan oluşturulup içerisine hesabınız eklenecektir.",
     "restore_bin_success": "Hesabıma git",
-    "lookup_text": "BTS 1.0'den kalan bakiyelerinizi almak için tıklayın.",
+    "lookup_text": "TT 1.0'den kalan bakiyelerinizi almak için tıklayın.",
     "delete_select": "Silinecek cüzdanı seçin",
     "restore_key_count": "Anahtar sayısı",
     "restore_default_success": "Ayarlar başarıyla sıfırlanmıştır.",
@@ -815,7 +830,7 @@
     "connection_error": "Unable to connect to API node %(url)s, falling back to known working nodes"
   },
   "footer": {
-    "title": "Bitshares",
+    "title": "TravelChain",
     "block": "İşlenen son blok",
     "loading": "Yükleniyor...",
     "backup": "Cüzdanınızı yedekleyin",
@@ -916,13 +931,13 @@
     "preferred": "Piyasalarım"
   },
   "wallet": {
-    "account_create_wallet_text": "Bu şifre yeni bir Bitshares cüzdanı oluşturmak için kullanılacak ve tarayıcınızda saklanacaktır. Cüzdanınızı yedeklerseniz, bu şifre ile birlikte başka bilgisayarlardan ve tarayıcılardan cüzdanınıza ulaşabilirsiniz.",
+    "account_create_wallet_text": "Bu şifre yeni bir TravelChain cüzdanı oluşturmak için kullanılacak ve tarayıcınızda saklanacaktır. Cüzdanınızı yedeklerseniz, bu şifre ile birlikte başka bilgisayarlardan ve tarayıcılardan cüzdanınıza ulaşabilirsiniz.",
     "all_set": "İşleminiz başarıyla tamamlandı!",
     "backup_explain": "Aşağıdaki butona tıkladığınızda .bin uzantılı bir yedekleme dosyası oluşturulacaktır. Bu dosya, cüzdan şifreniz ile şifrelenmiştir, ve kendi şifreniz ile birlikte kullanıldığında cüzdanınıza tam erişim sağlar. Yedekleme dosyasını cüzdanınızı başka bir tarayıcı ya da bilgisayara taşımak için de kullanabilirsiniz.",
     "backup_new_account": "Tebrikler, yeni hesabınız oluşturuldu. Lütfen cüzdanınızı yedekleyin. Cüzdanınıza ya da bilgisayarınıza erişiminizi kaybetseniz bile TekAnahtar ile, ya da .bin dosyası ve şifrenizle hesabınıza tekrar erişebilirsiniz.",
     "brainkey_backed_up": "TekAnahtar son yedeklenme tarihi",
     "brainkey_not_backed_up": "TekAnahtar daha önce hiç yedeklenmemiş.",
-    "bts_09_export": "BTS 0.9.3c yedek anahtar dosyası (.json)",
+    "bts_09_export": "TT 0.9.3c yedek anahtar dosyası (.json)",
     "change_backup": "Şifrenizi değiştirdiğiniz için cüzdanınızı yeniden yedeklemeniz gerekmektedir.",
     "change_success": "Şifre değiştirildi!",
     "claim_later": "Yedeklenmiş cüzdanınızı aktardıktan sonra bu bakiyeler kullanılabilir olacaktır.",
@@ -930,14 +945,14 @@
     "create_a": "Yeni bir hesap oluşturun",
     "create_importkeys_text": "Özel anahtarınızı aktarmak için öncelikle bir cüzdan oluşturmalısınız, bunun için lütfen aşağıdaki formu doldurun.",
     "create_success": "Tebrikler! Hesabınız oluşturuldu.",
-    "create_text": "Bitshares cüzdanınız tamamen kendi bilgisayarınızda tutulur ve cüzdan bilgileriniz ya da şifreniz siz paylaşmadığınız sürece kimseyle paylaşılmaz.",
+    "create_text": "TravelChain cüzdanınız tamamen kendi bilgisayarınızda tutulur ve cüzdan bilgileriniz ya da şifreniz siz paylaşmadığınız sürece kimseyle paylaşılmaz.",
     "create_w_a": "Ücretsiz hesap oluşturun",
     "create_wallet_backup": "Yedeklenmiş cüzdanı aktar.",
     "delete_confirm_line4": "Evet, şu cüzdanı silmek istiyorum: %(name)s",
-    "has_wallet": "Bitshares hesabı açtığınızda cüzdanınızın kontrolü tamamen size aittir. Bir başka kişi sizin cüzdanınızı kontrol edemez. Cüzdana erişim için gerekli olan TekAnahtar bilgisayarınızda şifreli olarak saklanır.",
+    "has_wallet": "TravelChain hesabı açtığınızda cüzdanınızın kontrolü tamamen size aittir. Bir başka kişi sizin cüzdanınızı kontrol edemez. Cüzdana erişim için gerekli olan TekAnahtar bilgisayarınızda şifreli olarak saklanır.",
     "create_account_text": "Hesabınıza ait .bin dosyasını kaybetmeniz, veya TekAnahtarı ya da şifrenizi unutmanız durumunda hesabınıza erişmenin hiçbir yolu yoktur. Bu yüzden, bir sonraki adımda cüzdanınızı yedeklemeli ve .bin dosyanızı, şifrenizi ve TekAnahtarınızı kesinlikle kaybetmemelisiniz.",
     "first_account_paid": "TekAnahtarınızı, şifrenizi veya .bin dosyasını güvende tutmazsanız, bilgisayarınızda oluşacak herhangi bir sorun ya da güncelleme nedeniyle cüzdanınıza erişimi kaybedebilirsiniz. Bu durumda cüzdanınızdaki dijital varlıkları geri getirmenin hiçbir yolu yoktur.",
-    "not_first_account": "Zaten bir Bitshares hesabı ile giriş yapılmış, bu yüzden yeni oluşturacağınız her hesap için ağ ücreti ödemeniz gerekmektedir.",
+    "not_first_account": "Zaten bir TravelChain hesabı ile giriş yapılmış, bu yüzden yeni oluşturacağınız her hesap için ağ ücreti ödemeniz gerekmektedir.",
     "import_backup_choose": "Lütfen yedekleme dosyasını seçin. Bu işlem esnasında dosya kendi bilgisayarınızdan dışarıya asla aktarılmaz, bütün işlem bilgisayarınızda gerçekleşir.",
     "import_balance": "Bakiyeyi aktar.",
     "import_key_success": "İşleminiz başarıyla tamamlandı!",
@@ -962,8 +977,8 @@
     "wallet_crucial": "Kural 1: Cüzdanınızın/hesabınızın tek sahibi sizsizniz.<br/>Kural 2: Cüzdanınıza/hesabınıza ait bilgileri kaybederseniz hesabınıza asla ulaşamazsınız.<br/>Kural 3: Cüzdanınıza/hesabınıza ait bilgiler siz hariç hiçkimse tarafından kaydedilmez; sorumluluk tamamen size aittir.<br/>Kural 4: Cüzdanınızı/hesabınızı yedeklemeli ve şifrenizi ya da yedekleme dosyalarını kesinlikle güvende tutmalısınız.<br/>Kural 5: Bu kurallara uymazsanız cüzdanınızdaki/hesabınızdaki bütün dijital varlıkları kaybedebilirsiniz.",
     "wallet_lose_warning": "",
     "wallet_move": "Cüzdan yedekleme dosyalarınızla ya da hesabınıza ait bilgilerinizle dijital varlıklarınıza başka bir bilgisayardan da erişim sağlayabilirsiniz.",
-    "wallet_new": "Bitshares'e Hoş Geldiniz",
-    "import_bts": "BTS 0.9.3c anahtar aktarma",
+    "wallet_new": "TravelChain'e Hoş Geldiniz",
+    "import_bts": "TT 0.9.3c anahtar aktarma",
     "title": "Cüzdan",
     "confirm": "Şifre (teyit)",
     "password": "Şifre",
@@ -972,7 +987,7 @@
     "change_wallet": "Cüzdanı Değiştir",
     "wallet_created": "Cüzdan Oluşturuldu",
     "create_wallet": "Cüzdan Oluştur",
-    "import_bts1": "BitShares 0.9.3c den aktarım",
+    "import_bts1": "TravelChain 0.9.3c den aktarım",
     "setup_wallet": "Cüzdanınızı Oluşturun",
     "delete_wallet": "Cüzdanı Sil",
     "delete_confirm_line1": "KESİNLİKLE emin misiniz?",
@@ -1011,7 +1026,7 @@
     "restore_wallet_of": "%(name)s Adlı Cüzdanı Eski Haline Getir",
     "restore_success": "%(name)s Adlı cüzdan başarıyla eski haline döndürüldü",
     "change": "Değiştir (%(name)s Cüzdan)",
-    "import_20_notice1": "İlk önce BTS 2.0+ YEDEĞİNİZİ içeri aktarın ",
+    "import_20_notice1": "İlk önce TT 2.0+ YEDEĞİNİZİ içeri aktarın ",
     "import_20_notice2": "(eğer varsa)",
     "loading_balances": "Bakiye istemleri yükleniyor",
     "no_balance": "Bakiye talebi yok",
@@ -1041,7 +1056,7 @@
     "password_lose_warning": "<strong>UYARI: Şifrenizi kaybederseniz hesabınıza erişimi tamamen kaybedersiniz. Bu yüzden şifrenizi kesinlikle yedeklemeniz gerekmektedir. Bu tamamen ve yalnızca sizin sorumluluğunuzdadır.</strong>",
     "password_crucial": "Lütfen şifrenizi kaybetmeyeceğiniz şekilde bir yere yazın ve güvende tutun. Şifrenizi kaybederseniz hesabınıza erişmenin HİÇBİR YOLU YOKTUR. <strong>Şifrenizi hatırlamak yalnızca ve tamamen sizin sorumluluğunuzdur.</strong>.",
     "password_show": "Şifreyi göster",
-    "tips_explore_pass": "Hesabınız başarıyla oluşturulmuştur. Soldaki bağlantılardan birine tıklayarak Bitshares Merkezsiz Kriptopara Borsası'nı keşfedin!",
+    "tips_explore_pass": "Hesabınız başarıyla oluşturulmuştur. Soldaki bağlantılardan birine tıklayarak TravelChain Merkezsiz Kriptopara Borsası'nı keşfedin!",
     "create_account_password_text": "Yeni hesabınız için gereken özel anahtarlar şifreniz kullanılarak üretilecektir. <strong>Şifreniz bilgisayarınızda ya da herhangi bir yerde otomatik olarak kayıtlı TUTULMAZ. Şifrenizi not etmek ya da ezberlemek ve sonrasında hatırlamak tamamen ve yalnızca sizin sorumluluğunuzdur.</strong>",
     "create_password": "Şifre kullanarak yeni bir hesap oluştur.",
     "login_type": "Hesaba erişim şeklini seçin:",
@@ -1064,7 +1079,7 @@
     "generated": "Generated password",
     "understand_1": "I understand that no one can recover my password if I lose or forget it",
     "understand_2": "I have written down or otherwise stored my password",
-    "bts_rules": "The first rule of Bitshares is: Do not lose your password.<br/>The second rule of Bitshares is: Do not lose your password.<br />The third rule of Bitshares is: We cannot recover your password.<br />The fourth rule: If you can remember the password, it's not secure.<br />The fifth rule: Use only randomly-generated passwords.<br />The sixth rule: Do not tell anyone your password.<br />The seventh rule: Always back up your password."
+    "bts_rules": "The first rule of TravelChain is: Do not lose your password.<br/>The second rule of TravelChain is: Do not lose your password.<br />The third rule of TravelChain is: We cannot recover your password.<br />The fourth rule: If you can remember the password, it's not secure.<br />The fifth rule: Use only randomly-generated passwords.<br />The sixth rule: Do not tell anyone your password.<br />The seventh rule: Always back up your password."
   },
   "borrow": {
     "title": "%(asset_symbol)s Marjin",
@@ -1119,7 +1134,7 @@
     "connected": "Bağlandı",
     "not_connected": "Bağlı değil",
     "browser": "Desteklenmeyen tarayıcı",
-    "browser_text": "Kullandığınız tarayıcı üzerinde testlerimiz devam etmektedir, bu yüzden BitShares Cüzdanını desteklemeyebilir. Cüzdanınızı yedekleyip Chrome Tarayıcısını kullanarak içeri aktarmanızı önemle tavsiye ederiz. Mesuliyet size aittir.",
+    "browser_text": "Kullandığınız tarayıcı üzerinde testlerimiz devam etmektedir, bu yüzden TravelChain Cüzdanını desteklemeyebilir. Cüzdanınızı yedekleyip Chrome Tarayıcısını kullanarak içeri aktarmanızı önemle tavsiye ederiz. Mesuliyet size aittir.",
     "understand": "Anladım ve onaylıyorum."
   },
   "refcode": {
@@ -1138,10 +1153,10 @@
     "fee": "Gateway fee",
     "title": "Yatır & Çek",
     "assets": {
-        "open": "<br/><br/>Bu dijital varlık Bitshares üzerinde %(backed)s işlemleri yapmanız için OpenLedger tarafından %%100 %(backed)s rezervi ile desteklenmektedir. İstediğiniz zaman 1:1 oranında %(asset)s-%(backed)s dönüşümü yapabilirsiniz.",
-        "trade": "<br/><br/>Bu dijital varlık Bitshares üzerinde %(backed)s işlemleri yapmanız için BlockTrades tarafından %%100 %(backed)s rezervi ile desteklenmektedir. İstediğiniz zaman 1:1 oranında %(asset)s-%(backed)s dönüşümü yapabilirsiniz.",
-        "bit": "<br/>bit%(asset)s, fiyat olarak %(backed)s marketini takip eden bir türev araçtır. Bu hizmet hiçbir merkezi otorite tarafından değil, merkezsiz Bitshares blokzinciri tarafından sağlanır.",
-        "bitcny": "<br/><br/>bitCNY, Çin Yuanı'nın Bitshares borsasındaki temsilidir. 1:1 Çin Yuanı ile değiştirilebilen bu dijital varlık Magic Wallet tarafından yürütülmektedir. Daha fazla bilgi için: https://www.magicw.net/"
+        "open": "<br/><br/>Bu dijital varlık TravelChain üzerinde %(backed)s işlemleri yapmanız için OpenLedger tarafından %%100 %(backed)s rezervi ile desteklenmektedir. İstediğiniz zaman 1:1 oranında %(asset)s-%(backed)s dönüşümü yapabilirsiniz.",
+        "trade": "<br/><br/>Bu dijital varlık TravelChain üzerinde %(backed)s işlemleri yapmanız için BlockTrades tarafından %%100 %(backed)s rezervi ile desteklenmektedir. İstediğiniz zaman 1:1 oranında %(asset)s-%(backed)s dönüşümü yapabilirsiniz.",
+        "bit": "<br/>bit%(asset)s, fiyat olarak %(backed)s marketini takip eden bir türev araçtır. Bu hizmet hiçbir merkezi otorite tarafından değil, merkezsiz TravelChain blokzinciri tarafından sağlanır.",
+        "bitcny": "<br/><br/>bitCNY, Çin Yuanı'nın TravelChain borsasındaki temsilidir. 1:1 Çin Yuanı ile değiştirilebilen bu dijital varlık Magic Wallet tarafından yürütülmektedir. Daha fazla bilgi için: https://www.magicw.net/"
     },
     "your_account": "Kullanıcı adınız",
     "bitkapital_receive": "Vermiş olduğunuz banka hesabınıza yatacak miktar",
@@ -1181,8 +1196,8 @@
     "valid_address": "Lütfen geçerli bir  %(coin_type)s adresi giriniz",
     "withdraw_coin": " %(coin)s (%(symbol)s) Çekme Talebi",
     "limit": "Sınır: %(amount)s %(symbol)s",
-    "bridge_text": " Köprüler bir dijital varlıktan bir diğerine geçiş yapmanızı sağlar, örn. BTC'yi BTS'ye.",
-    "gateway_text": "Geçitler BitShares'de tanımlı dijital varlıklardan gerçek enstrümanlara geçmenizi sağlar (ve tam tersi), örn. OPEN.BTC'den  BTC'ye.",
+    "bridge_text": " Köprüler bir dijital varlıktan bir diğerine geçiş yapmanızı sağlar, örn. BTC'yi TT'ye.",
+    "gateway_text": "Send your cryptocurrency to this address",
     "fiat_text": "Buradaki kripto para yatırma işlemleri CCEDK tarafından sağlanan bir hizmettir. Bu hizmetten faydalanmanız için öncelikle CCEDK kaydınız olmalıdır. Kayıt işleminden sonra aşağıdaki dönüşümleri yapabilirsiniz:",
     "meta": {
       "open_website": ""
