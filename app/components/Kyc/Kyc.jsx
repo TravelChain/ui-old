@@ -1579,9 +1579,9 @@ class Kyc extends React.Component {
 
                   {/* Contact phone */}
                     <div className="content-block transfer-input">
-                      <div className="MuiFormControl-root-1 MuiFormControl-marginNormal-2 MuiFormControl-fullWidth-4">
+                      <div className="MuiFormControl-root-1 MuiFormControl-marginNormal-2 MuiFormControl-fullWidth-4 c1 c2 c4">
                         {/*<Translate className="left-label tooltip" component="label" content="kyc.phone" data-place="top"/>*/}
-                        <label data-shrink="true" className="MuiFormLabel-root-11 MuiInputLabel-root-5 MuiInputLabel-formControl-6 MuiInputLabel-animated-9 MuiInputLabel-shrink-8" htmlFor="phone">Phone</label>
+                        <label data-shrink="true" className="MuiFormLabel-root-11 MuiInputLabel-root-5 MuiInputLabel-formControl-6 MuiInputLabel-animated-9 MuiInputLabel-shrink-8 c11 c5 c6 c9 c8" htmlFor="phone">Phone</label>
                         {/*<input type="tel" style={{marginBottom: 0}}  id="phone" onChange={this.onKYCformInputChanged.bind(this)} />*/}
                         {/*<IntlTelInput id="phone" css={['intl-tel-input', 'form-control']}*/}
                             {/*currentCountryISO2={currentCountryISO2}*/}
@@ -1596,8 +1596,8 @@ class Kyc extends React.Component {
                             {/*}}*/}
                             {/*fullWidth*/}
                         {/*/>*/}
-<div className="MuiInput-root-15 MuiInput-formControl-16 MuiInput-inkbar-17 MuiInput-underline-21">
-                      <InputMask value={phone} onChange={this.updatePhoneNumber} className="MuiInput-input-24 MuiInput-inputSingleline-27 phoneInput" mask="+9999999999999999999999" maskChar=" " />
+<div className="MuiInput-root-15 MuiInput-formControl-16 MuiInput-inkbar-17 MuiInput-underline-21 c15 c16 c17 c21">
+                      <InputMask value={phone} onChange={this.updatePhoneNumber} className="MuiInput-input-24 MuiInput-inputSingleline-27 c24 c27 phoneInput" mask="+9999999999999999999999" maskChar=" " />
 </div>
 
                         {/* warning */}
