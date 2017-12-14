@@ -136,9 +136,14 @@ class Kyc extends React.Component {
         this.setState({[e.target.id]: e.target.value});
     }
 
-    updatePhoneNumber (value) {
-        this.setState({phone: value});
-    }
+
+  updatePhoneNumber = (event) => {
+    this.setState({
+      phone: event.target.value
+    });
+  }
+
+
 
   handleChange = name => event => {
     this.setState({
@@ -1413,7 +1418,7 @@ class Kyc extends React.Component {
         let {first_name, surname, country, birthday, email, phone, address, isAgreedTerms, isAgreedTermsTokens, currentCountryISO2} = this.state;
 
         const isSendNotValid = !first_name || !surname || !country || !birthday || !address || !isAgreedTerms || !isAgreedTermsTokens ||
-          !validator.validate(email) || !(phone.indexOf("_") === -1) || !/[0-9]{4}-[0-9]{2}-[0-9]{2}/.test(birthday);
+          !validator.validate(email) || !phone || !/[0-9]{4}-[0-9]{2}-[0-9]{2}/.test(birthday);
 
         return (
 
@@ -1592,15 +1597,15 @@ class Kyc extends React.Component {
                             {/*fullWidth*/}
                         {/*/>*/}
 <div className="MuiInput-root-15 MuiInput-formControl-16 MuiInput-inkbar-17 MuiInput-underline-21">
-                      <InputMask className="MuiInput-input-24 MuiInput-inputSingleline-27 phoneInput" mask="+9999999999999999999999" maskChar=" " />
+                      <InputMask value={phone} onChange={this.updatePhoneNumber} className="MuiInput-input-24 MuiInput-inputSingleline-27 phoneInput" mask="+9999999999999999999999" maskChar=" " />
 </div>
 
                         {/* warning */}
-                        { !(phone.indexOf("_") === -1) ?
-                          <div className="error-area" style={{position: "absolute"}}>
-                            Field is required
-                          </div>
-                          :null}
+                        {/*{ (!phone.length >= 2) ?*/}
+                          {/*<div className="error-area" style={{position: "absolute"}}>*/}
+                            {/*Field is required*/}
+                          {/*</div>*/}
+                          {/*:null}*/}
                       </div>
                     </div>
 
