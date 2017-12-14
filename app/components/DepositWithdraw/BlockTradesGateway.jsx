@@ -6,15 +6,16 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 class BlockTradesGateway extends React.Component {
     constructor(props) {
-        super();
-
-        this.state = {
-            activeCoin: props.wallets[0]
-        };
+      super();
+      this.state = this._initialState(props);
     }
 
-
-
+    _initialState(props) {
+      // console.log(props.wallets[0]);
+      return {
+        activeCoin: ''
+      }
+    }
     onSelectCoin(event, index, value){
         this.setState({
             activeCoin: value
@@ -22,7 +23,6 @@ class BlockTradesGateway extends React.Component {
     }
 
     render() {
-
         let {activeCoin} = this.state;
 
       const styles = {
@@ -33,7 +33,7 @@ class BlockTradesGateway extends React.Component {
 
 
       const wallets = this.props.wallets;
-
+      if (!activeCoin) this.state.activeCoin = wallets['BTC'];
 
         return (
             <div>
