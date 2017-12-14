@@ -19,6 +19,7 @@ import jQuery from 'jquery';
 import 'jquery-mask-plugin';
 import "inputmask/dist/inputmask/inputmask.numeric.extensions";
 import Inputmask from "inputmask/dist/inputmask/inputmask.date.extensions";
+import InputMask from 'react-input-mask';
 
 // let ThemeManager = new mui.Styles.ThemeManager();
 var validator = require("email-validator");
@@ -1573,21 +1574,26 @@ class Kyc extends React.Component {
 
                   {/* Contact phone */}
                     <div className="content-block transfer-input">
-                        <Translate className="left-label tooltip" component="label" content="kyc.phone" data-place="top"/>
+                      <div className="MuiFormControl-root-1 MuiFormControl-marginNormal-2 MuiFormControl-fullWidth-4">
+                        {/*<Translate className="left-label tooltip" component="label" content="kyc.phone" data-place="top"/>*/}
+                        <label data-shrink="true" className="MuiFormLabel-root-11 MuiInputLabel-root-5 MuiInputLabel-formControl-6 MuiInputLabel-animated-9 MuiInputLabel-shrink-8" htmlFor="phone">Phone</label>
                         {/*<input type="tel" style={{marginBottom: 0}}  id="phone" onChange={this.onKYCformInputChanged.bind(this)} />*/}
-                        <IntlTelInput id="phone" css={['intl-tel-input', 'form-control']}
-                            currentCountryISO2={currentCountryISO2}
-                            onPhoneNumberChange={(...args) => this.updatePhoneNumber(args[1])}
-                            utilsScript={'libphonenumber.js'}
-                            defaultCountry={'ru'}
-                            onSelectFlag={(currentNumber, countryDetails) => {
-                                this.setState({
-                                    currentCountryISO2: countryDetails.iso2,
-                                    currentCountryDialCode: countryDetails.dialCode
-                                });
-                            }}
-                            fullWidth
-                        />
+                        {/*<IntlTelInput id="phone" css={['intl-tel-input', 'form-control']}*/}
+                            {/*currentCountryISO2={currentCountryISO2}*/}
+                            {/*onPhoneNumberChange={(...args) => this.updatePhoneNumber(args[1])}*/}
+                            {/*utilsScript={'libphonenumber.js'}*/}
+                            {/*defaultCountry={'ru'}*/}
+                            {/*onSelectFlag={(currentNumber, countryDetails) => {*/}
+                                {/*this.setState({*/}
+                                    {/*currentCountryISO2: countryDetails.iso2,*/}
+                                    {/*currentCountryDialCode: countryDetails.dialCode*/}
+                                {/*});*/}
+                            {/*}}*/}
+                            {/*fullWidth*/}
+                        {/*/>*/}
+<div className="MuiInput-root-15 MuiInput-formControl-16 MuiInput-inkbar-17 MuiInput-underline-21">
+                      <InputMask className="MuiInput-input-24 MuiInput-inputSingleline-27 phoneInput" mask="+9999999999999999999999" maskChar=" " />
+</div>
 
                         {/* warning */}
                         { !(phone.indexOf("_") === -1) ?
@@ -1595,6 +1601,7 @@ class Kyc extends React.Component {
                             Field is required
                           </div>
                           :null}
+                      </div>
                     </div>
 
                   {/* Address */}
