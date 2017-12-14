@@ -4,17 +4,10 @@
 
 >If you have an issue related to a Gateway provider, please be sure to contact them directly. See Gateways in the left menu.
 
-### Bitshares Chat
-You can chat with other member of the Bitshares community in real time at:
+### TravelChain Chat
+You can chat with other member of the TravelChain community in real time at:
 
-- [Telegram](https://t.me/TravelChainDEX)
-- [Discord](https://discord.gg/GsjQfAJ)
-
-### Developers
-If you are a sofware developer, you may contribute via a bounty system at:
-
-- [Github UI](https://github.com/bitshares/bitshares-ui)
-- [Github Core](https://github.com/bitshares/bitshares-core) 
+- [Telegram](https://t.me/travelchain)
 
 ## Introduction
 Welcome to the worlds fastest decentralized exchange (The DEX).
