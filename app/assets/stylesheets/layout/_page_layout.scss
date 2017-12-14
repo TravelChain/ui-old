@@ -115,12 +115,19 @@ div.bordered-header {
     a.inline-block {
       .label {
         background-color: transparent;
-        border-color: #44e2ff;
         height: 24px;
         border-radius: 12px;
         font-size: 12px;
-        color: #40ddfb;
+        //color: #40ddfb;
         line-height: 1;
+
+        &.warning {
+          //border-color: #44e2ff;
+        }
+        &.success {
+          border-color: #2a3b72;
+          color: #2a3b72;
+        }
       }
     }
   }
