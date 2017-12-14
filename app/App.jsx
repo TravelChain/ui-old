@@ -269,6 +269,9 @@ class Root extends React.Component {
 
         ss.remove("apiLatencies");
         ss.remove("settings_v3");
+
+
+        Raven.config('https://5f732d12b52e44679fd7d7c16f82ce60@sentry.io/259519').install()
     }
 
     getChildContext() {
