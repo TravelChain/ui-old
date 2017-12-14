@@ -57,14 +57,14 @@ class SettingsStore {
         let defaults = {
             locale: [
                 "en",
-         //       "zh",
-         //       "fr",
-         //       "ko",
-         //       "de",
-         //       "es",
-         //       "it",
-         //       "tr",
-         //       "ru"
+                "zh",
+                "fr",
+                "ko",
+                "de",
+                "es",
+                "it",
+                "tr",
+                "ru"
             ],
             apiServer: [],
             unit: [
