@@ -10,7 +10,7 @@
     "tr": "Turkish"
   },
   "header": {
-    "title": "BitShares UI",
+    "title": "TravelChain UI",
     "account": "Konto",
     "dashboard": "Übersicht",
     "explorer": "Explorer",
@@ -41,7 +41,7 @@
     "no_price": "There's no recent price available for this asset that can be used to estimate its value.",
     "hide_asset": "Click here to hide this asset from this list.",
     "show_asset": "Click here to show this asset in the main list.",
-    "settle": "Settling will let you convert your holdings of %(asset)s to BTS after a delay of 24 hours, at a price equal to the feed price at that time.",
+    "settle": "Settling will let you convert your holdings of %(asset)s to TT after a delay of 24 hours, at a price equal to the feed price at that time.",
     "filter_ops": "Use this list to filter your history by operation type.",
     "show_block": "Click here to show block #%(block)s where this transaction occured.",
     "coll_ratio": "The collateral ratio of the position is COLLATERAL * FEED PRICE / DEBT.",
@@ -51,7 +51,7 @@
     "cr_danger": "This position is currently being margin called. Consider adding collateral to bring the collateral ratio above %(mr)s or closing the position.",
     "cr_warning": "This position has a low level of collateral, and will get margin called if the collateral ratio drops below %(mr)s. Consider adding collateral or closing the position.",
     "propose_scam": "This proposal was created by a known scammer, do not approve it!",
-    "login": "This BitShares wallet does not offer a traditional login but instead simply locks or unlocks a wallet that is <b>only</b> stored locally in your browser.<br/><br/>Whenever you close the wallet it will be locked and you will effectively be logged out.",
+    "login": "This TravelChain wallet does not offer a traditional login but instead simply locks or unlocks a wallet that is <b>only</b> stored locally in your browser.<br/><br/>Whenever you close the wallet it will be locked and you will effectively be logged out.",
     "buy_min": "You will receive at minimum this amount. If there are matching orders with a cheaper price than you specified, you will receive more than this amount.",
     "borrow": "Borrow %(asset)s from the network. This creates a smart contract that locks your collateral until you either modify the position or a margin call is required.",
     "memo_tip": "You may include any message in the memo field. Memos are optional but generally required for transfers to exchanges."
@@ -59,6 +59,12 @@
   "propose": "vorschlagen",
   "cancel": "abbrechen",
   "account": {
+    "intro_text_title": "Welcome to TravelChain",
+      "intro_text_1": "Decentralized Data Exchange for the Travel Industry",
+      "intro_text_2": "",
+      "intro_text_3": "<b>The DEX</b> also enables creation of user-issued assets (UIAs), which can be traded against any other UIAs or trustless assets on the platform.  One well-known issuer on The DEX is <b>OpenLedger</b>, offering a host of assets including BTC, ETH, STEEM, DASH, LTC, DOGE, and many more",
+    "intro_text_4": "This gives cryptocurrency traders a unique blend of traditional and decentralized trading, all in a familiar exchange interface. Happy trading!",
+    
     "in_open": "This is the amount of %(asset)s you have in open orders.",
     "in_open_value": "This is the estimated value of the %(asset)s you have in open orders.",
     "transfer_actions": "Transfer actions",
@@ -74,7 +80,7 @@
     "name": "Konto Name",
     "id": "Konto ID",
     "more": "mehr",
-    "deposit_withdraw": "Aufladen/Abheben",
+    "deposit_withdraw": "Token Sale",
     "as_collateral": "Kollateral",
     "open_orders": "Offene Order",
     "total_value": "Gesamtwert",
@@ -123,7 +129,12 @@
       "required": "Benötigte coin-days",
       "remaining": "Übriger Zusicherungswartezeit",
       "claim": "Guthaben beanspruchen",
-      "available": "Zur Beanspruchung verfügbar"
+      "available": "Zur Beanspruchung verfügbar",
+   "referral_link": "Your referral link",
+      "referral_text": "Give this to link to people you want to refer to TravelChain",
+            "referral_text2": "You can use your referral link to invite new people to the registration, but the cashback bonus is only available if you have the lifetime member status."
+
+
     },
     "user_issued_assets": {
       "symbol": "Symbol",
@@ -295,6 +306,17 @@
   "pagination": {
     "newer": "Jüngere",
     "older": "Ältere"
+  },
+    "kyc": {
+    "header": "Enter your personal data",
+    "first_name": "First name",
+    "surname": "Last name",
+    "country": "Country",
+    "email": "Contact email",
+    "phone": "Contact phone",
+    "address": "Address",
+    "birthday": "Birthday",
+    "activity": "Kind of activity"
   },
   "transfer": {
     "from": "Von",
@@ -517,7 +539,8 @@
       "avg_conf_time": "mittlere Bestätigungszeit",
       "trx_per_sec": "Trx/s",
       "last_block": "Letzter Block",
-      "current_block": "Aktueller Block"
+      "current_block": "Aktueller Block",
+      "reserve_fund": "Reserve Fund"
     },
     "block": {
       "title": "Block",
@@ -629,7 +652,7 @@
     "workers": {
       "title": "Budgetpunkte",
       "period": "Worker duration",
-      "daily_pay": "Daily pay (BTS)",
+      "daily_pay": "Daily pay (TT)",
       "website": "Website",
       "vesting_pay": "Salary vesting period (days)",
       "create": "Create a new worker proposal",
@@ -637,7 +660,7 @@
       "create_text_2": "Consider carefully the parameters you choose as they can not be changed once you've published your worker.",
       "name_text": "The name of your worker should be short and descriptive, something like this: 'Worker Purpose - Account Name'",
       "date_text": "The start date should be at least a week into the future in order to allow people the time to discover, evaluate and vote for your worker.",
-      "pay_text": "The daily pay defines how much you want to be paid per day and is defined in BTS. The current best practice is to define a salary in USD/CNY, and commit to burning whatever surplus you receive as a result of the BTS price increasing. As long as your worker is active and has sufficient votes to be above the refund worker, you will receive this daily salary.",
+      "pay_text": "The daily pay defines how much you want to be paid per day and is defined in TT. The current best practice is to define a salary in USD/CNY, and commit to burning whatever surplus you receive as a result of the TT price increasing. As long as your worker is active and has sufficient votes to be above the refund worker, you will receive this daily salary.",
       "url_text": "You should supply a website, github document or google doc that describes in more detail the purpose of the worker and how you intend to use the worker pay.",
       "vesting_text": "The vesting period defines the number of days that worker earnings will vest before being fully claimable."
     },
@@ -681,7 +704,7 @@
     "connection_error": "Unable to connect to API node %(url)s, falling back to known working nodes"
   },
   "footer": {
-    "title": "BitShares",
+    "title": "TravelChain",
     "block": "Spitzenblock",
     "loading": "Lade..."
   },
@@ -790,7 +813,7 @@
     "change_wallet": "Geldbörse wechseln",
     "wallet_created": "Gerldbörse erstellt",
     "create_wallet": "Gerldbörse erstellen",
-    "import_bts1": "Importieren aus BitShares 0.9.3c",
+    "import_bts1": "Importieren aus TravelChain 0.9.3c",
     "setup_wallet": "Gelbörse einrichten",
     "delete_confirm_line2": "Unerwartete schlechte Dinge werden passieren, sollten Sie das hier nicht lesen!",
     "delete_confirm_line3": "Diese Aktion kan NICHT rückgängig gemacht werden!",
@@ -827,7 +850,7 @@
     "restore_wallet_of": "Stelle Gelfbörse (%(name)s) wieder her",
     "restore_success": "Geldbörse (%(name)s) erfolgreich wieder hergestellt",
     "change": "Wechsele Geldbörse (%(name)s)",
-    "import_20_notice1": "Importiere dein BTS 2.0+ BACKUP zuerst",
+    "import_20_notice1": "Importiere dein TT 2.0+ BACKUP zuerst",
     "import_20_notice2": "(falls vorhanden)",
     "loading_balances": "Bestehende Kontostände werden geladen",
     "no_balance": "keine Kontostände bekannt",
@@ -873,7 +896,7 @@
     "generated": "Generated password",
     "understand_1": "I understand that no one can recover my password if I lose or forget it",
     "understand_2": "I have written down or otherwise stored my password",
-    "bts_rules": "The first rule of Bitshares is: Do not lose your password.<br/>The second rule of Bitshares is: Do not lose your password.<br />The third rule of Bitshares is: We cannot recover your password.<br />The fourth rule: If you can remember the password, it's not secure.<br />The fifth rule: Use only randomly-generated passwords.<br />The sixth rule: Do not tell anyone your password.<br />The seventh rule: Always back up your password."
+    "bts_rules": "The first rule of TravelChain is: Do not lose your password.<br/>The second rule of TravelChain is: Do not lose your password.<br />The third rule of TravelChain is: We cannot recover your password.<br />The fourth rule: If you can remember the password, it's not secure.<br />The fifth rule: Use only randomly-generated passwords.<br />The sixth rule: Do not tell anyone your password.<br />The seventh rule: Always back up your password."
   },
   "borrow": {
     "title": "Kollateral Position für %(asset_symbol)s",
@@ -925,7 +948,7 @@
     "connected": "verbunden",
     "not_connected": "Nicht verbunden",
     "browser": "Nicht unterstützter Browser",
-    "browser_text": "Ihr Browser ist unzureichend mit dem BitShares Wallet getestet worden. Wir empfehlen Ihnen eine Sicherung ihrer Geldbörse durchzuführen und diese in dem Chrome Browser zu importieren. Nutzen Sie Ihren Browser auf eigene Gefahr!",
+    "browser_text": "Ihr Browser ist unzureichend mit dem TravelChain Wallet getestet worden. Wir empfehlen Ihnen eine Sicherung ihrer Geldbörse durchzuführen und diese in dem Chrome Browser zu importieren. Nutzen Sie Ihren Browser auf eigene Gefahr!",
     "understand": "Verstanden!"
   },
   "refcode": {
@@ -952,6 +975,7 @@
     "deposit": "Einzahlung",
     "withdraw": "Abhebung",
     "inventory": "Inventar",
+    "gateway_text": "Send your cryptocurrency to this address",
     "scan_qr": "Scan QR",
     "meta": {
       "open_website": "Webseite öffnen"
