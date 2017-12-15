@@ -52,7 +52,7 @@ class Kyc extends React.Component {
         return {
             first_name: "",
             surname: "",
-            country: "",
+            country: "ru",
             birthday: "",
             email: "",
             phone: "",
@@ -1483,37 +1483,37 @@ class Kyc extends React.Component {
                     </div>
 
                   {/* Country */}
-                    <div className="content-block transfer-input">
-                        {/*<Translate className="left-label tooltip" component="label" content="kyc.country" data-place="top"/>*/}
-                        {/*<input type="text" style={{marginBottom: 0}}  id="country" onChange={this.onKYCformInputChanged.bind(this)} />*/}
-                        {/*/!* warning *!/*/}
-                        {/*{ !country ?*/}
-                          {/*<div className="error-area" style={{position: "absolute"}}>*/}
-                            {/*Field is required*/}
-                          {/*</div>*/}
-                          {/*:null}*/}
+                    {/*<div className="content-block transfer-input">*/}
+                        {/*/!*<Translate className="left-label tooltip" component="label" content="kyc.country" data-place="top"/>*!/*/}
+                        {/*/!*<input type="text" style={{marginBottom: 0}}  id="country" onChange={this.onKYCformInputChanged.bind(this)} />*!/*/}
+                        {/*/!**!/*/}
+                        {/*/!*{ !country ?*!/*/}
+                          {/*/!*<div className="error-area" style={{position: "absolute"}}>*!/*/}
+                            {/*/!*Field is required*!/*/}
+                          {/*/!*</div>*!/*/}
+                          {/*/!*:null}*!/*/}
 
-                      <TextField
-                          select
-                          error={!country}
-                          label="Country"
-                          // className="c227 c228 c213 c216"
-                          value={country}
-                          InputLabelProps={{
-                              shrink: true,
-                          }}
-                          onChange={this.handleChange("country")}
-                          // helperText="Please select your country"
-                          margin="normal"
-                          fullWidth
-                      >
-                          {defaultCountriesData.map((option, index) => (
-                              <MenuItem key={index} value={option[1]}>
-                                  {option[0]}
-                              </MenuItem>
-                          ))}
-                      </TextField>
-                    </div>
+                      {/*<TextField*/}
+                          {/*select*/}
+                          {/*error={!country}*/}
+                          {/*label="Country"*/}
+                          {/*// className="c227 c228 c213 c216"*/}
+                          {/*value={country}*/}
+                          {/*InputLabelProps={{*/}
+                              {/*shrink: true,*/}
+                          {/*}}*/}
+                          {/*onChange={this.handleChange("country")}*/}
+                          {/*// helperText="Please select your country"*/}
+                          {/*margin="normal"*/}
+                          {/*fullWidth*/}
+                      {/*>*/}
+                          {/*{defaultCountriesData.map((option, index) => (*/}
+                              {/*<MenuItem key={index} value={option[1]}>*/}
+                                  {/*{option[0]}*/}
+                              {/*</MenuItem>*/}
+                          {/*))}*/}
+                      {/*</TextField>*/}
+                    {/*</div>*/}
 
                   {/* Birthday */}
 
