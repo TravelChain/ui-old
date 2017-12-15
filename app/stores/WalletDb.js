@@ -30,9 +30,9 @@ ChainConfig.networks.MAIN = {
 }
 
 ChainConfig.networks.TTT_TESTNET = {
-  core_asset: 'TT',
-  address_prefix: 'TTT',
-  chain_id: '5cfd61a07cf5026c094676e154f8fa9203c4a4963fa28509e51364581f54c2af'
+  core_asset: 'TTEST',
+  address_prefix: 'TEST',
+  chain_id: '3a6e30213e0244d869810c5b213f10bd4f0b27b0aded88d22e444f7529eebfc4'
 }
 
 
