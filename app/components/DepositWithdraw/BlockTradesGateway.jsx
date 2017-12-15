@@ -50,9 +50,11 @@ class BlockTradesGateway extends React.Component {
                                   autoWidth={true}
                                   style={styles.customWidth}
                                 >
-                                  {Object.keys(wallets).map(function(key) {
-                                      return <MenuItem key={key} value={wallets[key]} primaryText={key} />;
-                                  })}
+                                  <div style={{ wordWrap: 'break-word'}}>
+                                    {Object.keys(wallets).map(function(key) {
+                                        return <MenuItem key={key} value={wallets[key]} primaryText={key} />;
+                                    })}
+                                  </div>
                                 </DropDownMenu>
                             </MuiThemeProvider>
 
