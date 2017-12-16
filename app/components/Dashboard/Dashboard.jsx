@@ -183,7 +183,9 @@ class Dashboard extends React.Component {
                                   <a href="https://mapala.net" target="_blank" ><h3 className="item__title">MAPALA</h3></a>
                           
                                 <p className="item__desc"><Translate className="left-label" component="label" content="dashboard.mapala" data-place="top"/></p>
+                               <a href="https://mapala.net" className="item__link">https://mapala.net</a>
                                </div>
+
                             <ul className="social__block">
                                 <li><a href ="https://github.com/TravelChain/mapala-backend" target = "_blank"><Icon name="github-sign" size="2x" fillClass="fill-black"/></a></li>
                                 <li><a href ="https://t.me/mapala" target = "_blank"> <Icon name="telegram" size="2x" fillClass="fill-black"/></a></li>
@@ -198,7 +200,7 @@ class Dashboard extends React.Component {
                             <div className="info__block">
                                    <a href="https://travelai.io" target="_blank" ><h3 className="item__title">AI-Travel</h3></a>
                                 <p className="item__desc"><Translate className="left-label" component="label" content="dashboard.travelai" data-place="top"/></p>
-
+                                <a href="https://travelai.io" className="item__link">https://travelai.io</a>
                               </div>
                             <ul className="social__block">
                                
