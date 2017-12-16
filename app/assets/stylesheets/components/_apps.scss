@@ -102,4 +102,16 @@
       }
     }
   }
+
+  .grid-block {
+    .grid-block.vertical {
+      .page-layout {
+        padding: 0;
+
+        .category-list {
+          margin: 30px 0;
+        }
+      }
+    }
+  }
 }
