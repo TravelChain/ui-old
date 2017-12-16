@@ -10,6 +10,7 @@ import LoadingIndicator from "../LoadingIndicator";
 import LoginSelector from "../LoginSelector";
 import cnames from "classnames";
 import SettingsActions from "actions/SettingsActions";
+import Icon from "../Icon/Icon";
 
 class Dashboard extends React.Component {
 
@@ -152,37 +153,7 @@ class Dashboard extends React.Component {
             return <LoadingIndicator />;
         }
 
-        let validMarkets = 0;
-
-        let markets = featuredMarkets
-        .map(pair => {
-            let isLowVolume = this.props.lowVolumeMarkets.get(pair[1] + "_" + pair[0]) || this.props.lowVolumeMarkets.get(pair[0] + "_" + pair[1]);
-            if (!isLowVolume) validMarkets++;
-            let className = "";
-            if (validMarkets > 9) {
-                className += ` show-for-${!accountCount ? "xlarge" : "large"}`;
-            } else if (validMarkets > 6) {
-                className += ` show-for-${!accountCount ? "large" : "medium"}`;
-            }
-
-            return (
-                <MarketCard
-                    key={pair[0] + "_" + pair[1]}
-                    marketId={pair[1] + "_" + pair[0]}
-                    new={newAssets.indexOf(pair[1]) !== -1}
-                    className={className}
-                    quote={pair[0]}
-                    base={pair[1]}
-                    invert={pair[2]}
-                    isLowVolume={isLowVolume}
-                    hide={validMarkets > 20}
-                />
-            );
-        }).filter(a => !!a);
-
-        if (!accountCount) {
-            return <LoginSelector />;
-        }
+        
 
         const entries = ["accounts", "recent"];
         const activeIndex = entries.indexOf(currentEntry);
@@ -193,53 +164,47 @@ class Dashboard extends React.Component {
           justifyContent: 'center'
         }
         return (
-            <div ref="wrapper" className="grid-block page-layout vertical">
-                <div ref="container" className="grid-container" style={{padding: "25px 10px 0 10px"}}>
-
-                   
-                    <div className="block-content-header" style={{marginBottom: 15}}>
-                    <Translate content="exchange.featured"/>
-                    </div>
-                    <div className="grid-block small-up-1 medium-up-3 large-up-4 no-overflow fm-outer-container">
-                        {markets}
+            <div className="grid-block flex-start">
+                <div className="grid-block shrink vertical medium-horizontal large-10 large-offset-1 top-apps-list">
+                    <div className="grid-block shrink vertical medium-horizontal">
+                        <div className="generic-bordered-box">
+                            <h2>Coming Soon</h2>
+                        </div>
                     </div>
 
-                    {accountCount ? (
-                        <div style={{paddingBottom: "3rem"}}>
-                            <div className="hide-selector" style={{paddingBottom: "1rem"}}>
-                                {entries.map((type, index) => {
-                                    return (
-                                        <div key={type} className={cnames("inline-block", {inactive: activeIndex !== index})} onClick={this._onSwitchType.bind(this, type)}>
-                                            <Translate content={`account.${type}`} />
-                                        </div>
-                                    );
-                                })}
+                    <div className="grid-block shrink vertical medium-horizontal">
+
+                        <div className="item">
+                            <div className="img__block">
+                                <img src={require("assets/mapala.png")} alt="Mapala"/>
                             </div>
 
-                            {currentEntry === "accounts" ? <div className="generic-bordered-box" style={{marginBottom: 5}}>
-                                <div className="box-content">
-                                    <DashboardList
-                                        accounts={Immutable.List(names)}
-                                        ignoredAccounts={Immutable.List(ignored)}
-                                        width={width}
-                                        onToggleIgnored={this._onToggleIgnored.bind(this)}
-                                        showIgnored={showIgnored}
-                                    />
-                                    {/* {showIgnored ? <DashboardList accounts={Immutable.List(ignored)} width={width} /> : null} */}
-                                </div>
-                            </div> : null}
-
-                            {currentEntry === "recent" ? <RecentTransactions
-                                style={{marginBottom: 20, marginTop: 20}}
-                                accountsList={linkedAccounts}
-                                limit={10}
-                                compactView={false}
-                                fullHeight={true}
-                                showFilters={true}
-                                dashboard
-                            /> : null}
+                            <div className="info__block">
+                                  <a href="https://mapala.net" target="_blank" ><h3 className="item__title">MAPALA</h3></a>
+                          
+                                <p className="item__desc"><Translate className="left-label" component="label" content="dashboard.mapala" data-place="top"/></p>
+                               </div>
+                            <ul className="social__block">
+                                <li><a href ="https://github.com/TravelChain/mapala-backend" target = "_blank"><Icon name="github-sign" size="2x" fillClass="fill-black"/></a></li>
+                                <li><a href ="https://t.me/mapala" target = "_blank"> <Icon name="telegram" size="2x" fillClass="fill-black"/></a></li>
+                            </ul>
                         </div>
-                    ) : null}
+
+
+                        <div className="item">
+                            <div className="img__block">
+                                <img src={require("assets/travelai.png")} alt="TravelAI"/>
+                            </div>
+                            <div className="info__block">
+                                   <a href="https://travelai.io" target="_blank" ><h3 className="item__title">AI-Travel</h3></a>
+                                <p className="item__desc"><Translate className="left-label" component="label" content="dashboard.travelai" data-place="top"/></p>
+
+                              </div>
+                            <ul className="social__block">
+                               
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         );
