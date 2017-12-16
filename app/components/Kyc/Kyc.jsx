@@ -1672,7 +1672,7 @@ class Kyc extends React.Component {
                         <label>
                             <input value={isAgreedTermsTokens} id='terms_agreement_checkbox_2' type="checkbox" onChange={(e) => this.setState({isAgreedTermsTokens: e.target.value == "false"})}/>
                             <span>You are acquainted and you agree with the
-                                <a href="https://drive.google.com/file/d/1f0zviV_rN6LgXyO-bWQqNzfix7YfwSEn/view?usp=sharing" target="_blank"> TRAVELCHAIN TRAVELTOKENS SALE AGREEMENT
+                                <a href="https://travelchain.io/Travelchain.Token.Sale.Agreement.pdf" target="_blank"> TRAVELCHAIN TRAVELTOKENS SALE AGREEMENT
                                 </a>
                             </span>
                         </label>
