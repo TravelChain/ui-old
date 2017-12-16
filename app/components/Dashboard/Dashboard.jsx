@@ -153,6 +153,10 @@ class Dashboard extends React.Component {
             return <LoadingIndicator />;
         }
 
+        if (!accountCount) {
+            return <LoginSelector />;
+        }
+
         
 
         const entries = ["accounts", "recent"];
