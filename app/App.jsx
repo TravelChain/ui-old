@@ -20,8 +20,14 @@ import WalletUnlockModal from "./components/Wallet/WalletUnlockModal";
 import BrowserSupportModal from "./components/Modal/BrowserSupportModal";
 import Footer from "./components/Layout/Footer";
 import Deprecate from "./Deprecate";
+import ls from "common/localStorage";
+
+
 // import Incognito from "./components/Layout/Incognito";
 // import { isIncognito } from "feature_detect";
+
+const STORAGE_KEY = "__graphene__";
+let ss = new ls(STORAGE_KEY);
 
 class App extends React.Component {
 
@@ -260,6 +266,12 @@ class Root extends React.Component {
                 main.className = main.className + (main.className.length ? ' ' : '') + windowsClass;
             }
         }
+
+        ss.remove("apiLatencies");
+        ss.remove("settings_v3");
+
+
+        Raven.config('https://5f732d12b52e44679fd7d7c16f82ce60@sentry.io/259519').install()
     }
 
     getChildContext() {

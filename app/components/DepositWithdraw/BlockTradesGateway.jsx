@@ -50,9 +50,9 @@ class BlockTradesGateway extends React.Component {
                                   autoWidth={true}
                                   style={styles.customWidth}
                                 >
-                                  {Object.keys(wallets).map(function(key) {
-                                      return <MenuItem key={key} value={wallets[key]} primaryText={key} />;
-                                  })}
+                                    {Object.keys(wallets).map(function(key) {
+                                        return <MenuItem key={key} value={wallets[key]} primaryText={key} />;
+                                    })}
                                 </DropDownMenu>
                             </MuiThemeProvider>
 
@@ -63,7 +63,7 @@ class BlockTradesGateway extends React.Component {
                         <div style={{paddingLeft: 10, paddingTop:35}}>
                             <label style={{minHeight: "2rem"}} className="left-label"><Translate content="gateway.gateway_text" />:</label>
                             <div style={{paddingBottom: 15, fontSize: 13}}>
-                              <div><strong>{this.state.activeCoin}</strong></div>
+                              <div style={{ wordWrap: 'break-word'}}><strong>{this.state.activeCoin}</strong></div>
                             </div>
                         </div>
                     </div>

@@ -11,3 +11,10 @@
 @import "themes/all";
 
 @import "shame";
+
+.phoneInput {
+  width: 100%;
+  &:active {
+    outline: none;
+  }
+}

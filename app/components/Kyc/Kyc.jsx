@@ -19,6 +19,7 @@ import jQuery from 'jquery';
 import 'jquery-mask-plugin';
 import "inputmask/dist/inputmask/inputmask.numeric.extensions";
 import Inputmask from "inputmask/dist/inputmask/inputmask.date.extensions";
+import InputMask from 'react-input-mask';
 
 // let ThemeManager = new mui.Styles.ThemeManager();
 var validator = require("email-validator");
@@ -51,7 +52,7 @@ class Kyc extends React.Component {
         return {
             first_name: "",
             surname: "",
-            country: "",
+            country: "ru",
             birthday: "",
             email: "",
             phone: "",
@@ -135,9 +136,14 @@ class Kyc extends React.Component {
         this.setState({[e.target.id]: e.target.value});
     }
 
-    updatePhoneNumber (value) {
-        this.setState({phone: value});
-    }
+
+  updatePhoneNumber = (event) => {
+    this.setState({
+      phone: event.target.value
+    });
+  }
+
+
 
   handleChange = name => event => {
     this.setState({
@@ -1412,7 +1418,7 @@ class Kyc extends React.Component {
         let {first_name, surname, country, birthday, email, phone, address, isAgreedTerms, isAgreedTermsTokens, currentCountryISO2} = this.state;
 
         const isSendNotValid = !first_name || !surname || !country || !birthday || !address || !isAgreedTerms || !isAgreedTermsTokens ||
-          !validator.validate(email) || !(phone.indexOf("_") === -1) || !/[0-9]{4}-[0-9]{2}-[0-9]{2}/.test(birthday);
+          !validator.validate(email) || !phone || !/[0-9]{4}-[0-9]{2}-[0-9]{2}/.test(birthday);
 
         return (
 
@@ -1477,37 +1483,37 @@ class Kyc extends React.Component {
                     </div>
 
                   {/* Country */}
-                    <div className="content-block transfer-input">
-                        {/*<Translate className="left-label tooltip" component="label" content="kyc.country" data-place="top"/>*/}
-                        {/*<input type="text" style={{marginBottom: 0}}  id="country" onChange={this.onKYCformInputChanged.bind(this)} />*/}
-                        {/*/!* warning *!/*/}
-                        {/*{ !country ?*/}
-                          {/*<div className="error-area" style={{position: "absolute"}}>*/}
-                            {/*Field is required*/}
-                          {/*</div>*/}
-                          {/*:null}*/}
+                    {/*<div className="content-block transfer-input">*/}
+                        {/*/!*<Translate className="left-label tooltip" component="label" content="kyc.country" data-place="top"/>*!/*/}
+                        {/*/!*<input type="text" style={{marginBottom: 0}}  id="country" onChange={this.onKYCformInputChanged.bind(this)} />*!/*/}
+                        {/*/!**!/*/}
+                        {/*/!*{ !country ?*!/*/}
+                          {/*/!*<div className="error-area" style={{position: "absolute"}}>*!/*/}
+                            {/*/!*Field is required*!/*/}
+                          {/*/!*</div>*!/*/}
+                          {/*/!*:null}*!/*/}
 
-                      <TextField
-                          select
-                          error={!country}
-                          label="Country"
-                          className="c227 c228 c213 c216"
-                          value={country}
-                          InputLabelProps={{
-                              shrink: true,
-                          }}
-                          onChange={this.handleChange("country")}
-                          // helperText="Please select your country"
-                          margin="normal"
-                          fullWidth
-                      >
-                          {defaultCountriesData.map((option, index) => (
-                              <MenuItem key={index} value={option[1]}>
-                                  {option[0]}
-                              </MenuItem>
-                          ))}
-                      </TextField>
-                    </div>
+                      {/*<TextField*/}
+                          {/*select*/}
+                          {/*error={!country}*/}
+                          {/*label="Country"*/}
+                          {/*// className="c227 c228 c213 c216"*/}
+                          {/*value={country}*/}
+                          {/*InputLabelProps={{*/}
+                              {/*shrink: true,*/}
+                          {/*}}*/}
+                          {/*onChange={this.handleChange("country")}*/}
+                          {/*// helperText="Please select your country"*/}
+                          {/*margin="normal"*/}
+                          {/*fullWidth*/}
+                      {/*>*/}
+                          {/*{defaultCountriesData.map((option, index) => (*/}
+                              {/*<MenuItem key={index} value={option[1]}>*/}
+                                  {/*{option[0]}*/}
+                              {/*</MenuItem>*/}
+                          {/*))}*/}
+                      {/*</TextField>*/}
+                    {/*</div>*/}
 
                   {/* Birthday */}
 
@@ -1573,28 +1579,34 @@ class Kyc extends React.Component {
 
                   {/* Contact phone */}
                     <div className="content-block transfer-input">
-                        <Translate className="left-label tooltip" component="label" content="kyc.phone" data-place="top"/>
+                      <div className="MuiFormControl-root-1 MuiFormControl-marginNormal-2 MuiFormControl-fullWidth-4 c1 c2 c4">
+                        {/*<Translate className="left-label tooltip" component="label" content="kyc.phone" data-place="top"/>*/}
+                        <label data-shrink="true" className="MuiFormLabel-root-11 MuiInputLabel-root-5 MuiInputLabel-formControl-6 MuiInputLabel-animated-9 MuiInputLabel-shrink-8 c11 c5 c6 c9 c8" htmlFor="phone">Phone</label>
                         {/*<input type="tel" style={{marginBottom: 0}}  id="phone" onChange={this.onKYCformInputChanged.bind(this)} />*/}
-                        <IntlTelInput id="phone" css={['intl-tel-input', 'form-control']}
-                            currentCountryISO2={currentCountryISO2}
-                            onPhoneNumberChange={(...args) => this.updatePhoneNumber(args[1])}
-                            utilsScript={'libphonenumber.js'}
-                            defaultCountry={'ru'}
-                            onSelectFlag={(currentNumber, countryDetails) => {
-                                this.setState({
-                                    currentCountryISO2: countryDetails.iso2,
-                                    currentCountryDialCode: countryDetails.dialCode
-                                });
-                            }}
-                            fullWidth
-                        />
+                        {/*<IntlTelInput id="phone" css={['intl-tel-input', 'form-control']}*/}
+                            {/*currentCountryISO2={currentCountryISO2}*/}
+                            {/*onPhoneNumberChange={(...args) => this.updatePhoneNumber(args[1])}*/}
+                            {/*utilsScript={'libphonenumber.js'}*/}
+                            {/*defaultCountry={'ru'}*/}
+                            {/*onSelectFlag={(currentNumber, countryDetails) => {*/}
+                                {/*this.setState({*/}
+                                    {/*currentCountryISO2: countryDetails.iso2,*/}
+                                    {/*currentCountryDialCode: countryDetails.dialCode*/}
+                                {/*});*/}
+                            {/*}}*/}
+                            {/*fullWidth*/}
+                        {/*/>*/}
+<div className="MuiInput-root-15 MuiInput-formControl-16 MuiInput-inkbar-17 MuiInput-underline-21 c15 c16 c17 c21">
+                      <InputMask value={phone} onChange={this.updatePhoneNumber} className="MuiInput-input-24 MuiInput-inputSingleline-27 c24 c27 phoneInput" mask="+9999999999999999999999" maskChar=" " />
+</div>
 
                         {/* warning */}
-                        { !(phone.indexOf("_") === -1) ?
-                          <div className="error-area" style={{position: "absolute"}}>
-                            Field is required
-                          </div>
-                          :null}
+                        {/*{ (!phone.length >= 2) ?*/}
+                          {/*<div className="error-area" style={{position: "absolute"}}>*/}
+                            {/*Field is required*/}
+                          {/*</div>*/}
+                          {/*:null}*/}
+                      </div>
                     </div>
 
                   {/* Address */}
