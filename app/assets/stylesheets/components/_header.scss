@@ -142,3 +142,20 @@ div.header-right-menu {
 .lower-case {
   text-transform: lowercase;
 }
+
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.header-right-menu > .grp-menu-item.header-balance {
+    margin-right: 0;
+  }
+
+  .header .menu-bar > li > a {
+    padding: 0;
+  }
+
+  .grp-menu-item {
+    a, .button {
+      padding: 1rem 0.5rem!important;
+    }
+  }
+}
