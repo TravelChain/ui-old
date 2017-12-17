@@ -288,6 +288,13 @@ class Header extends React.Component {
                         <li id="menubar"><a href onClick={this._triggerMenu}><Icon className="icon-32px" name="menu"/></a></li>
                     </ul>
                 </div>
+                <div className="show-for-small-only grp-menu-item overflow-visible account-drop-down">
+                    {accountsDropDown}
+                </div>
+                {/*{!myAccountCount ? null : <div className="grp-menu-item overflow-visible account-drop-down">*/}
+                    {/*{flagDropdown}*/}
+                {/*</div>}*/}
+
                 {__ELECTRON__ ? <div className="grid-block show-for-medium shrink electron-navigation">
                     <ul className="menu-bar">
                         <li>
