@@ -1417,8 +1417,7 @@ class Kyc extends React.Component {
 
         let {first_name, surname, country, birthday, email, phone, address, isAgreedTerms, isAgreedTermsTokens, currentCountryISO2} = this.state;
 
-        const isSendNotValid = !first_name || !surname || !country || !birthday || !address || !isAgreedTerms || !isAgreedTermsTokens ||
-          !validator.validate(email) || !phone || !/[0-9]{4}-[0-9]{2}-[0-9]{2}/.test(birthday);
+        const isSendNotValid = !isAgreedTerms || !isAgreedTermsTokens;
 
         return (
 
