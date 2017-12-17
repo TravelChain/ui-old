@@ -1,5 +1,6 @@
 @media (max-width: 767px) {
   .header.menu-group {
+    display: block;
     justify-content: space-between;
 
     .grp-menu-item {
@@ -73,6 +74,11 @@
     }
   }
 
+  div.account-drop-down {
+    display: inline-block;
+    float: right;
+  }
+
   // tab-content
   .generic-bordered-box {
     .overview-tabs {
@@ -104,6 +110,10 @@
   }
   .lightTheme .order-table th span {
     font-size: 9px;
+  }
+
+  .show-for-small-only:not(.ng-hide) {
+    display: inline-block !important;
   }
 }
 
