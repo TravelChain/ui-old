@@ -72,6 +72,36 @@
       padding: 0 1rem;
     }
   }
+
+  // tab-content
+  .generic-bordered-box {
+    .overview-tabs {
+      .tab-content {
+        .grid-content.no-overflow.no-padding {
+          overflow: auto;
+        }
+      }
+    }
+  }
+  .order-table th, .order-table th span {
+    font-size: 9px;
+  }
+
+  .exchange-content-header.ask .header-sub-title {
+    font-size: 60%;
+  }
+
+  .order-table>tbody>tr>td {
+    font-size: 9px;
+  }
+
+  .lightTheme .exchange-bordered {
+    border: none;
+    margin: 20px 10px!important;
+    padding: 15px 0;
+    box-shadow: 0 8px 21.36px 2.64px rgba(22,22,33,.06);
+    height: auto!important;
+  }
 }
 
 @media (max-width: 412px) {
