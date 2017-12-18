@@ -13,6 +13,7 @@ import BlocksContainer from "./components/Explorer/BlocksContainer";
 import AssetsContainer from "./components/Explorer/AssetsContainer";
 import AccountsContainer from "./components/Explorer/AccountsContainer";
 import Explorer from "components/Explorer/Explorer";
+import TopApps from "components/TopApps/TopApps";
 import AccountPage from "./components/Account/AccountPage";
 import AccountOverview from "./components/Account/AccountOverview";
 import AccountAssets from "./components/Account/AccountAssets";
@@ -62,6 +63,7 @@ const routes = (
         <IndexRoute component={DashboardContainer}/>
         <Route path="/auth/:data" component={Auth}/>
         <Route path="/dashboard" component={DashboardContainer}/>
+        <Route path="top-apps" component={TopApps}/>
         <Route path="explorer" component={Explorer}/>
         <Route path="/explorer/fees" component={FeesContainer} />
         <Route path="/explorer/blocks" component={BlocksContainer} />
@@ -89,6 +91,7 @@ const routes = (
         <Route path="create-wallet-brainkey" component={CreateWalletFromBrainkey} />
         <Route path="kyc" component={Kyc}/>
         <Route path="token-sale" component={TokenSale}/>
+        {/*<Route path="top-apps" component={TopApps}/>*/}
         <Route path="transfer" component={Transfer}/>
         
         <Route path="invoice/:data" component={Invoice} />

@@ -280,7 +280,7 @@ class CreateAccountPassword extends React.Component {
                             }} checked={this.state.understand_4}/>
                             <span className="checkmark">
                             You are acquainted and you agree with the <a
-                                href='https://drive.google.com/file/d/1hcoyoxKzp-IaaGRHH079nqGQZENOyUZT/view?usp=sharing'
+                                href='https://travelchain.io/TRAVELCHAIN.TOKENS.SALE.PRIVACY.POLICY.pdf'
                                 target='_blank'>TRAVELTOKENS SALE PRIVACY POLICY</a>
                                 </span>
                         </label>
@@ -293,7 +293,7 @@ class CreateAccountPassword extends React.Component {
                             }} checked={this.state.understand_5}/>
                             <span className="checkmark">
                             You are acquainted and you agree with the <a
-                                href="https://drive.google.com/file/d/1PKPznHh9RU_dY0fAKH9jG7A4fUh-TLPL/view?usp=sharing"
+                                href="https://travelchain.io/TRAVELCHAIN.TOKENS.SALE.GENERAL.TERMS.AND.CONDITIONS.pdf"
                                 target="_blank">TRAVELCHAIN GENERAL TERMS AND CONDITIONS OF TRAVELTOKENS SALE</a>
                             </span>
                         </label>
@@ -398,7 +398,7 @@ class CreateAccountPassword extends React.Component {
                 <p className="txtlabel warning"><Translate unsafe content="wallet.password_lose_warning"/></p>
 
                 <div style={{width: "100%"}} onClick={() => {
-                    this.context.router.push("/dashboard");
+                    this.context.router.push("/kyc");
                     ;
                 }} className="button"><Translate content="wallet.ok_done"/></div>
             </div>
