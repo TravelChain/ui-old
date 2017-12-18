@@ -52,7 +52,7 @@ class Kyc extends React.Component {
         return {
             first_name: "",
             surname: "",
-            country: "ru",
+            country: "",
             birthday: "",
             email: "",
             phone: "",
@@ -1483,6 +1483,14 @@ class Kyc extends React.Component {
                     </div>
 
                   {/* Country */}
+
+                  <TextField
+                    required
+                    id="country"
+                    label="Country"
+                    margin="normal"
+                    onChange={this.onKYCformInputChanged.bind(this)}
+                  />
                     {/*<div className="content-block transfer-input">*/}
                         {/*/!*<Translate className="left-label tooltip" component="label" content="kyc.country" data-place="top"/>*!/*/}
                         {/*/!*<input type="text" style={{marginBottom: 0}}  id="country" onChange={this.onKYCformInputChanged.bind(this)} />*!/*/}
