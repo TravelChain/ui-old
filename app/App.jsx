@@ -271,7 +271,7 @@ class Root extends React.Component {
         ss.remove("settings_v3");
 
 
-        Raven.config('https://5f732d12b52e44679fd7d7c16f82ce60@sentry.io/259519').install()
+      Raven.config('https://ef43dc0bc5924eaa88e5ebe930436340@sentry.io/261726').install();
     }
 
     getChildContext() {
