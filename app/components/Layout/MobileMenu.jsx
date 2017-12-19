@@ -69,7 +69,9 @@ class MobileMenu extends React.Component {
                         {currentAccount !== null ? <li onClick={this.onClick}><Link to={"/token-sale/"}><Translate content="account.deposit_withdraw"/></Link></li> : null}
                         <li><a onClick={this._onNavigate.bind(this, "/explorer")}><Translate content="header.explorer" /></a></li>
                         <li onClick={this.onClick}><Link to="settings"><Translate content="header.settings"/></Link></li>
-
+                        {currentAccount !== null ?
+                            <li><a onClick={this._onNavigate.bind(this, `/account/${currentAccount}/member-stats/`)}><Translate content="header.membership" /></a></li>
+                          : null}
                     </ul>
                 </section>
 

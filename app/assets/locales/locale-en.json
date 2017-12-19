@@ -39,6 +39,7 @@
     "account": "Account",
     "dashboard": "Dashboard",
     "explorer": "Explore",
+    "membership": "Membership",
     "exchange": "Exchange",
     "payments": "Send",
     "logout": "Logout",
