@@ -1138,7 +1138,7 @@ class Exchange extends React.Component {
 
                         <div className="grid-block vertical no-padding ps-container" id="CenterContent" ref="center">
                         {!showDepthChart ? (
-                            <div className="grid-block shrink no-overflow" id="market-charts" >
+                            <div className="grid-block shrink no-overflow" style={{display:"none"}} id="market-charts" >
                                 {/* Price history chart 
                                 <PriceChartD3
                                     priceData={this.props.priceData}
