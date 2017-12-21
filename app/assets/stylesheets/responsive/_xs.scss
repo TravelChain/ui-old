@@ -97,16 +97,16 @@
     font-size: 60%;
   }
 
-  .order-table>tbody>tr>td {
+  .order-table > tbody > tr > td {
     font-size: 9px;
   }
 
   .lightTheme .exchange-bordered {
     border: none;
-    margin: 20px 10px!important;
+    margin: 20px 10px !important;
     padding: 15px 0;
-    box-shadow: 0 8px 21.36px 2.64px rgba(22,22,33,.06);
-    height: auto!important;
+    box-shadow: 0 8px 21.36px 2.64px rgba(22, 22, 33, .06);
+    height: auto !important;
   }
   .lightTheme .order-table th span {
     font-size: 9px;
@@ -114,6 +114,51 @@
 
   .show-for-small-only:not(.ng-hide) {
     display: inline-block !important;
+  }
+
+  .lightTheme .page-layout .main-content {
+    margin: 2rem 0 6rem;
+    padding: 0;
+  }
+
+  .page-layout .left-column + .grid-block.main-content {
+    margin: 2rem 0 6rem;
+    padding: 0;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+  }
+
+  #transaction_confirm_modal {
+    .grid-content {
+      padding: 0;
+
+      &.modal-header {
+        margin-top: 40px;
+      }
+    }
+    .modal-header {
+      margin-top: 40px;
+    }
+    .grid-block.shrink {
+      display: block;
+
+      .button-group {
+        display: flex;
+
+        .grid-block.full-width-content {
+          display: flex;
+
+          .button {
+            margin-bottom: 20px;
+          }
+        }
+      }
+    }
+
+    table, .table {
+      table-layout: fixed;
+    }
   }
 }
 
