@@ -263,7 +263,7 @@ class WalletUnlockModal extends React.Component {
                         <Translate component="h4" content={"header.unlock" + (passwordLogin ? "_password" : "")} />
                     </div>
                 </div>
-                {passwordLogin ? this.renderPasswordLogin() : this.renderWalletLogin()}
+                {this.renderPasswordLogin()}
             </BaseModal>
         );
     }
