@@ -272,7 +272,7 @@ class WalletUnlockModal extends React.Component {
             // U N L O C K
             <BaseModal id={this.props.modalId} ref="modal" overlay={true} overlayClose={false}>
                 <div className="text-center">
-                    {/*<img src={logo}/>*/}
+                    <img src={logo}/>
                     <div style={{marginTop: "1rem"}}>
                         <Translate component="h4" content={"header.unlock" + (passwordLogin ? "_password" : "")} />
                     </div>
