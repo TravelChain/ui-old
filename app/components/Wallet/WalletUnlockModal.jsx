@@ -17,6 +17,9 @@ import {Apis} from "bitsharesjs-ws";
 import utils from "common/utils";
 import AccountSelector from "../Account/AccountSelector";
 import Icon from "../Icon/Icon";
+import axios from "axios";
+const STORAGE_KEY = "__graphene__";
+let ss = new ls(STORAGE_KEY);
 var logo = require("assets/logo-ico-blue.png");
 
 class WalletUnlockModal extends React.Component {
@@ -120,6 +123,17 @@ class WalletUnlockModal extends React.Component {
             } else {
                 this.refs.password_input.value = "";
                 AccountActions.setPasswordAccount(account);
+
+              let faucetAddress = SettingsStore.getSetting("faucet_address");
+              let current_chain = faucetAddress.split("/")[2].split(".")[0];
+
+              axios({
+                method: "GET",
+                url: "https://" + current_chain + ".travelchain.io/api/accounts/me/",
+                headers: {
+                  "Authorization": `JWT ${ss.get("backend_token")}`
+                }
+              }).then(result => console.log(result), error => console.log(error));
             }
             ZfApi.publish(this.props.modalId, "close");
             this.props.resolve();
