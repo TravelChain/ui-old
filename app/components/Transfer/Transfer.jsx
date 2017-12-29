@@ -440,6 +440,7 @@ class Transfer extends React.Component {
 
                         {/*  A M O U N T   */}
                         <div className="content-block transfer-input">
+                          {console.log(balance)}
                             <AmountSelector
                                 label="AMOUNT"
                                 amount={amount}
@@ -448,6 +449,7 @@ class Transfer extends React.Component {
                                 assets={asset_types}
                                 display_balance={balance}
                                 tabIndex={tabIndex++}
+                                assetSybmolHidden={true}
                             />
                             {this.state.balanceError ?
                             <p className="has-error no-margin" style={{paddingTop: 10}}><Translate

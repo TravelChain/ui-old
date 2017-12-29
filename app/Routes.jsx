@@ -33,6 +33,11 @@ const routes = (
         <Route path="/dashboard" getComponent={(location, cb) => {
             System.import("components/Dashboard/DashboardContainer").then(loadRoute(cb)).catch(errorLoading);
         }}/>
+
+        <Route path="top-apps" getComponent={(location, cb) => {
+            System.import("components/TopApps/TopApps").then(loadRoute(cb)).catch(errorLoading);
+        }}/>
+
         <Route path="explorer" getComponent={(location, cb) => {
             System.import("components/Explorer/Explorer").then(loadRoute(cb)).catch(errorLoading);
         }}/>

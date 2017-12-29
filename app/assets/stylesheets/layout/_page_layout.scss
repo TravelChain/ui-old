@@ -105,6 +105,31 @@ div.bordered-header {
 
   .box-content {
     //padding-left: 10px;
+
+    select, .bts-select {
+      background-color: transparent;
+      border: 1px solid #c6c6c6;
+      border-radius: 16px;
+    }
+
+    a.inline-block {
+      .label {
+        background-color: transparent;
+        height: 24px;
+        border-radius: 12px;
+        font-size: 12px;
+        //color: #40ddfb;
+        line-height: 1;
+
+        &.warning {
+          //border-color: #44e2ff;
+        }
+        &.success {
+          border-color: #2a3b72;
+          color: #2a3b72;
+        }
+      }
+    }
   }
 }
 

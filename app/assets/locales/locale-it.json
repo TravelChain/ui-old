@@ -1189,8 +1189,7 @@
     "understand_1": "Ho capito che non potrò recuperare la mia password se la perdo o me ne dimentico",
     "understand_2": "L'ho messa per iscritto o salvato in altro modo la mia password",
     "understand_3": "Ho capito che perderò l'accesso ai miei fondi se perdo la mia password",
-    "bts_rules": "La prima regola di TravelChain è: Non perdere la tua password.<br/>La seconda regola di TravelChain è: Non perdere la tua password.<br />La terza regola di TravelChain è: Non possiamo recuperare la tua password.<br />La quarta regola: Se puoi ricordare la tua password, allora non è sicura.<br />La quinta regola: Usa solo password generate a caso.<br />La sesta regola: Non dire a nessuno la tua password.<br />La settima regola: Fai sempre il backup della tua password.",
-    "ok_done": "OK, portami alla dashboard"
+    "bts_rules": "La prima regola di TravelChain è: Non perdere la tua password.<br/>La seconda regola di TravelChain è: Non perdere la tua password.<br />La terza regola di TravelChain è: Non possiamo recuperare la tua password.<br />La quarta regola: Se puoi ricordare la tua password, allora non è sicura.<br />La quinta regola: Usa solo password generate a caso.<br />La sesta regola: Non dire a nessuno la tua password.<br />La settima regola: Fai sempre il backup della tua password."
   },
   "borrow": {
     "title": "%(asset_symbol)s con margine",

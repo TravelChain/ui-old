@@ -1,6 +1,8 @@
 require("./stylesheets/app.scss");
 require("file-loader?name=index.html!./" + ((__ELECTRON__ || __HASH_HISTORY__) ? "index-electron" : "index") + ".html");
 require("file-loader?name=favicon.ico!./favicon.ico");
+require("file-loader?name=mapala.png!./mapala.png");
+require("file-loader?name=aigents.png!./aigents.png");
 require("file-loader?name=dictionary.json!common/dictionary_en.json");
 require("babel-polyfill");
 require("whatwg-fetch");

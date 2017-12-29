@@ -28,11 +28,18 @@
     "sub_text_1" : "Please verify that your computer clock is correct.",
     "sub_text_2" : "Once you've synchronized your clock, please refresh this page.<br/><br/>If your clock is already correct, the API server you're using could be out of sync. In that case, please try a different server from the list below."
   },
+  "dashboard":{
+      "mapala": "INTERNATIONAL TRAVELERS COMMUNITY, WHERE EVERYONE CAN SHARE THEIR PAST TRAVEL EXPERIENCE OR EXPECTATIONS FOR THE FUTURE, AND GET REWARDED FOR IT. MAPALA IS BASED ON THE DREAM AND THE IDEA OF FREE TRAVELS, THAT STARTED THE PATH OF THE TRAVELCHAIN TEAM. FROM THE BEGINNING OF 2017 THE AUTHORS HAVE WRITTEN MORE THAN 10,000 UNIQUE ARTICLES AND GOT MORE THAN 250 000 USD AS A REWARD FOR IT USING THE STEEMIT AND GOLOS BLOCKCHAINS. THE PROJECT IS NOW IN THE BETA-VERSION DEVELOPMETN STAGE. ITS EVOLUTION AFTER THE INTEGRATION WITH THE TRAVELCHAIN ECOSYSTEM WILL BE DIRECTED TOWARDS THE IMPLEMENTATION OF GAME MECHANICS. IT IS NEEDED TO ACCELERATE THE EXPANSION OF THE COMMUNITY AND THE CREATION OF THE HYPERGRAPH WITH ALL POSSIBLE INFORMATION IN TOURISM NICHE (NEW GENERATION WIKIPEDIA).",
+      "travelai" : "THE SYSTEM OF MACHINE LEARNING AND ARTIFICIAL INTELLIGENCE THAT CAN TELL MORE ABOUT YOU THAN YOU KNOW YOURSELF. BASING ON DATA FROM THE USER'S SOCIAL NETWORKS (FB, GOOGLE+, VK, STEEM, GOLOS) AND USING THE SEMANTIC ANALYSIS AND THE PRINCIPLES OF CLUSTERING AI, THE SYSTEM WILL BE ABLE TO TELL WHAT WAS INTERESTING YOU FEW MONTHS AGO, WHAT IS NOW, WHO IS YOUR AUTHORITY, FOLLOWER OR FRIEND. THE SYSTEM WILL BE THE FIRST EXTERNAL REPUTATIONAL AGENCY, AND OVER TIME, WILL BECOME A PART OF THE ADSCORE - ADVERTISING CORE  OF THE TRAVELCHAIN PLATFORM.",
+      "coming_soon": "Coming soon.."
+    },
+    
   "header": {
     "title": "TravelChain UI",
     "account": "Account",
     "dashboard": "Dashboard",
     "explorer": "Explore",
+    "membership": "Membership",
     "exchange": "Exchange",
     "payments": "Send",
     "logout": "Logout",
@@ -1228,7 +1235,7 @@
     "understand_2": "I have written down or otherwise stored my password",
     "understand_3": " I understand that I will lose access to my funds if I lose my password",
     "bts_rules": "The first rule of TravelChain is: Do not lose your password.<br/>The second rule of TravelChain is: Do not lose your password.<br />The third rule of TravelChain is: We cannot recover your password.<br />The fourth rule: If you can remember the password, it's not secure.<br />The fifth rule: Use only randomly-generated passwords.<br />The sixth rule: Do not tell anyone your password.<br />The seventh rule: Always back up your password.",
-    "ok_done": "OK, take me to the dashboard"
+    "ok_done": "OK, take me to the Token Sale"
   },
   "borrow": {
     "title": "%(asset_symbol)s Margin",

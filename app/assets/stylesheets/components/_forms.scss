@@ -142,7 +142,6 @@ div.transfer-input {
 
   .available-balance {
     top: 10px !important;
-    right: 50px !important;
 
     span {
       position: static;
@@ -322,7 +321,6 @@ form.full-width {
   }
 
 }
-
 .user-form,
 .transfer-form,
 .register-form {
@@ -514,4 +512,10 @@ form.full-width {
     font-size: 14px;
     color: #d1d1d1;
   }
+}
+
+.user-form .content-block span {
+  top: 0;
+  right: -10px;
+  color: red;
 }

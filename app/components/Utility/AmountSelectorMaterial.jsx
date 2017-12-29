@@ -73,6 +73,7 @@ class AmountSelector extends React.Component {
 
   render() {
     let value = this.props.error ? counterpart.translate(this.props.error) : this.formatAmount(this.props.amount);
+
     return (
       <div className="amount-selector" style={this.props.style}>
         <label className="right-label">{this.props.display_balance}</label>
@@ -87,15 +88,16 @@ class AmountSelector extends React.Component {
               />
             </FormControl>
 
-
-          <div className="form-label select floating-dropdown">
-            <AssetSelector
-              ref={this.props.refCallback}
-              value={this.props.asset.get("symbol")}
-              assets={Immutable.List(this.props.assets)}
-              onChange={this.onAssetChange.bind(this)}
-            />
-          </div>
+          {!this.props.assetSybmolHidden ?
+            <div className="form-label select floating-dropdown">
+              <AssetSelector
+                ref={this.props.refCallback}
+                value={this.props.asset.get("symbol")}
+                assets={Immutable.List(this.props.assets)}
+                onChange={this.onAssetChange.bind(this)}
+              />
+            </div>
+            : null }
         </div>
       </div>
     );

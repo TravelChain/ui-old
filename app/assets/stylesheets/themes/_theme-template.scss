@@ -1358,7 +1358,7 @@
     li {
       &:nth-last-of-type(1) {
         > a {
-          color: red;
+          color: #f9005a !important;
         }
       }
 
@@ -1382,10 +1382,7 @@
         > a {
           color: $account-primarytext;
           background-color: lighten($account-header, 4%);
-          border-bottom-width: 2px; /* Толщина линии внизу */
-          border-bottom-style: solid; /* Стиль линии внизу */
-          border-bottom-color: #0e8df2; /* Цвет линии внизу */
-
+          border: none;
         }
       }
       &.total-value {
