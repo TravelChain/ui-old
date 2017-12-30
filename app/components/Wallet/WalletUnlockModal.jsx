@@ -10,14 +10,17 @@ import AltContainer from "alt-container";
 import WalletDb from "stores/WalletDb";
 import WalletUnlockStore from "stores/WalletUnlockStore";
 import AccountStore from "stores/AccountStore";
+import {ChainStore} from "bitsharesjs/es";
 import WalletUnlockActions from "actions/WalletUnlockActions";
 import AccountActions from "actions/AccountActions";
 import SettingsActions from "actions/SettingsActions";
 import {Apis} from "bitsharesjs-ws";
+import SettingsStore from "stores/SettingsStore";
 import utils from "common/utils";
 import AccountSelector from "../Account/AccountSelector";
 import Icon from "../Icon/Icon";
 import axios from "axios";
+import ls from "common/localStorage";
 const STORAGE_KEY = "__graphene__";
 let ss = new ls(STORAGE_KEY);
 var logo = require("assets/logo-ico-blue.png");
@@ -127,13 +130,32 @@ class WalletUnlockModal extends React.Component {
               let faucetAddress = SettingsStore.getSetting("faucet_address");
               let current_chain = faucetAddress.split("/")[2].split(".")[0];
 
-              axios({
-                method: "GET",
-                url: "https://" + current_chain + ".travelchain.io/api/accounts/me/",
-                headers: {
-                  "Authorization": `JWT ${ss.get("backend_token")}`
-                }
-              }).then(result => console.log(result), error => console.log(error));
+
+              if (Apis.instance().chain_id.substr(0, 8) === "5cfd61a0") {
+                current_chain = "sandbox";
+              }
+
+
+              setTimeout(() => {
+                axios({
+                  method: "GET",
+                  url: "https://" + current_chain + ".travelchain.io/api/accounts/me/",
+                  headers: {
+                    "Authorization": `JWT ${ss.get("backend_token")}`
+                  }
+                }).then((result) => {
+
+
+                  let tt_balance_object = this.state.account.get("balances").toJS()['1.3.0'];
+
+                  let bc_balance = ChainStore.getObject(tt_balance_object).toJS().balance;
+
+                  if (bc_balance > result.data.balance) {
+                      // event.('update_balance', balance); // TODO make a ga event
+                  }
+                });
+              }, 10000);
+
             }
             ZfApi.publish(this.props.modalId, "close");
             this.props.resolve();
