@@ -507,7 +507,7 @@ class Transfer extends React.Component {
                                     {/*className={classnames("button float-right no-margin", {disabled: isSendNotValid})}*/}
                                     {/*type="submit" value="Submit" tabIndex={tabIndex++}>*/}
                                     {/*<Translate component="span" content="propose"/>*/}
-                                {/*</button> :*/}
+                            {/*</button> :*/}
                                 {/*<button*/}
                                     {/*className={classnames("button float-right no-margin", {disabled: isSendNotValid})}*/}
                                     {/*type="submit" value="Submit" tabIndex={tabIndex++}>*/}

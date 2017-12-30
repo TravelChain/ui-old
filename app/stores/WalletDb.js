@@ -325,6 +325,11 @@ class WalletDb extends BaseStore {
               let faucetAddress = SettingsStore.getSetting("faucet_address");
               var current_chain  = faucetAddress.split("/")[2].split(".")[0]
 
+
+              if (Apis.instance().chain_id.substr(0, 8) === "5cfd61a0") {
+                current_chain = "sandbox";
+              }
+
                 if(role === "active") {
                     axios.get("https://" + current_chain + ".travelchain.io/api/", { method: "get", withCredentials: true })
                        .then(response => {

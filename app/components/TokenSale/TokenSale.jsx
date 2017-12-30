@@ -103,6 +103,7 @@ import MarketsStore from "stores/MarketsStore";
 import AccountStore from "stores/AccountStore";
 import SettingsStore from "stores/SettingsStore";
 import GatewayStore from "stores/GatewayStore";
+import {Apis} from "bitsharesjs-ws";
 import AltContainer from "alt-container";
 import Exchange from "../Exchange/TokenSaleExchange";
 import ChainTypes from "../Utility/ChainTypes";
@@ -254,6 +255,10 @@ class ExchangeSubscriber extends React.Component {
 
     let faucetAddress = SettingsStore.getSetting("faucet_address");
     var current_chain  = faucetAddress.split("/")[2].split(".")[0]
+
+    if (Apis.instance().chain_id.substr(0, 8) === "5cfd61a0") {
+      current_chain = "sandbox";
+    }
 
     axios.get("https://" + current_chain + ".travelchain.io/api/accounts/me/", {
       headers: {

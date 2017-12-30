@@ -7,7 +7,7 @@ class WalletUnlockActions {
 
         @return nothing .. Just test for resolve() or reject()
     */
-    unlock() {
+    unlock () {
         return (dispatch) => {
             return new Promise( (resolve, reject) => {
                 dispatch({resolve, reject});
@@ -19,9 +19,9 @@ class WalletUnlockActions {
 
     }
 
-    lock() {
+    lock () {
         return (dispatch) => {
-            return new Promise( resolve => {
+            return new Promise(resolve => {
                 dispatch({resolve});
             }).then( was_unlocked => {
                 if(was_unlocked) WrappedWalletUnlockActions.change();
@@ -29,15 +29,15 @@ class WalletUnlockActions {
         };
     }
 
-    cancel() {
+    cancel () {
         return true;
     }
 
-    change() {
+    change () {
         return true;
     }
 
-    checkLock() {
+    checkLock () {
         return true;
     }
 

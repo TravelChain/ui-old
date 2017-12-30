@@ -18,6 +18,7 @@ import 'jquery-mask-plugin';
 import "inputmask/dist/inputmask/inputmask.numeric.extensions";
 import Inputmask from "inputmask/dist/inputmask/inputmask.date.extensions";
 import InputMask from 'react-input-mask';
+import {Apis} from "bitsharesjs-ws";
 
 // let ThemeManager = new mui.Styles.ThemeManager();
 var validator = require("email-validator");
@@ -106,6 +107,10 @@ class Kyc extends React.Component {
 
         let faucetAddress = SettingsStore.getSetting("faucet_address");
         var current_chain = faucetAddress.split("/")[2].split(".")[0];
+
+      if (Apis.instance().chain_id.substr(0, 8) === "5cfd61a0") {
+        current_chain = "sandbox";
+      }
 
         axios({
             method: "PUT",
