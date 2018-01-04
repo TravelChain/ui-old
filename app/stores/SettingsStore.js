@@ -17,6 +17,7 @@ class SettingsStore {
         this.exportPublicMethods({
             init: this.init.bind(this),
             getSetting: this.getSetting.bind(this),
+            getApiUrl: this.getApiUrl.bind(this),
             getLastBudgetObject: this.getLastBudgetObject.bind(this),
             setLastBudgetObject: this.setLastBudgetObject.bind(this)
         });
@@ -219,6 +220,16 @@ class SettingsStore {
 
     getSetting(setting) {
         return this.settings.get(setting);
+    }
+
+    getApiUrl(path) {
+        // Определение текущего апи 
+        if (Apis.instance().chain_id.substr(0, 8) === "3a6e3021") {
+          // Тестнет
+          return `https://sandbox.travelchain.io/api/${path}/`
+        } else {
+          return `https://wallet.travelchain.io/api/${path}/`
+        }
     }
 
     onChangeSetting(payload) {

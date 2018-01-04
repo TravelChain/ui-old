@@ -319,23 +319,12 @@ class WalletDb extends BaseStore {
                 if (!_passwordKey) _passwordKey = {};
                 _passwordKey[pub] = priv;
 
-                
-
-              // TODO Вынести определение блокчейна
-              let faucetAddress = SettingsStore.getSetting("faucet_address");
-              var current_chain  = faucetAddress.split("/")[2].split(".")[0]
-
-
-              if (Apis.instance().chain_id.substr(0, 8) === "5cfd61a0") {
-                current_chain = "sandbox";
-              }
-
                 if(role === "active") {
-                    axios.get("https://" + current_chain + ".travelchain.io/api/", { method: "get", withCredentials: true })
+                    axios.get(SettingsStore.getApiUrl(''), { method: "get", withCredentials: true })
                        .then(response => {
                            let authSigHash = response.headers["auth-sig-hash"];
 
-                           axios.post("https://" + current_chain + ".travelchain.io/api/auth/", JSON.stringify({
+                           axios.post(SettingsStore.getApiUrl('auth'), JSON.stringify({
                                account: account,
                                auth_sig: Signature.sign(authSigHash, priv).toHex()
                            }), {

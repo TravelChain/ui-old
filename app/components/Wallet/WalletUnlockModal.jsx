@@ -127,31 +127,39 @@ class WalletUnlockModal extends React.Component {
                 this.refs.password_input.value = "";
                 AccountActions.setPasswordAccount(account);
 
-              let faucetAddress = SettingsStore.getSetting("faucet_address");
-              let current_chain = faucetAddress.split("/")[2].split(".")[0];
-
-
-              if (Apis.instance().chain_id.substr(0, 8) === "5cfd61a0") {
-                current_chain = "sandbox";
-              }
-
-
               setTimeout(() => {
                 axios({
                   method: "GET",
-                  url: "https://" + current_chain + ".travelchain.io/api/accounts/me/",
+                  url: SettingsStore.getApiUrl('accounts/me'),
                   headers: {
                     "Authorization": `JWT ${ss.get("backend_token")}`
                   }
                 }).then((result) => {
-
-
                   let tt_balance_object = this.state.account.get("balances").toJS()['1.3.0'];
 
                   let bc_balance = ChainStore.getObject(tt_balance_object).toJS().balance;
 
                   if (bc_balance > result.data.balance) {
-                      // event.('update_balance', balance); // TODO make a ga event
+                    ga('send', {
+                      hitType: 'event',
+                      eventCategory: 'Pay',
+                      eventAction: 'buy_tokens',
+                      eventValue: bc_balance
+                      // eventLabel: 'Fall Campaign'
+                    });
+
+                    axios({
+                      method: "PUT",
+                      url: SettingsStore.getApiUrl('accounts/me'),
+                      headers: {
+                        "Authorization": `JWT ${ss.get("backend_token")}`
+                      },
+                      data: {
+                        balance: bc_balance
+                      }
+                    }).then(result => {
+                      console.log('Balance updated')
+                    });
                   }
                 });
               }, 10000);
