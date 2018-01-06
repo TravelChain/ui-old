@@ -142,7 +142,7 @@ class WalletUnlockModal extends React.Component {
                   if (bc_balance > result.data.balance) {
                     ga('send', {
                       hitType: 'event',
-                      eventCategory: 'Pay',
+                      eventCategory: 'Pay_clear',
                       eventAction: 'buy_tokens',
                       eventValue: bc_balance
                       // eventLabel: 'Fall Campaign'
