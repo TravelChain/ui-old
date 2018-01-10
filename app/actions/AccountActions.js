@@ -6,8 +6,16 @@ import WalletApi from "api/WalletApi";
 import ApplicationApi from "api/ApplicationApi";
 import WalletDb from "stores/WalletDb";
 import WalletActions from "actions/WalletActions";
+import SettingsStore from "../stores/SettingsStore"
+import {ChainStore} from "bitsharesjs"
+import axios from "axios/index"
+import ls from "common/localStorage"
+
+const STORAGE_KEY = "__graphene__"
+let ss = new ls(STORAGE_KEY)
 
 let accountSearch = {};
+let checkingStatus = false;
 
 /**
  *  @brief  Actions that modify linked accounts
@@ -158,6 +166,54 @@ class AccountActions {
 
     setPasswordAccount(account) {
         return account;
+    }
+
+    updateBalanceAndNotifyGoogle(location) {
+
+        if( checkingStatus ) return false;
+
+        checkingStatus = true;
+        console.log("Updating balance status...");
+
+        return axios({
+            method: "GET",
+            url: SettingsStore.getApiUrl('accounts/me'),
+            headers: {
+                "Authorization": `JWT ${ss.get("backend_token")}`
+            }
+        }).then((result) => {
+            let tt_balance_object = this.state.account.get("balances").toJS()[ '1.3.0' ]
+
+            let bc_balance = ChainStore.getObject(tt_balance_object).toJS().balance
+            if (bc_balance > result.data.balance) {
+                ga('send', {
+                    hitType: 'event',
+                    eventCategory: 'Pay_clear',
+                    eventAction: 'buy_tokens',
+                    eventValue: bc_balance
+                    // eventLabel: 'Fall Campaign'
+                });
+
+                axios({
+                    method: "PUT",
+                    url: SettingsStore.getApiUrl('accounts/me'),
+                    headers: {
+                        "Authorization": `JWT ${ss.get("backend_token")}`
+                    },
+                    data: {
+                        balance: bc_balance
+                    }
+                }).then(result => {
+                    console.log('Balance updated')
+                })
+            }
+
+            checkingStatus = false;
+        })
+        .catch(err => {
+            console.log("Error: ", err);
+            checkingStatus = false;
+        });
     }
 }
 

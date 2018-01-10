@@ -51,12 +51,18 @@ import Help from "./components/Help";
 import InitError from "./components/InitError";
 import LoginSelector from "./components/LoginSelector";
 import CreateWorker from "./components/Account/CreateWorker";
+import AccountActions from "./actions/AccountActions"
 
 const history = __HASH_HISTORY__ ? hashHistory : browserHistory;
 
 class Auth extends React.Component {
     render() {return null; }
 }
+
+history.listen(location => {
+    AccountActions.updateBalanceAndNotifyGoogle(location);
+    return true;
+});
 
 const routes = (
     <Route path="/" component={App} onEnter={willTransitionTo}>
