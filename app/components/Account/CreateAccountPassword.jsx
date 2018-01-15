@@ -82,6 +82,7 @@ class CreateAccountPassword extends React.Component {
         const state = {};
         if (e.valid !== undefined) state.validAccountName = e.valid;
         if (e.value !== undefined) state.accountName = e.value;
+        
         if (!this.state.show_identicon) state.show_identicon = true;
         this.setState(state);
     }

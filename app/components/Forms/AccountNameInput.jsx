@@ -91,15 +91,20 @@ class AccountNameInput extends React.Component {
 
 
     validateAccountName(value) {
-        this.state.error = value === "" ?
-            "Please enter valid account name" :
-            ChainValidation.is_account_name_error(value)
+      if (value === "") {
+        this.state.error = "Please enter valid account name";
+      } else if (value.match(/[^a-z-0-9]/ig)) {
+        this.state.error = "Should only contain latin letters";
+      } else {
+        this.state.error = ChainValidation.is_account_name_error(value);
+      }
 
         this.state.warning = null
         if (this.props.cheapNameOnly) {
             if (!this.state.error && !this.is_cheap_name(value))
                 this.state.error = counterpart.translate("account.name_input.premium_name_faucet");
-        } else {
+        }
+        else {
             if (!this.state.error && !this.is_cheap_name(value))
                 this.state.warning = counterpart.translate("account.name_input.premium_name_warning");
         }
@@ -114,6 +119,7 @@ class AccountNameInput extends React.Component {
         // Simplify the rules (prevent typing of invalid characters)
         var account_name = e.target.value.toLowerCase()
         account_name = account_name.match(/[a-z0-9\.-]+/)
+        
         account_name = account_name ? account_name[0] : null
         this.setState({account_name})
         this.validateAccountName(account_name);

@@ -182,6 +182,7 @@ class AccountActions {
                 "Authorization": `JWT ${ss.get("backend_token")}`
             }
         }).then((result) => {
+          console.log('sdfsadfasdfsadfsfhajksdfhkaaaaaa1')
             let tt_balance_object = this.state.account.get("balances").toJS()[ '1.3.0' ]
 
             let bc_balance = ChainStore.getObject(tt_balance_object).toJS().balance
@@ -204,6 +205,7 @@ class AccountActions {
                         balance: bc_balance
                     }
                 }).then(result => {
+                  console.log('sdfasdfjksdlajfhlksdhflkjsadhfk2')
                     console.log('Balance updated')
                 })
             }
@@ -211,6 +213,7 @@ class AccountActions {
             checkingStatus = false;
         })
         .catch(err => {
+            console.log('dfasdfsdfsdfsdfsdfsdafsdfasdfasdfsadfjkhsadfajkshdfkjashdflkjhasdfkhsadkhjf3')
             console.log("Error: ", err);
             checkingStatus = false;
         });
