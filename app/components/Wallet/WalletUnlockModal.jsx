@@ -136,7 +136,7 @@ class WalletUnlockModal extends React.Component {
                 AccountActions.setPasswordAccount(account)
 
                 setTimeout(() => {
-                    AccountActions.updateBalanceAndNotifyGoogle();
+                    AccountActions.updateBalanceAndNotifyGoogle(account);
                 }, 10000)
             }
             ZfApi.publish(this.props.modalId, "close")

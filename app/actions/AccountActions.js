@@ -168,7 +168,7 @@ class AccountActions {
         return account;
     }
 
-    updateBalanceAndNotifyGoogle(location) {
+    updateBalanceAndNotifyGoogle(account) {
 
         if( checkingStatus ) return false;
 
@@ -182,8 +182,9 @@ class AccountActions {
                 "Authorization": `JWT ${ss.get("backend_token")}`
             }
         }).then((result) => {
-          console.log('sdfsadfasdfsadfsfhajksdfhkaaaaaa1')
-            let tt_balance_object = this.state.account.get("balances").toJS()[ '1.3.0' ]
+
+    
+            let tt_balance_object = account.get("balances").toJS()['1.3.0']
 
             let bc_balance = ChainStore.getObject(tt_balance_object).toJS().balance
             if (bc_balance > result.data.balance) {
