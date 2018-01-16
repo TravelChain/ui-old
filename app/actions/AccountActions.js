@@ -7,6 +7,7 @@ import ApplicationApi from "api/ApplicationApi";
 import WalletDb from "stores/WalletDb";
 import WalletActions from "actions/WalletActions";
 import SettingsStore from "../stores/SettingsStore"
+import {Apis} from "bitsharesjs-ws"
 import {ChainStore} from "bitsharesjs"
 import axios from "axios/index"
 import ls from "common/localStorage"
@@ -175,19 +176,22 @@ class AccountActions {
         checkingStatus = true;
         console.log("Updating balance status...");
 
-        return axios({
-            method: "GET",
-            url: SettingsStore.getApiUrl('accounts/me'),
-            headers: {
-                "Authorization": `JWT ${ss.get("backend_token")}`
-            }
-        }).then((result) => {
-
-    
-            let tt_balance_object = account.get("balances").toJS()['1.3.0']
-
-            let bc_balance = ChainStore.getObject(tt_balance_object).toJS().balance
+        return Apis.instance().db_api().exec("get_named_account_balances", ["drgmes1", ["1.3.0"]]).then((res) => {
+            return res[0].amount
+        })
+        .then((bc_balance) => {
+            return axios({
+                method: "GET",
+                url: SettingsStore.getApiUrl('accounts/me'),
+                headers: {
+                    "Authorization": `JWT ${ss.get("backend_token")}`
+                }
+            })
+        })
+        .then((result) => {
             if (bc_balance > result.data.balance) {
+
+                console.log( "GA triggered" );
                 ga('send', {
                     hitType: 'event',
                     eventCategory: 'Pay_clear',
@@ -206,7 +210,6 @@ class AccountActions {
                         balance: bc_balance
                     }
                 }).then(result => {
-                  console.log('sdfasdfjksdlajfhlksdhflkjsadhfk2')
                     console.log('Balance updated')
                 })
             }
@@ -214,7 +217,6 @@ class AccountActions {
             checkingStatus = false;
         })
         .catch(err => {
-            console.log('dfasdfsdfsdfsdfsdfsdafsdfasdfasdfsadfjkhsadfajkshdfkjashdflkjhasdfkhsadkhjf3')
             console.log("Error: ", err);
             checkingStatus = false;
         });
