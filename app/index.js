@@ -8,6 +8,7 @@ import { Router, browserHistory, hashHistory } from "react-router/es";
 * synchronized between the two files
 */
 import routes from "./Routes";
+import AccountActions from "./actions/AccountActions";
 
 require("./components/Utility/Prototypes"); // Adds a .equals method to Array for use in shouldComponentUpdate
 
@@ -16,6 +17,11 @@ require("./components/Utility/Prototypes"); // Adds a .equals method to Array fo
 * The same is true for servers without configuration options, such as Github Pages
 */
 const history = __HASH_HISTORY__ ? hashHistory : browserHistory;
+
+history.listen(location => {
+    AccountActions.updateBalanceAndNotifyGoogle(location);
+    return true;
+});
 
 const rootEl = document.getElementById("content");
 const render = () => {
