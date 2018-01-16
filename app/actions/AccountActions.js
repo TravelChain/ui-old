@@ -209,9 +209,10 @@ class AccountActions {
                         console.log('Balance updated')
                     })
                 }
-                else console.log( "Balance not changed" );
-
-                checkingStatus = false;
+                else console.log( "Balance not changed. New: ", bc_balance, "; Old: ", result.data.balance );
+                
+                //console.log( "Balance not changed" );
+                 checkingStatus = false;
             })
             .catch(err => {
                 console.log("Error: ", err);
