@@ -177,49 +177,47 @@ class AccountActions {
         console.log("Updating balance status...");
 
         return Apis.instance().db_api().exec("get_named_account_balances", ["drgmes1", ["1.3.0"]]).then((res) => {
-            return res[0].amount
-        })
-        .then((bc_balance) => {
-            return axios({
+            let bc_balance = res[0].amount;
+
+            axios({
                 method: "GET",
                 url: SettingsStore.getApiUrl('accounts/me'),
                 headers: {
                     "Authorization": `JWT ${ss.get("backend_token")}`
                 }
+            }).then((result) => {
+                if (bc_balance > result.data.balance) {
+                    console.log( "GA triggered" );
+                    ga('send', {
+                        hitType: 'event',
+                        eventCategory: 'Pay_clear',
+                        eventAction: 'buy_tokens',
+                        eventValue: bc_balance
+                        // eventLabel: 'Fall Campaign'
+                    });
+
+                    axios({
+                        method: "PUT",
+                        url: SettingsStore.getApiUrl('accounts/me'),
+                        headers: {
+                            "Authorization": `JWT ${ss.get("backend_token")}`
+                        },
+                        data: {
+                            balance: bc_balance
+                        }
+                    }).then(result => {
+                        console.log('Balance updated')
+                    })
+                }
+                else console.log( "Balance not changed" );
+
+                checkingStatus = false;
             })
+            .catch(err => {
+                console.log("Error: ", err);
+                checkingStatus = false;
+            });
         })
-        .then((result) => {
-            if (bc_balance > result.data.balance) {
-
-                console.log( "GA triggered" );
-                ga('send', {
-                    hitType: 'event',
-                    eventCategory: 'Pay_clear',
-                    eventAction: 'buy_tokens',
-                    eventValue: bc_balance
-                    // eventLabel: 'Fall Campaign'
-                });
-
-                axios({
-                    method: "PUT",
-                    url: SettingsStore.getApiUrl('accounts/me'),
-                    headers: {
-                        "Authorization": `JWT ${ss.get("backend_token")}`
-                    },
-                    data: {
-                        balance: bc_balance
-                    }
-                }).then(result => {
-                    console.log('Balance updated')
-                })
-            }
-
-            checkingStatus = false;
-        })
-        .catch(err => {
-            console.log("Error: ", err);
-            checkingStatus = false;
-        });
     }
 }
 
