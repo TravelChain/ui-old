@@ -176,16 +176,16 @@ class AccountActions {
         checkingStatus = true;
         console.log("Updating balance status...");
 
-        return Apis.instance().db_api().exec("get_named_account_balances", ["drgmes1", ["1.3.0"]]).then((res) => {
-            let bc_balance = res[0].amount;
+        return axios({
+            method: "GET",
+            url: SettingsStore.getApiUrl('accounts/me'),
+            headers: {
+                "Authorization": `JWT ${ss.get("backend_token")}`
+            }
+        }).then((result) => {
+            Apis.instance().db_api().exec("get_named_account_balances", [result.data.name, ["1.3.0"]]).then((res) => {
+                let bc_balance = res[0].amount;
 
-            axios({
-                method: "GET",
-                url: SettingsStore.getApiUrl('accounts/me'),
-                headers: {
-                    "Authorization": `JWT ${ss.get("backend_token")}`
-                }
-            }).then((result) => {
                 if (bc_balance > result.data.balance) {
                     console.log( "GA triggered" );
                     ga('send', {
@@ -209,15 +209,15 @@ class AccountActions {
                         console.log('Balance updated')
                     })
                 }
-                else console.log( "Balance not changed" );
+                else console.log( "Balance not changed. New: ", bc_balance, "; Old: ", result.data.balance );
 
                 checkingStatus = false;
             })
-            .catch(err => {
-                console.log("Error: ", err);
-                checkingStatus = false;
-            });
         })
+        .catch(err => {
+            console.log("Error: ", err);
+            checkingStatus = false;
+        });
     }
 }
 
