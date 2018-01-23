@@ -93,7 +93,7 @@ class AccountNameInput extends React.Component {
     validateAccountName(value) {
       if (value === "") {
         this.state.error = "Please enter valid account name";
-      } else if (value.match(/[^a-z-0-9]/ig)) {
+      } else if (value.match(/[^a-z-0-9\.]/ig)) {
         this.state.error = "Should only contain latin letters";
       } else {
         this.state.error = ChainValidation.is_account_name_error(value);
