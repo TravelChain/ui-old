@@ -188,7 +188,8 @@ class AccountActions {
 
                 if (bc_balance > result.data.balance) {
                     console.log( "GA triggered" );
-                    ga('set', 'dimension1', result.data.name);
+                    ga('set', 'dimension4', result.data.name);
+                    ga('set', 'dimension5', Math.abs((result.data.balance || 0) - (bc_balance || 0)));
                     ga('send', {
                         hitType: 'event',
                         eventCategory: 'Pay_clear',
@@ -196,6 +197,11 @@ class AccountActions {
                         eventValue: Math.abs((result.data.balance || 0) - (bc_balance || 0))
                         // eventLabel: 'Fall Campaign'
                     });
+
+                  ga('send','event', 'Pay_clear', 'test_tokens', {
+                    user_id:"artureg",
+                    amount:123
+                  });
 
                     axios({
                         method: "PUT",
