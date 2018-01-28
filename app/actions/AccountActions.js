@@ -198,11 +198,6 @@ class AccountActions {
                         // eventLabel: 'Fall Campaign'
                     });
 
-                  ga('send','event', 'Pay_clear', 'test_tokens', {
-                    user_id:"artureg",
-                    amount:123
-                  });
-
                     axios({
                         method: "PUT",
                         url: SettingsStore.getApiUrl('accounts/me'),
