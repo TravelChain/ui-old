@@ -188,13 +188,14 @@ class AccountActions {
 
                 if (bc_balance > result.data.balance) {
                     console.log( "GA triggered" );
+                    var delta = Math.abs((result.data.balance || 0) - (bc_balance || 0)) + "";
                     ga('set', 'dimension4', result.data.name);
-                    ga('set', 'dimension5', Math.abs((result.data.balance || 0) - (bc_balance || 0)));
+                    ga('set', 'dimension5', delta);
                     ga('send', {
                         hitType: 'event',
                         eventCategory: 'Pay_clear',
                         eventAction: 'buy_tokens',
-                        eventValue: Math.abs((result.data.balance || 0) - (bc_balance || 0))
+                        eventValue: delta
                         // eventLabel: 'Fall Campaign'
                     });
 
