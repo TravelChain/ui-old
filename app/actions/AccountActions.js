@@ -187,17 +187,20 @@ class AccountActions {
                 let bc_balance = res[0].amount;
 
                 if (bc_balance > result.data.balance) {
-                    console.log( "GA triggered" );
-                    var delta = Math.abs((result.data.balance || 0) - (bc_balance || 0)) + "";
-                    ga('set', 'dimension4', result.data.name);
-                    ga('set', 'dimension5', delta);
-                    ga('send', {
-                        hitType: 'event',
-                        eventCategory: 'Pay_clear',
-                        eventAction: 'buy_tokens',
-                        eventValue: delta
-                        // eventLabel: 'Fall Campaign'
-                    });
+
+                    if (["faucet", "tokensale", "presale1", "presale2", "team", "devfund", "advisers1", "bounty"].indexOf(result.data.name) === -1) {
+                        console.log("GA triggered");
+                        var delta = Math.abs((result.data.balance || 0) - (bc_balance || 0)) + "";
+                        ga('set', 'dimension4', result.data.name);
+                        ga('set', 'dimension5', delta);
+                        ga('send', {
+                          hitType: 'event',
+                          eventCategory: 'Pay_clear',
+                          eventAction: 'buy_tokens',
+                          eventValue: delta
+                          // eventLabel: 'Fall Campaign'
+                        });
+                    }
 
                     axios({
                         method: "PUT",
