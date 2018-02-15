@@ -1361,6 +1361,7 @@
     "scan_qr": "Scan QR",
     "calc": "Calculating",
     "choose_deposit": "Please select the coin you would like to deposit",
+    "BTS": "Transfer BTS to account: TRAVELCHAIN-GATEWAY, and put name of your TravelChain account in memo.",
     "choose_withdraw": "Please select the coin you would like to withdraw",
     "asset_to_deposit": "Asset to deposit:",
     "asset_to_receive": "You will receive:",
