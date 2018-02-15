@@ -1136,7 +1136,7 @@ class Exchange extends React.Component {
                 <HelpContent path="components/DepositWithdraw" section="deposit-short"/>
               </div>
 
-      #### STATUS HERE ###
+  
 
               {/* <div className="small-12 medium-4 middle-content" style={{padding: 35}}>
                 <h3>Status</h3>
