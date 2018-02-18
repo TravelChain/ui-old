@@ -195,9 +195,9 @@ class Exchange extends React.Component {
       .then(
         (result) => {
 
-
+          console.log(result.results);
           this.setState({
-            trxs: result,
+            trxs: result.results,
           });
 
         },
@@ -205,9 +205,7 @@ class Exchange extends React.Component {
         // instead of a catch() block so that we don't swallow
         // exceptions from actual bugs in components.
         (error) => {
-          this.setState({
-            trxs: result,
-          });
+          
         }
       )
 
