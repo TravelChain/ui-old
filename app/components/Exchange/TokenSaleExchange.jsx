@@ -31,6 +31,11 @@ import GatewayActions from "actions/GatewayActions";
 import { checkFeeStatusAsync } from "common/trxHelper";
 import HelpContent from "../Utility/HelpContent";
 import BlockTradesGateway from "../DepositWithdraw/BlockTradesGateway";
+import DataTables from 'material-ui-datatables';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+
+const travelchainTheme = getMuiTheme();
 
 Highcharts.setOptions({
   global: {
@@ -64,6 +69,9 @@ class Exchange extends React.Component {
     this._checkFeeStatus = this._checkFeeStatus.bind(this);
     this.psInit = true;
   }
+
+
+
 
   _initialState(props) {
     let ws = props.viewSettings;
@@ -148,6 +156,7 @@ class Exchange extends React.Component {
     if (Apis.instance().chain_id.substr(0, 8)=== "5cfd61a0") {
       GatewayActions.fetchCoins.defer();
       GatewayActions.fetchBridgeCoins.defer();
+
     }
 
     this._checkFeeStatus();
@@ -159,7 +168,53 @@ class Exchange extends React.Component {
     });
 
     window.addEventListener("resize", this._getWindowSize, {capture: false, passive: true});
+
+    fetch("https://wallet.travelchain.io/api/ladder/1/")
+      .then(res => res.json())
+      .then(
+        (result) => {
+
+
+          this.setState({
+            ladders: result,
+          });
+
+        },
+        // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
+        (error) => {
+          this.setState({
+            ladders: result,
+          });
+        }
+      )
+
+    fetch("https://wallet.travelchain.io/api/v.0.1/transactions/")
+      .then(res => res.json())
+      .then(
+        (result) => {
+
+
+          this.setState({
+            trxs: result,
+          });
+
+        },
+        // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
+        (error) => {
+          this.setState({
+            trxs: result,
+          });
+        }
+      )
+
+    
   }
+
+  
 
   shouldComponentUpdate(nextProps) {
     if (!nextProps.marketReady && !this.props.marketReady) {
@@ -470,17 +525,6 @@ class Exchange extends React.Component {
   }
 
 
-    get_ladders() {
-       return fetch('https://wallet.travelchain.io/api/ladder/1/')
-       .then((response) => response.json())
-       .then((json) => {
-         return json;
-       })
-       .catch((error) => {
-         console.error(error);
-       });
-    }
-
   _forceBuy(type, feeAsset, sellBalance, coreBalance) {
     let current = this.state[type === "sell" ? "ask" : "bid"];
     // Convert fee to relevant asset fee and check if user has sufficient balance
@@ -609,6 +653,62 @@ class Exchange extends React.Component {
 
     this.setState({ leftOrderBook: !this.state.leftOrderBook });
   }
+
+
+  get_next_price(ladders){
+    let current_stage = ladders.current_stage;
+
+    if (current_stage == "0-100k"){
+      return 0.01596;
+    } 
+    if (current_stage == "100k-500k"){
+      return 0.01672;
+    } 
+    if (current_stage == "500k-1kk"){
+      return 0.01778;
+    } 
+
+  }
+
+  get_current_price(ladders){
+    let current_price = 1/ladders.current_price;
+    return current_price.toFixed(4);
+  }
+
+  get_remain_amount(ladders){
+    let current_stage = ladders.current_stage;
+    let remain = 0;
+
+    if (current_stage == "0-100k"){
+      remain = 100000 - ladders.amount;
+
+      return remain.toFixed(4);
+    } 
+    if (current_stage == "100k-500k"){
+      remain = 500000 - ladders.amount;
+
+      return remain.toFixed(4);
+    } 
+    if (current_stage == "500k-1kk"){
+      remain = 500000 - ladders.amount;
+
+      return remain.toFixed(4);
+    }
+    if (current_stage == "1kk-9.6kk"){
+      remain = 9600000 - ladders.amount;
+
+      return remain.toFixed(4);
+    } 
+  }
+
+  get_total_raised(ladders){
+
+    let total_amount = ladders.amount + 606000 + 598000;
+    total_amount = total_amount.toFixed(4)
+    return total_amount;
+    
+  }
+  
 
   _currentPriceClick(type, price) {
     const isBid = type === "bid";
@@ -885,6 +985,19 @@ class Exchange extends React.Component {
   }
 
   render() {
+      
+const TABLE_COLUMNS = [
+  {
+    key: 'processed_at',
+    label: 'DateTime',
+  }, {
+    key: 'amount',
+    label: 'Amount, D.USD',
+  }];
+
+
+
+
     let { currentAccount, marketLimitOrders, marketCallOrders, marketData, activeMarketHistory,
       invertedCalls, starredMarkets, quoteAsset, baseAsset, lowestCallPrice,
       marketStats, marketReady, marketSettleOrders, bucketSize, totals,
@@ -894,7 +1007,7 @@ class Exchange extends React.Component {
       flatBids, flatAsks, flatCalls, flatSettles} = marketData;
 
     let {bid, ask, leftOrderBook, showDepthChart, tools, chartHeight,
-      buyDiff, sellDiff, indicators, indicatorSettings, width, buySellTop} = this.state;
+      buyDiff, sellDiff, indicators, indicatorSettings, width, buySellTop, ladders, trxs} = this.state;
     const {isFrozen, frozenAsset} = this.isMarketFrozen();
     
     let base = null, quote = null, accountBalance = null, quoteBalance = null,
@@ -1134,18 +1247,17 @@ class Exchange extends React.Component {
               
               <div className="small-12 medium-4 middle-content" style={{padding: 35, paddingBottom: 0}}>
                 <HelpContent path="components/DepositWithdraw" section="deposit-short"/>
+                <br></br>
+                <p> Round Finish: <b> 14-00 UTC, 12 March, 2018 </b></p>
+                <p> Total Raised: <b>{this.get_total_raised(ladders)} D.USD</b></p>
+                <p> Current Stage: <b> {ladders.current_stage} D.USD</b> </p> 
+                <p> Current Price: <b> {this.get_current_price(ladders)} TT / D.USD </b></p>
+                <p> Next Price: <b> {this.get_next_price(ladders)} TT / D.USD </b> </p>
+                <p> Remain before a next price: <b>{this.get_remain_amount(ladders)} D.USD </b></p>
+             
               </div>
 
   
-
-              {/* <div className="small-12 medium-4 middle-content" style={{padding: 35}}>
-                <h3>Status</h3>
-                <p> Total Raised: <b>1 200 000 D.USD {console.log(ladders)}</b></p>
-                <p> Current Price: {ladders.current_price}<b> </b> </p>
-                
-                <p>  </p>
-
-              </div> */}
 
               <div className="small-12 medium-4 middle-content" style={{padding: 35}}>
               <h3>Buy TravelTokens</h3>
@@ -1154,6 +1266,29 @@ class Exchange extends React.Component {
                 />
               </div>
               
+              <div className="small-12 medium-4 middle-content" style={{padding: 35}}>
+                <h3>Last 100 purchases:</h3>
+              <MuiThemeProvider muiTheme={travelchainTheme}>  
+                <DataTables
+                  height={'500'}
+                  selectable={false}
+                  showRowHover={true}
+                  columns={TABLE_COLUMNS}
+                  data={trxs}
+                  showFooterToolbar = {false}
+                  showCheckboxes={false}
+                  onCellClick={this.handleCellClick}
+                  onCellDoubleClick={this.handleCellDoubleClick}
+                  onFilterValueChange={this.handleFilterValueChange}
+                  onSortOrderChange={this.handleSortOrderChange}
+                  page={1}
+                  count={100}
+                />
+              </MuiThemeProvider>
+
+              </div> 
+
+
             </div>
             
 
