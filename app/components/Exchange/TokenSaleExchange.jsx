@@ -1248,7 +1248,6 @@ const TABLE_COLUMNS = [
                 <br></br>
                 <p> Round Finish: <b> 14-00 UTC, 12 March, 2018 </b></p>
                 <p> Total Raised: <b>{this.get_total_raised(ladders)} D.USD</b></p>
-                <p> Current Stage: <b> {ladders.current_stage} D.USD</b> </p> 
                 <p> Current Price: <b> {this.get_current_price(ladders)} TT / D.USD </b></p>
                 <p> Next Price: <b> {this.get_next_price(ladders)} TT / D.USD </b> </p>
                 <p> Remain before a next price: <b>{this.get_remain_amount(ladders)} D.USD </b></p>
