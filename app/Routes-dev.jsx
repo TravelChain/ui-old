@@ -32,6 +32,7 @@ import MarketsContainer from "./components/Exchange/MarketsContainer";
 import Transfer from "./components/Transfer/Transfer";
 import Kyc from "./components/Kyc/Kyc";
 import TokenSale from "./components/TokenSale/TokenSale";
+import TokenSaleLite from "./components/TokenSale/TokenSaleLite";
 import SettingsContainer from "./components/Settings/SettingsContainer";
 import BlockContainer from "./components/Blockchain/BlockContainer";
 import Asset from "./components/Blockchain/Asset";
@@ -96,7 +97,7 @@ const routes = (
         <Route path="create-wallet" component={WalletCreate} />
         <Route path="create-wallet-brainkey" component={CreateWalletFromBrainkey} />
         <Route path="kyc" component={Kyc}/>
-        <Route path="token-sale" component={TokenSale}/>
+        <Route path="token-sale" component={TokenSaleLite}/>
         {/*<Route path="top-apps" component={TopApps}/>*/}
         <Route path="transfer" component={Transfer}/>
         

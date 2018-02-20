@@ -3,6 +3,7 @@ import React from "react";
 import { Route, IndexRoute, Redirect } from "react-router/es";
 import willTransitionTo from "./routerTransition";
 import App from "./App";
+import TokenSaleLite from "./components/TokenSale/TokenSaleLite";
 
 /*
 * Electron does not support async loading of components via System.import,
@@ -116,7 +117,7 @@ const routes = (
         }}/>
 
         <Route path="token-sale" getComponent={(location, cb) => {
-            System.import("components/TokenSale/TokenSale").then(loadRoute(cb)).catch(errorLoading);
+            System.import("components/TokenSale/TokenSaleLite").then(loadRoute(cb)).catch(errorLoading);
         }}/>
 
         <Route path="invoice/:data" getComponent={(location, cb) => {
