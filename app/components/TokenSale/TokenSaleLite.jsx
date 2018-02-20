@@ -41,7 +41,6 @@ class TokenSaleLite extends React.Component {
   }
 
   render() {
-    console.log(123)
     return <div className="grid-block vertical">
       <TokenSalePage wallets={this.state.wallets}/>
     </div>;
