@@ -30,16 +30,18 @@ class BlockTradesGateway extends React.Component {
           width: '100%',
         },
       };
-
-
+      
+      this.props.wallets['BTS'] = "Transfer BTS to account ' TRAVEL-CHAIN ' in BitShares network, and put name of your TravelChain account in the memo field";
       const wallets = this.props.wallets;
+
+      console.log(wallets);
       if (!activeCoin) this.state.activeCoin = wallets['BTC'];
 
         return (
             <div>
                 <div className="grid-block no-margin vertical medium-horizontal no-padding">
                     <div className="small-12 middle-content">
-                        <div style={{paddingLeft: 10, paddingTop:35}}>
+                        <div style={{paddingLeft: 10, paddingTop:35, lineHeight: 3}}>
                             <label style={{minHeight: "2rem"}} className="left-label"><Translate content={"gateway.choose_deposit"} />: </label>
 
                             <MuiThemeProvider>
