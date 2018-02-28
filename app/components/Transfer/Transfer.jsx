@@ -456,38 +456,37 @@ class Transfer extends React.Component {
                                 content="transfer.errors.insufficient"/></p> : null}
                         </div>
 
-
-                        {/*  M E M O  */}
-                        {/*<div className="content-block transfer-input">*/}
+                          {/*M E M O  */}
+                        <div className="content-block transfer-input">
                             {/*{memo && memo.length ? <label className="right-label">{memo.length}</label> : null}*/}
                             {/*<Translate className="left-label tooltip" component="label" content="transfer.memo" data-place="top" data-tip={counterpart.translate("tooltip.memo_tip")}/>*/}
                             {/*<textarea style={{marginBottom: 0}} rows="1" value={memo} tabIndex={tabIndex++} onChange={this.onMemoChanged.bind(this)} />*/}
-                            {/*{ this.state.propose ?*/}
-                            {/*<div className="error-area" style={{position: "absolute"}}>*/}
-                            {/*<Translate content="transfer.warn_name_unable_read_memo" name={this.state.from_name} />*/}
-                            {/*</div>*/}
-                            {/*:null}*/}
+                            { this.state.propose ?
+                            <div className="error-area" style={{position: "absolute"}}>
+                            <Translate content="transfer.warn_name_unable_read_memo" name={this.state.from_name} />
+                            </div>
+                            :null}
 
 
-                            {/*<TextField*/}
-                                {/*id="memo-message"*/}
-                                {/*onChange={this.onMemoChanged.bind(this)}*/}
-                                {/*value={memo}*/}
-                                {/*label="MEMO / MESSAGE"*/}
-                                {/*multiline*/}
-                                {/*rows="4"*/}
-                                {/*defaultValue=""*/}
-                                {/*margin="normal"*/}
-                                {/*fullWidth*/}
-                            {/*/>*/}
+                            <TextField
+                                id="memo-message"
+                                onChange={this.onMemoChanged.bind(this)}
+                                value={memo}
+                                label="MEMO / MESSAGE"
+                                multiline
+                                rows="4"
+                                defaultValue=""
+                                margin="normal"
+                                fullWidth
+                            />
 
-                          {/*{ this.state.propose ?*/}
-                              {/*<div className="error-area" style={{position: "absolute"}}>*/}
-                                  {/*<Translate content="transfer.warn_name_unable_read_memo" name={this.state.from_name} />*/}
-                              {/*</div>*/}
-                          {/*:null}*/}
+                          { this.state.propose ?
+                              <div className="error-area" style={{position: "absolute"}}>
+                                  <Translate content="transfer.warn_name_unable_read_memo" name={this.state.from_name} />
+                              </div>
+                          :null}
 
-                        {/*</div>*/}
+                        </div>
 
                         {/*  F E E   */}
                         <div className={"content-block transfer-input" + (this.state.propose ? " proposal" : "")}>

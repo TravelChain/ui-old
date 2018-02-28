@@ -78,15 +78,15 @@ class AmountSelector extends React.Component {
       <div className="amount-selector" style={this.props.style}>
         <label className="right-label">{this.props.display_balance}</label>
         <div className="inline-label input-wrapper">
-            <FormControl fullWidth>
-              <InputLabel htmlFor="amount">{this.props.label}</InputLabel>
-              <Input
-                value={value || ""}
-                onChange={this._onChange.bind(this) }
-                placeholder={this.props.placeholder}
-                disabled={this.props.disabled}
-              />
-            </FormControl>
+          <FormControl fullWidth>
+            <InputLabel htmlFor="amount">{this.props.label}</InputLabel>
+            <Input
+              value={value || ""}
+              onChange={this._onChange.bind(this) }
+              placeholder={this.props.placeholder}
+              disabled={this.props.disabled}
+            />
+          </FormControl>
 
           {!this.props.assetSybmolHidden ?
             <div className="form-label select floating-dropdown">
