@@ -98,6 +98,11 @@ div.header-right-menu {
         font-size: 14px;
         color: #00caf3;
       }
+      @media (max-width: 830px) {
+        .hide-on-tab {
+          display: none;
+        }
+      }
     }
     &.account-drop-down {
       .lower-case {
