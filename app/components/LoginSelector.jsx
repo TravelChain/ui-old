@@ -5,13 +5,14 @@ import { isIncognito } from "feature_detect";
 var logo = require("assets/logo-ico-blue.png");
 import SettingsActions from "actions/SettingsActions";
 import WalletUnlockActions from "actions/WalletUnlockActions";
+import SettingsStore from "../stores/SettingsStore";
 
 export default class LoginSelector extends React.Component {
 
     constructor(props){
         super(props);
 
-        this.state = {step: 1};
+        this.state = {step: 1, locale: SettingsStore.getState().settings.get("locale")};
     }
 
     componentWillMount(){
@@ -24,6 +25,14 @@ export default class LoginSelector extends React.Component {
         this.props.router.push("/create-account/" + route);
     }
 
+    _onSettingsChange() {
+      this.setState({locale: SettingsStore.getState().settings.get("locale")})
+    }
+
+    componentDidMount() {
+        SettingsStore.listen(this._onSettingsChange.bind(this));
+    }
+
     render() {
         const childCount = React.Children.count(this.props.children);
         return (
@@ -34,6 +43,14 @@ export default class LoginSelector extends React.Component {
                         <Translate content="account.intro_text_title" component="h4"/>
 
                         <div style={{padding: 20 + 'px'}}><Translate unsafe content="account.intro_text_1" component="p" /></div>
+
+                        <div>
+                          {this.state.locale === 'ru' ?
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/WEa9fTsFh3Q?rel=0&amp;controls=0&amp;showinfo=0" frameBorder="0" allowFullScreen></iframe>
+                            : <iframe width="560" height="315" src="https://www.youtube.com/embed/KDr-yKQMLTg?rel=0&amp;controls=0&amp;showinfo=0" frameBorder="0" allowFullScreen></iframe>
+                          }
+                        </div>
+
                          {!!childCount ? null :
                         <div className="button-group">
                             <label style={{textAlign: "left"}}><Translate content="account.new_user" /><br/>
