@@ -33,6 +33,7 @@ import Transfer from "./components/Transfer/Transfer";
 import Kyc from "./components/Kyc/Kyc";
 import TokenSale from "./components/TokenSale/TokenSale";
 import TokenSaleLite from "./components/TokenSale/TokenSaleLite";
+import Mapala from "./components/Mapala/Mapala";
 import SettingsContainer from "./components/Settings/SettingsContainer";
 import BlockContainer from "./components/Blockchain/BlockContainer";
 import Asset from "./components/Blockchain/Asset";
@@ -98,6 +99,7 @@ const routes = (
         <Route path="create-wallet-brainkey" component={CreateWalletFromBrainkey} />
         <Route path="kyc" component={Kyc}/>
         <Route path="token-sale" component={TokenSaleLite}/>
+        <Route path="mapala" component={Mapala}/>
         {/*<Route path="top-apps" component={TopApps}/>*/}
         <Route path="transfer" component={Transfer}/>
         

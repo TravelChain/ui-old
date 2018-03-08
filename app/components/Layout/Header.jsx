@@ -370,6 +370,9 @@ class Header extends React.Component {
                         {enableDepositWithdraw && currentAccount && myAccounts.indexOf(currentAccount) !== -1 ?
                             <li><Link to={"/token-sale/"} activeClassName="active"><Translate
                                 content="account.deposit_withdraw"/></Link></li> : null}
+
+                        {enableDepositWithdraw && currentAccount && myAccounts.indexOf(currentAccount) !== -1 ?
+                            <li><Link to={"/mapala/"} activeClassName="active">Mapala</Link></li> : null}
                     </ul>
                 </div>
                 <div className="grid-block show-for-medium shrink">

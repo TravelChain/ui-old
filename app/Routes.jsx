@@ -120,6 +120,10 @@ const routes = (
             System.import("components/TokenSale/TokenSaleLite").then(loadRoute(cb)).catch(errorLoading);
         }}/>
 
+        <Route path="mapala" getComponent={(location, cb) => {
+            System.import("components/Mapala/Mapala").then(loadRoute(cb)).catch(errorLoading);
+        }}/>
+
         <Route path="invoice/:data" getComponent={(location, cb) => {
             System.import("components/Transfer/Invoice").then(loadRoute(cb)).catch(errorLoading);
         }}/>
