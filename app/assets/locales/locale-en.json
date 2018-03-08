@@ -1422,5 +1422,11 @@
         "text_1": "Local wallet detected",
         "text_2": "Please backup your wallet now and restore the backup file to <a href='https://wallet.TravelChain.org' target='blank' rel='noopener noreferrer'>https://wallet.TravelChain.org</a>, which will be your new address for the web wallet. Thanks for your continued support.",
         "text_3": "Please use <a href='https://wallet.TravelChain.org' target='blank' rel='noopener noreferrer'>https://wallet.TravelChain.org</a> from now on, your existing credentials will let you login there as well."
-    }
+    },
+  "mapala": {
+    "header":"For transfer tokens from Mapala to TravelChain please login into Mapala by following form.",
+    "done":"Your accounts was successfully synchronized. For continue transferring please contact support by online chat on this page or by Telegram <a href='https://t.me/Asia888'>@Asia888</a>.",
+    "wrong-password":"Invalid username or password",
+    "login":"Synchronize"
+  }
 }
