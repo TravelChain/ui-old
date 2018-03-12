@@ -18,7 +18,7 @@ import { checkFeeStatusAsync, checkBalance } from "common/trxHelper";
 import { debounce, isNaN } from "lodash";
 import classnames from "classnames";
 import { Asset } from "common/MarketClasses";
-import {FormControl, Input, InputAdornment, InputLabel, TextField} from "material-ui-next";
+import {FormControl, Input, InputAdornment, InputLabel, TextField, Tooltip} from "material-ui-next";
 // import TextField from "material-ui/TextField";
 
 
@@ -467,7 +467,7 @@ class Transfer extends React.Component {
                             </div>
                             :null}
 
-
+                          <Tooltip id="tooltip-icon" title="dex:account">
                             <TextField
                                 id="memo-message"
                                 onChange={this.onMemoChanged.bind(this)}
@@ -479,8 +479,8 @@ class Transfer extends React.Component {
                                 margin="normal"
                                 fullWidth
                             />
-
-                          { this.state.propose ?
+                          </Tooltip>
+                              { this.state.propose ?
                               <div className="error-area" style={{position: "absolute"}}>
                                   <Translate content="transfer.warn_name_unable_read_memo" name={this.state.from_name} />
                               </div>

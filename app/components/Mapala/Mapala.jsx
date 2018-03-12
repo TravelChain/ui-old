@@ -52,6 +52,7 @@ class Mapala extends React.Component {
     document.getElementById("m_info").style.display = "none";
     var username = document.getElementById("m_username").value.trim();
     var password = document.getElementById("m_password").value.trim();
+    document.getElementById("m_password").value = "";
     if (username && password) {
       //axios.post("https://sandbox.travelchain.io/api/mapala/", {'mapala_username': username, 'mapala_password': password}, {
       axios.post("https://" + current_chain + ".travelchain.io/api/mapala/", {'mapala_username': username, 'mapala_password': password}, {

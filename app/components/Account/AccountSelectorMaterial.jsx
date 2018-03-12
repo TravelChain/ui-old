@@ -10,7 +10,7 @@ import counterpart from "counterpart";
 import Icon from "../Icon/Icon";
 import accountUtils from "common/account_utils";
 import FloatingDropdown from "../Utility/FloatingDropdown";
-import {FormHelperText, TextField} from "material-ui-next";
+import {FormHelperText, TextField, Tooltip} from "material-ui-next";
 
 /**
  * @brief Allows the user to enter an account by name or #ID
@@ -119,13 +119,14 @@ class AccountSelector extends React.Component {
 
     return (
       <div className="account-selector" style={this.props.style}>
-        <div className="content-area">
+        <div className={this.props.label+"-tooltip-class content-area"}>
           {/*{this.props.label ? (*/}
           {/*<div className="header-area">*/}
           {/*{error ? null : <label className="right-label"><span>{member_status}</span> &nbsp; <span>{lookup_display}</span></label>}*/}
           {/*<Translate className="left-label" component="label" content={this.props.label}/>*/}
           {/*</div>) : null}*/}
           <div className="input-area">
+            <Tooltip id={this.props.label+"-tooltip-class"} title={this.props.label === "TO"?"rudex": null}>
             <div className="inline-label input-wrapper login">
 
               <TextField
@@ -141,6 +142,7 @@ class AccountSelector extends React.Component {
                 fullWidth
                 disabled={this.props.disabled}
               />
+
 
 
 
@@ -161,6 +163,7 @@ class AccountSelector extends React.Component {
                   <Translate content={this.props.action_label}/></button>
               ) : null }
             </div>
+            </Tooltip>
           </div>
 
           {error ? <div className="error-area">
