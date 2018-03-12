@@ -313,7 +313,8 @@ class Header extends React.Component {
         </ActionSheet>;
 
         const enableDepositWithdraw = Apis.instance().chain_id.substr(0, 8) === "c848eb7e";
-
+        enableDepositWithdraw = false; 
+        
         return (
             <div className="header menu-group primary">
                 <div className="show-for-small-only">
@@ -371,7 +372,7 @@ class Header extends React.Component {
                             <li><Link to={"/token-sale/"} activeClassName="active"><Translate
                                 content="account.deposit_withdraw"/></Link></li> : null}
 
-                        {enableDepositWithdraw && currentAccount && myAccounts.indexOf(currentAccount) !== -1 ?
+                        {currentAccount && myAccounts.indexOf(currentAccount) !== -1 ?
                             <li><Link to={"/mapala/"} activeClassName="active">Mapala</Link></li> : null}
                     </ul>
                 </div>
