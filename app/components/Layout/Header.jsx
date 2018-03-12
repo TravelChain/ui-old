@@ -311,9 +311,9 @@ class Header extends React.Component {
                 </ul>
             </ActionSheet.Content>
         </ActionSheet>;
-
+        const enableTokenSale = false;
         const enableDepositWithdraw = Apis.instance().chain_id.substr(0, 8) === "c848eb7e";
-
+        
         return (
             <div className="header menu-group primary">
                 <div className="show-for-small-only">
@@ -367,7 +367,7 @@ class Header extends React.Component {
                             </li> : null}
 
 
-                        {enableDepositWithdraw && currentAccount && myAccounts.indexOf(currentAccount) !== -1 ?
+                        {enableTokenSale && enableDepositWithdraw && currentAccount && myAccounts.indexOf(currentAccount) !== -1 ?
                             <li><Link to={"/token-sale/"} activeClassName="active"><Translate
                                 content="account.deposit_withdraw"/></Link></li> : null}
 
