@@ -74,7 +74,7 @@ class Mapala extends React.Component {
 
   render() {
     return <form className="grid-block vertical" style={{textAlign: "center"}}>
-      <div className="grid-block shrink vertical medium-horizontal" style={{width: "600px", marginTop: "50px", display: "block", marginLeft: "auto", marginRight: "auto", textAlign: "left"}}>
+      <div className="grid-block shrink vertical medium-horizontal" style={{maxWidth: "600px", marginTop: "50px", display: "block", marginLeft: "auto", marginRight: "auto", textAlign: "left"}}>
 
         <form
           className="grid-content transfer-form"
