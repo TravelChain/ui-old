@@ -44,12 +44,12 @@ export default class LoginSelector extends React.Component {
 
                         <div style={{padding: 20 + 'px'}}><Translate unsafe content="account.intro_text_1" component="p" /></div>
 
-                        <div>
+                        {/* <div>
                           {this.state.locale === 'ru' ?
                             <iframe width="560" height="315" src="https://www.youtube.com/embed/WEa9fTsFh3Q?rel=0&amp;controls=0&amp;showinfo=0" frameBorder="0" allowFullScreen></iframe>
                             : <iframe width="560" height="315" src="https://www.youtube.com/embed/KDr-yKQMLTg?rel=0&amp;controls=0&amp;showinfo=0" frameBorder="0" allowFullScreen></iframe>
                           }
-                        </div>
+                        </div> */}
 
                          {!!childCount ? null :
                         <div className="button-group">

@@ -407,7 +407,7 @@ class CreateAccountPassword extends React.Component {
                 <p className="txtlabel warning"><Translate unsafe content="wallet.password_lose_warning"/></p>
 
                 <div style={{width: "100%"}} onClick={() => {
-                    this.context.router.push("/kyc");
+                    this.context.router.push("/dashboard");
                     ;
                 }} className="button"><Translate content="wallet.ok_done"/></div>
             </div>
