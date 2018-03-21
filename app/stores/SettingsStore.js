@@ -224,7 +224,7 @@ class SettingsStore {
 
     getApiUrl(path) {
         // Определение текущего апи 
-        if (Apis.instance().chain_id.substr(0, 8) === "3a6e3021") {
+        if (Apis.instance().chain_id.substr(0, 8) === "a75020c2") {
           // Тестнет
           return `https://sandbox.travelchain.io/api/${path}/`
         } else {

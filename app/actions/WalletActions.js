@@ -3,6 +3,7 @@ import WalletUnlockActions from "actions/WalletUnlockActions";
 import CachedPropertyActions from "actions/CachedPropertyActions";
 import ApplicationApi from "api/ApplicationApi";
 import {TransactionBuilder, FetchChain} from "bitsharesjs/es";
+import {ChainStore} from "bitsharesjs/es";
 import {Apis} from "bitsharesjs-ws";
 import alt from "alt-instance";
 import SettingsStore from "stores/SettingsStore";
@@ -197,21 +198,55 @@ class WalletActions {
         }
     }
 
-    claimVestingBalance(account, cvb, forceAll = false) {
+    claimVestingBalance(account, vb, forceAll = false) {
         let tr = new TransactionBuilder();
 
-        let balance = cvb.balance.amount,
-            earned = cvb.policy[1].coin_seconds_earned,
-            vestingPeriod = cvb.policy[1].vesting_seconds,
-            availablePercent = (forceAll || vestingPeriod) === 0 ? 1 : earned / (vestingPeriod * balance);
+
+            if (vb.policy[0] == 0){
+               var balance = vb.balance.amount;
+               var beginBalance = vb.policy[1].begin_balance;
+               var beginTimestamp = vb.policy[1].begin_timestamp;
+               var VestingDuration = vb.policy[1].vesting_duration_seconds;
+               var vesting_cliff_seconds = vb.policy[1].vesting_cliff_seconds;
+               var cvbAsset = ChainStore.getAsset(vb.balance.asset_id);
+               var d1 = new Date();
+               var d2 = new Date(beginTimestamp);
+               var time_between = Math.floor(( d1-d2 ) / 1000);
+               var allowedWD = 0;
+
+                if (time_between >= vesting_cliff_seconds){
+
+                    var total_vested = beginBalance * time_between / VestingDuration;
+
+                    if (total_vested > beginBalance )
+                       total_vested = beginBalance;
+                
+                } else
+
+                {
+                    var total_vested = beginBalance;
+                }
+
+                var withdrawn_already = beginBalance - balance;
+                 allowedWD = total_vested - withdrawn_already;
+                var availablePercent = Math.floor(allowedWD / beginBalance * 100, 2);
+
+            } else {
+                var balance = vb.balance.amount;
+                var cvbAsset = ChainStore.getAsset(vb.balance.asset_id);
+                var earned = vb.policy[1].coin_seconds_earned;
+                var vestingPeriod = vb.policy[1].vesting_seconds;
+                var availablePercent = vestingPeriod === 0 ? 1 : earned / (vestingPeriod * balance);  
+                var allowedWD = Math.floor(balance * availablePercent)
+                }
 
         tr.add_type_operation("vesting_balance_withdraw", {
             fee: { amount: "0", asset_id: "1.3.0"},
             owner: account,
-            vesting_balance: cvb.id,
+            vesting_balance: vb.id,
             amount: {
-                amount: Math.floor(balance * availablePercent),
-                asset_id: cvb.balance.asset_id
+                amount: allowedWD,
+                asset_id: vb.balance.asset_id
             }
         });
 

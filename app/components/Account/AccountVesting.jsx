@@ -24,15 +24,58 @@ class VestingBalance extends React.Component {
         // if (!vb) {
         //     return null;
         // }
-
         let cvbAsset, vestingPeriod, earned, secondsPerDay = 60 * 60 * 24,
-            availablePercent, balance;
+            availablePercent, balance, beginBalance, beginTimestamp, VestingDuration, allowedWD, vesting_cliff_seconds, total_vested, withdrawn_already;
+
+
+ 
         if (vb) {
-            balance = vb.balance.amount;
-            cvbAsset = ChainStore.getAsset(vb.balance.asset_id);
-            earned = vb.policy[1].coin_seconds_earned;
-            vestingPeriod = vb.policy[1].vesting_seconds;
-            availablePercent = vestingPeriod === 0 ? 1 : earned / (vestingPeriod * balance);
+            if (vb.policy[0] == 0){
+                console.log(vb);
+                balance = vb.balance.amount;
+                beginBalance = vb.policy[1].begin_balance;
+                beginTimestamp = vb.policy[1].begin_timestamp;
+                VestingDuration = vb.policy[1].vesting_duration_seconds;
+                vesting_cliff_seconds = vb.policy[1].vesting_cliff_seconds;
+                cvbAsset = ChainStore.getAsset(vb.balance.asset_id);
+                var d1 = new Date();
+                var d2 = new Date(beginTimestamp);
+                var time_between = Math.floor(( d1-d2 ) / 1000);
+                allowedWD = 0;
+
+                if (time_between >= vesting_cliff_seconds){
+
+                    total_vested = beginBalance * time_between / VestingDuration;
+
+                    if (total_vested > beginBalance )
+                        total_vested = beginBalance;
+                
+                } else
+
+                {
+                    total_vested = beginBalance;
+                }
+
+                withdrawn_already = beginBalance - balance;
+                allowedWD = total_vested - withdrawn_already;
+                availablePercent = Math.floor(( allowedWD + withdrawn_already ) / beginBalance * 100, 2);
+                console.log("availablePercent", availablePercent);
+                
+                console.log("withdrawn_already", withdrawn_already);
+                console.log("AllowedWD", allowedWD/10000);
+
+
+            } else {
+                balance = vb.balance.amount;
+                cvbAsset = ChainStore.getAsset(vb.balance.asset_id);
+                earned = vb.policy[1].coin_seconds_earned;
+                vestingPeriod = vb.policy[1].vesting_seconds;
+                availablePercent = vestingPeriod === 0 ? 1 : earned / (vestingPeriod * balance);  
+                }
+                
+
+            
+            
         }
 
         if (!cvbAsset) {
@@ -46,8 +89,11 @@ class VestingBalance extends React.Component {
         return (
             <div style={{paddingBottom: "1rem"}}>
                 <div className="">
+                {vb.policy[0] == 1 ?
                     <div className="grid-content no-padding">
+
                         <Translate component="h5" content="account.vesting.balance_number" id={vb.id}/>
+
 
                         <table className="table key-value-table">
                             <tbody>
@@ -84,7 +130,57 @@ class VestingBalance extends React.Component {
                             </tr>
                             </tbody>
                         </table>
-                    </div>
+                     </div>
+                    : 
+
+                    <div className="grid-content no-padding">
+
+                        <Translate component="h5" content="account.vesting.balance_number" id={vb.id}/>
+
+
+                        <table className="table key-value-table">
+                            <tbody>
+                            <tr>
+                                <td><Translate content="account.member.cashback"/></td>
+                                <td><FormattedAsset amount={vb.balance.amount} asset={vb.balance.asset_id}/></td>
+                            </tr>
+                            <tr>
+                                <td><Translate content="account.member.total_withdrawn"/></td>
+                                <td>{utils.format_number(utils.get_asset_amount(withdrawn_already, cvbAsset), 0)}
+                                    &nbsp;TT</td>
+                            </tr>
+                            <tr>
+                                <td><Translate content="account.member.vesting_start"/></td>
+                                <td>{beginTimestamp}
+                                    &nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td><Translate content="account.member.vesting_period"/></td>
+                                <td>{VestingDuration}
+                                    &nbsp; seconds
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><Translate content="account.member.available"/></td>
+                                <td>{availablePercent}% / <FormattedAsset
+                                    amount={allowedWD} asset={cvbAsset.get("id")}/></td>
+                            </tr>
+                            <tr>
+                                <td colSpan="2" style={{textAlign: "right"}}>
+                                    <button onClick={this._onClaim.bind(this, false)} className="button outline">
+                                        <Translate content="account.member.claim"/></button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                     </div>
+
+
+
+
+
+
+                }
                 </div>
             </div>
 
@@ -123,6 +219,7 @@ class AccountVesting extends React.Component {
         }).catch(err => {
             console.log("error:", err);
         });
+
     }
 
     render() {
