@@ -30,7 +30,8 @@
   },
   "dashboard":{
       "mapala": "INTERNATIONAL TRAVELERS COMMUNITY, WHERE EVERYONE CAN SHARE THEIR PAST TRAVEL EXPERIENCE OR EXPECTATIONS FOR THE FUTURE, AND GET REWARDED FOR IT. MAPALA IS BASED ON THE DREAM AND THE IDEA OF FREE TRAVELS, THAT STARTED THE PATH OF THE TRAVELCHAIN TEAM. FROM THE BEGINNING OF 2017 THE AUTHORS HAVE WRITTEN MORE THAN 10,000 UNIQUE ARTICLES AND GOT MORE THAN 250 000 USD AS A REWARD FOR IT USING THE STEEMIT AND GOLOS BLOCKCHAINS. THE PROJECT IS NOW IN THE BETA-VERSION DEVELOPMETN STAGE. ITS EVOLUTION AFTER THE INTEGRATION WITH THE TRAVELCHAIN ECOSYSTEM WILL BE DIRECTED TOWARDS THE IMPLEMENTATION OF GAME MECHANICS. IT IS NEEDED TO ACCELERATE THE EXPANSION OF THE COMMUNITY AND THE CREATION OF THE HYPERGRAPH WITH ALL POSSIBLE INFORMATION IN TOURISM NICHE (NEW GENERATION WIKIPEDIA).",
-      "travelai" : "THE SYSTEM OF MACHINE LEARNING AND ARTIFICIAL INTELLIGENCE THAT CAN TELL MORE ABOUT YOU THAN YOU KNOW YOURSELF. BASING ON DATA FROM THE USER'S SOCIAL NETWORKS (FB, GOOGLE+, VK, STEEM, GOLOS) AND USING THE SEMANTIC ANALYSIS AND THE PRINCIPLES OF CLUSTERING AI, THE SYSTEM WILL BE ABLE TO TELL WHAT WAS INTERESTING YOU FEW MONTHS AGO, WHAT IS NOW, WHO IS YOUR AUTHORITY, FOLLOWER OR FRIEND. THE SYSTEM WILL BE THE FIRST EXTERNAL REPUTATIONAL AGENCY, AND OVER TIME, WILL BECOME A PART OF THE ADSCORE - ADVERTISING CORE  OF THE TRAVELCHAIN PLATFORM.",
+      "travelai" : "TravelAI is a win-win solution for all industry players. Users can monetize their data by providing access to it. Companies get the opportunity to create personalized offers at a right timing. TravelTokens play the role of an economic stimulus and grant the access to search queries providing a constant replenishment of databases. Those actions shape a new trend on the tourism market, when service suppliers base their approach on the needs of an individual consumer. To use the TravelAI features today, the you need to install the TravelChain Data Collector extension. Currently available for the Google Chrome browser.",
+      "travelai-install": "Install TravelChain Data Collector ",
       "coming_soon": "Coming soon.."
     },
     
@@ -191,6 +192,7 @@
       "total_withdrawn": "Total withdrawn",
       "vesting_start": "Vesting Start",
       "vesting_period": "Vesting Period",
+
       "required": "Coin days required",
       "remaining": "Days left of vesting period",
       "claim": "Claim now",

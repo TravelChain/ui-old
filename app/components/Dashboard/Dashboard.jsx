@@ -178,24 +178,6 @@ class Dashboard extends React.Component {
 
                     <div className="grid-block shrink vertical medium-horizontal">
 
-                        <div className="item">
-                            <div className="img__block">
-                                <img src={require("assets/mapala.png")} alt="Mapala"/>
-                            </div>
-
-                            <div className="info__block">
-                                  <a href="https://mapala.net" target="_blank" ><h3 className="item__title">MAPALA</h3></a>
-                          
-                                <p className="item__desc"><Translate className="left-label" component="label" content="dashboard.mapala" data-place="top"/></p>
-                               <a href="https://mapala.net" target = "_blank" className="item__link">https://mapala.net</a>
-                               </div>
-
-                            <ul className="social__block">
-                                <li><a href ="https://github.com/TravelChain/mapala-backend" target = "_blank"><Icon name="github-sign" size="2x" fillClass="fill-black"/></a></li>
-                                <li><a href ="https://t.me/mapala" target = "_blank"> <Icon name="telegram" size="2x" fillClass="fill-black"/></a></li>
-                            </ul>
-                        </div>
-
 
                         <div className="item">
                             <div className="img__block">
@@ -204,12 +186,29 @@ class Dashboard extends React.Component {
                             <div className="info__block">
                                    <a href="https://travelai.io" target="_blank" ><h3 className="item__title">AI-Travel</h3></a>
                                 <p className="item__desc"><Translate className="left-label" component="label" content="dashboard.travelai" data-place="top"/></p>
-                                <a href="https://travelai.io" target = "_blank" className="item__link">https://travelai.io</a>
+
+                                <a href="https://chrome.google.com/webstore/detail/travelchain-data-collecto/pdcphhicoijhmhdmmjdlfeocjecionpn" target = "_blank" className="item__link"><Translate content="dashboard.travelai-install" data-place="top"/></a>
                               </div>
                             <ul className="social__block">
                                
                             </ul>
                         </div>
+                        <div className="item">
+                            <div className="img__block">
+                                <img src={require("assets/mapala.png")} alt="Mapala"/>
+                            </div>
+                            <div className="info__block">
+                                  <a href="https://mapala.net" target="_blank" ><h3 className="item__title">MAPALA</h3></a>
+                          
+                                <p className="item__desc"><Translate className="left-label" component="label" content="dashboard.mapala" data-place="top"/></p>
+                               <a href="https://mapala.net" target = "_blank" className="item__link">https://mapala.net</a>
+                               </div>
+                            <ul className="social__block">
+                                <li><a href ="https://github.com/TravelChain/mapala-backend" target = "_blank"><Icon name="github-sign" size="2x" fillClass="fill-black"/></a></li>
+                                <li><a href ="https://t.me/mapala" target = "_blank"> <Icon name="telegram" size="2x" fillClass="fill-black"/></a></li>
+                            </ul>
+                        </div>
+
                     </div>
                 </div>
             </div>
