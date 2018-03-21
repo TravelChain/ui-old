@@ -67,7 +67,7 @@ class VestingBalance extends React.Component {
 
                 withdrawn_already = beginBalance - balance;
                 allowedWD = total_vested - withdrawn_already;
-                availablePercent = Math.floor(( allowedWD ) / beginBalance * 100, 2);
+                availablePercent = Math.floor(( allowedWD ) / beginBalance * 100, 4);
                 console.log("availablePercent", availablePercent);
                 
                 console.log("withdrawn_already", withdrawn_already);
