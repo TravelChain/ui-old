@@ -209,8 +209,9 @@ class WalletActions {
                var VestingDuration = vb.policy[1].vesting_duration_seconds;
                var vesting_cliff_seconds = vb.policy[1].vesting_cliff_seconds;
                var cvbAsset = ChainStore.getAsset(vb.balance.asset_id);
-               var d1 = new Date();
-               var d2 = new Date(beginTimestamp);
+               let tmLoc = new Date();
+               var d1 = tmLoc.getTime() + tmLoc.getTimezoneOffset() * 60000;;
+               var d2 = new Date(beginTimestamp).getTime();
                var time_between = Math.floor(( d1-d2 ) / 1000);
                var allowedWD = 0;
 
@@ -245,7 +246,7 @@ class WalletActions {
             owner: account,
             vesting_balance: vb.id,
             amount: {
-                amount: allowedWD,
+                amount: Math.floor(allowedWD, 4),
                 asset_id: vb.balance.asset_id
             }
         });

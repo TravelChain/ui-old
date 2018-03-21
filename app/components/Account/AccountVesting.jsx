@@ -38,27 +38,36 @@ class VestingBalance extends React.Component {
                 VestingDuration = vb.policy[1].vesting_duration_seconds;
                 vesting_cliff_seconds = vb.policy[1].vesting_cliff_seconds;
                 cvbAsset = ChainStore.getAsset(vb.balance.asset_id);
-                var d1 = new Date();
-                var d2 = new Date(beginTimestamp);
+                let tmLoc = new Date();
+                var d1 = tmLoc.getTime() + tmLoc.getTimezoneOffset() * 60000;;
+                var d2 = new Date(beginTimestamp).getTime();
+                console.log("d1",d1);
+                console.log("d2",d2);
                 var time_between = Math.floor(( d1-d2 ) / 1000);
+                console.log("d2",time_between);
+                
                 allowedWD = 0;
 
                 if (time_between >= vesting_cliff_seconds){
 
                     total_vested = beginBalance * time_between / VestingDuration;
-
+                    console.log('total_vested', total_vested);
+                    
                     if (total_vested > beginBalance )
                         total_vested = beginBalance;
-                
+                console.log('total_vested2', total_vested);
+                    
                 } else
 
                 {
                     total_vested = beginBalance;
+                    console.log('total_vested3', total_vested);
+                    
                 }
 
                 withdrawn_already = beginBalance - balance;
                 allowedWD = total_vested - withdrawn_already;
-                availablePercent = Math.floor(( allowedWD + withdrawn_already ) / beginBalance * 100, 2);
+                availablePercent = Math.floor(( allowedWD ) / beginBalance * 100, 2);
                 console.log("availablePercent", availablePercent);
                 
                 console.log("withdrawn_already", withdrawn_already);
