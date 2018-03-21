@@ -373,6 +373,9 @@ class Header extends React.Component {
 
                         {enableDepositWithdraw && currentAccount && myAccounts.indexOf(currentAccount) !== -1 ?
                             <li><Link to={"/mapala/"} activeClassName="active">Mapala</Link></li> : null}
+
+                            <li><a href="https://forum.travelchain.io" target="_blank"><Translate
+                                content="account.forum"/></a></li>
                     </ul>
                 </div>
                 <div className="grid-block show-for-medium shrink">
