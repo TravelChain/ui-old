@@ -17,12 +17,10 @@ export const rudexAPIs = {
 };
 
 export const settingsAPIs = {
-    DEFAULT_WS_NODE: "wss://wallet.travelchain.io/ws",
+    DEFAULT_WS_NODE: "ws://127.0.0.1:8090",
     WS_NODE_LIST: [
-        {url: "wss://wallet.travelchain.io/ws", location: "Main Server"},
-        {url: "wss://sandbox.travelchain.io/ws", location: "Public Testnet Server"},
+        {url: "wss://sandbox.travelchain.io/ws", location: "Main Server"},
     ],
-    DEFAULT_FAUCET: "https://wallet.travelchain.io/api/faucet/",
     TESTNET_FAUCET: "https://sandbox.travelchain.io/api/faucet/",
     RPC_URL: "https://openledger.info/api/"
 };

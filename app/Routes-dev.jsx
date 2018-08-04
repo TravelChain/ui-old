@@ -98,7 +98,7 @@ const routes = (
         <Route path="create-wallet" component={WalletCreate} />
         <Route path="create-wallet-brainkey" component={CreateWalletFromBrainkey} />
         <Route path="kyc" component={Kyc}/>
-        <Route path="token-sale" component={TokenSaleLite}/>
+        {/*<Route path="token-sale" component={TokenSaleLite}/>*/}
         <Route path="mapala" component={Mapala}/>
         {/*<Route path="top-apps" component={TopApps}/>*/}
         <Route path="transfer" component={Transfer}/>

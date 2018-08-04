@@ -62,7 +62,7 @@ class MobileMenu extends React.Component {
                 </Trigger>
                 <section style={{marginTop: "3rem"}} className="block-list">
                     <ul>
-                    {currentAccount !== null ? <li onClick={this.onClick}><Link to={"/token-sale/"}><Translate content="account.deposit_withdraw"/></Link></li> : null}
+                   
                     {currentAccount !== null ? <li onClick={this.onClick}><Link to={"/mapala/"}>Mapala</Link></li> : null}
                         <li>{linkToAccountOrDashboard}</li>
                           {currentAccount !== null ?

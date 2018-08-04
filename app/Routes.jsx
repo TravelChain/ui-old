@@ -116,9 +116,7 @@ const routes = (
             System.import("components/Kyc/Kyc").then(loadRoute(cb)).catch(errorLoading);
         }}/>
 
-        <Route path="token-sale" getComponent={(location, cb) => {
-            System.import("components/TokenSale/TokenSaleLite").then(loadRoute(cb)).catch(errorLoading);
-        }}/>
+      
 
         <Route path="mapala" getComponent={(location, cb) => {
             System.import("components/Mapala/Mapala").then(loadRoute(cb)).catch(errorLoading);
@@ -203,9 +201,7 @@ const routes = (
             <Route path="voting" getComponent={(location, cb) => {
                 System.import("components/Account/AccountVoting").then(loadRoute(cb)).catch(errorLoading);
             }}/>
-            <Route path="token-sale" getComponent={(location, cb) => {
-                System.import("components/TokenSale/TokenSale").then(loadRoute(cb)).catch(errorLoading);
-            }}/>
+           
             <Route path="orders" getComponent={(location, cb) => {
                 System.import("components/Account/AccountOrders").then(loadRoute(cb)).catch(errorLoading);
             }}/>
@@ -217,9 +213,7 @@ const routes = (
             }}/>
             <Redirect from="overview" to="dashboard" />
         </Route>
-        <Route path="token-sale" getComponent={(location, cb) => {
-            System.import("components/TokenSale/TokenSale").then(loadRoute(cb)).catch(errorLoading);
-        }}/>
+        
         <Route path="create-worker" getComponent={(location, cb) => {
             System.import("components/Account/CreateWorker").then(loadRoute(cb)).catch(errorLoading);
         }}/>
