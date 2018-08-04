@@ -112,9 +112,6 @@ const routes = (
             System.import("components/Transfer/Transfer").then(loadRoute(cb)).catch(errorLoading);
         }}/>
         
-        <Route path="kyc" getComponent={(location, cb) => {
-            System.import("components/Kyc/Kyc").then(loadRoute(cb)).catch(errorLoading);
-        }}/>
 
       
 
