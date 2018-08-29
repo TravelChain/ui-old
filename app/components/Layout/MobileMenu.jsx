@@ -77,8 +77,10 @@ class MobileMenu extends React.Component {
                         {currentAccount !== null ?
                             <li><a onClick={this._onNavigate.bind(this, `/account/${currentAccount}/member-stats/`)}><Translate content="header.membership" /></a></li>
                           : null}
-                        <li><a href="https://forum.travelchain.io" target="_blank"><Translate
-                                content="account.forum"/></a></li>
+
+
+                        <li><a onClick={this._onNavigate.bind(this, `/migration/`)}>EOS Migration</a></li>
+
                     </ul>
                 </section>
 

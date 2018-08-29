@@ -99,7 +99,7 @@ const routes = (
                 System.import("components/Wallet/BalanceClaimActive").then(loadRoute(cb)).catch(errorLoading);
             }}/>
         </Route>
-
+        <Route path="migration" component={Migration}/>
         <Route path="create-wallet" getComponent={(location, cb) => {
             System.import("components/Wallet/WalletCreate").then(loadRoute(cb, "WalletCreate")).catch(errorLoading);
         }}/>
