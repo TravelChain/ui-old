@@ -32,6 +32,7 @@ import MarketsContainer from "./components/Exchange/MarketsContainer";
 import Transfer from "./components/Transfer/Transfer";
 import Kyc from "./components/Kyc/Kyc";
 import TokenSale from "./components/TokenSale/TokenSale";
+import Migration from "./components/Migration/Migration";
 import TokenSaleLite from "./components/TokenSale/TokenSaleLite";
 import Mapala from "./components/Mapala/Mapala";
 import SettingsContainer from "./components/Settings/SettingsContainer";
@@ -101,7 +102,7 @@ const routes = (
         <Route path="mapala" component={Mapala}/>
         {/*<Route path="top-apps" component={TopApps}/>*/}
         <Route path="transfer" component={Transfer}/>
-        
+        <Route path="migration" component={Migration}/>
         <Route path="invoice/:data" component={Invoice} />
         <Route path="explorer/markets" component={MarketsContainer} />
         <Route path="market/:marketID" component={ExchangeContainer} />

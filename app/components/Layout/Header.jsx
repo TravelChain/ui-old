@@ -371,11 +371,9 @@ class Header extends React.Component {
                             <li><Link to={"/token-sale/"} activeClassName="active"><Translate
                                 content="account.deposit_withdraw"/></Link></li> : null}
 
-                        {enableDepositWithdraw && currentAccount && myAccounts.indexOf(currentAccount) !== -1 ?
-                            <li><Link to={"/mapala/"} activeClassName="active">Mapala</Link></li> : null}
 
-                            <li><a href="https://forum.travelchain.io" target="_blank"><Translate
-                                content="account.forum"/></a></li>
+                            <li><Link to={"/migration/"} activeClassName="active">EOS migration</Link></li>
+
                     </ul>
                 </div>
                 <div className="grid-block show-for-medium shrink">
