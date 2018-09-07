@@ -32,6 +32,10 @@ class Migration extends React.Component {
                     <p> It’s not a secret, that technical evolvement of TravelChain on the BitShares fork wasn't really a thing. All because we understood that there's not much space to grow and decided to change the path.  9 months of blockchain TC-OLD (that's how we are gonna call it from now on), was used only as a token storage. Now the tokens will be exchanged at 1/1 rate for core tokens in TC-EOS’ Blockchain, and will get a ton of possible ways of use - we will talk about them in later announces.</p>
                   </div>
                   <br></br>
+                  <h3>Tutorial</h3>
+                  <p>EOS-based TravelChain token swap tutorial, step by step instructions: <a href="http://travelchain.io/instructions.pdf" target="_blank">ENG</a>/<a href="https://travelchain.io/instructions_rus.pdf" target="_blank">RUS</a>.</p>
+
+                  <br></br>
                   <h3> The plan </h3>
                   <br></br>
                   <b>Step 1. Synchronizing software. STATUS: COMPLETE</b>
