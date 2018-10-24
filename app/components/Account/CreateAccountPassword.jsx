@@ -289,7 +289,7 @@ class CreateAccountPassword extends React.Component {
                             }} checked={this.state.understand_4}/>
                             <span className="checkmark">
                             You are acquainted and you agree with the <a
-                                href='https://travelchain.io/TRAVELCHAIN.TOKENS.SALE.PRIVACY.POLICY.pdf'
+                                href='https://travelchain.io/static/TRAVELCHAIN.TOKENS.SALE.PRIVACY.POLICY.pdf'
                                 target='_blank'>TRAVELTOKENS SALE PRIVACY POLICY</a>
                                 </span>
                         </label>
@@ -302,7 +302,7 @@ class CreateAccountPassword extends React.Component {
                             }} checked={this.state.understand_5}/>
                             <span className="checkmark">
                             You are acquainted and you agree with the <a
-                                href="https://travelchain.io/TRAVELCHAIN.TOKENS.SALE.GENERAL.TERMS.AND.CONDITIONS.pdf"
+                                href="https://travelchain.io/static/TRAVELCHAIN.TOKENS.SALE.GENERAL.TERMS.AND.CONDITIONS.pdf"
                                 target="_blank">TRAVELCHAIN GENERAL TERMS AND CONDITIONS OF TRAVELTOKENS SALE</a>
                             </span>
                         </label>
