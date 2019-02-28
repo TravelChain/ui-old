@@ -43,8 +43,8 @@ class CreateAccountPassword extends React.Component {
             understand_1: false,
             understand_2: false,
             understand_3: false,
-            understand_4: false,
-            understand_5: false,
+            understand_4: true,
+            understand_5: true,
             understand_6: false,
         };
         this.onFinishConfirm = this.onFinishConfirm.bind(this);
@@ -282,31 +282,7 @@ class CreateAccountPassword extends React.Component {
                         </label>
                     </div>
 
-                    <div className="confirm-checks" style={{paddingBottom: "1.5rem"}}
-                         onClick={this._onInput.bind(this, "understand_4")}>
-                        <label className="check">
-                            <input type="checkbox" onChange={() => {
-                            }} checked={this.state.understand_4}/>
-                            <span className="checkmark">
-                            You are acquainted and you agree with the <a
-                                href='https://travelchain.io/static/TRAVELCHAIN.TOKENS.SALE.PRIVACY.POLICY.pdf'
-                                target='_blank'>TRAVELTOKENS SALE PRIVACY POLICY</a>
-                                </span>
-                        </label>
-                    </div>
-
-                    <div className="confirm-checks" style={{paddingBottom: "1.5rem"}}
-                         onClick={this._onInput.bind(this, "understand_5")}>
-                        <label className="check">
-                            <input type="checkbox" onChange={() => {
-                            }} checked={this.state.understand_5}/>
-                            <span className="checkmark">
-                            You are acquainted and you agree with the <a
-                                href="https://travelchain.io/static/TRAVELCHAIN.TOKENS.SALE.GENERAL.TERMS.AND.CONDITIONS.pdf"
-                                target="_blank">TRAVELCHAIN GENERAL TERMS AND CONDITIONS OF TRAVELTOKENS SALE</a>
-                            </span>
-                        </label>
-                    </div>
+                    
                     <div className="confirm-checks" style={{paddingBottom: "1.5rem"}}
                          onClick={this._onInput.bind(this, "understand_6")}>
                         <label className="check">
